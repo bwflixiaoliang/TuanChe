@@ -8,7 +8,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public int getContentViewId() {
-        return 0;
+        return R.layout.activity_main;
     }
 
     @Override

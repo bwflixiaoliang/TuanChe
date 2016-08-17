@@ -1,9 +1,10 @@
-package com.bwf.tuanche;
+package com.bwf.tuanche.Activity;
 
 import android.content.Intent;
 import android.view.View;
 
 import com.bwf.framwork.base.BaseActivity;
+import com.bwf.tuanche.R;
 
 public class MainActivity extends BaseActivity {
 

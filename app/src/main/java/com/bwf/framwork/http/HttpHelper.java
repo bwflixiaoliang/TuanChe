@@ -23,7 +23,9 @@ public class HttpHelper {
     }
     //首页数据请求方法
     public static void getDataAtCity(String cityId,HttpCallBack callBack){
-        OkHttpUtils.post().url(UrlUtils.HOMEPAGE_URL)
+        OkHttpUtils
+                .post()
+                .url(UrlUtils.HOMEPAGE_URL)
                 .addParams("cityId",cityId)
                 .build()
                 .execute(callBack);
@@ -105,4 +107,5 @@ public class HttpHelper {
                 .build()
                 .execute(callBack);
     }
+    //
 }

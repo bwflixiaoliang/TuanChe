@@ -1,9 +1,12 @@
 package com.bwf.framwork.http;
 
+import android.util.Log;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.bwf.framwork.base.BaseBean;
 import com.bwf.framwork.utils.StringUtils;
+import com.bwf.framwork.utils.ToastUtil;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.lang.reflect.ParameterizedType;
@@ -32,13 +35,11 @@ public abstract class HttpCallBack<T extends BaseBean> extends StringCallback {
     public void onResponse(String response, int id) {
 
         if (StringUtils.isNotEmpty(response)){
-
-
+            ToastUtil.showToastLong(response);
             try{
-
                 BaseBean baseBean = JSON.parseObject(response, BaseBean.class);
-
                 if ("10000".equals(baseBean.code)){
+                    ToastUtil.showToastLong(response);
                     onSuccess(JSON.parseObject(response,tClass));
                 }else {
                     onFail(baseBean.msg);

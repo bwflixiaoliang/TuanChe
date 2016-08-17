@@ -7,9 +7,6 @@ import com.bwf.framwork.base.BaseBean;
  * Description：
  */
 public class TuanCheResult extends BaseBean{
-    public String code;
-
-    public String msg;
 
     public TuanCheResultBean result;
 

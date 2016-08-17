@@ -11,7 +11,7 @@ public class PrefrenceWrapper {
 
     private SharedPreferences sharedPreferences;
 
-    private static final String SP_NAME = "share_landz";
+    private static final String SP_NAME = "tuanche";
 
     protected PrefrenceWrapper(Context context) {
         sharedPreferences = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);//Context.MODE_MULTI_PROCESS支持跨进程访问

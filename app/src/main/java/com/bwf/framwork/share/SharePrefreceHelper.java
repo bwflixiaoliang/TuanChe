@@ -19,5 +19,10 @@ public class SharePrefreceHelper extends PrefrenceWrapper {
             sharePrefreceHelper = new SharePrefreceHelper(context);
         return sharePrefreceHelper;
     }
-
+    public boolean isFirst(){
+        return getBoolean("isFirst",true);
+    }
+    public void setFirst(){
+        setBoolean("isFirst",false);
+    }
 }

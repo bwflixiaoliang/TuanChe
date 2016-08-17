@@ -22,7 +22,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         myApplication = this;
-
         //初始化facebook
         Fresco.initialize(this);
         //初始化okhttp

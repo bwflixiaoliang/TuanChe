@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">TuanChe</string>
+    <string name="title_activity_car_content">CarContentActivity</string>
+
+    <string name="Loge_car">品牌选车</string>
+    <string name="Tiaojian_car">条件选车</string>
+    <string name="hot_brand">热门</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

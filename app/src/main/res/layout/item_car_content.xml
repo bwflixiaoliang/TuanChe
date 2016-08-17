@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+ <com.facebook.drawee.view.SimpleDraweeView
+     android:id="@+id/car_content_fresco"
+     android:layout_width="40dp"
+     android:layout_height="40dp"
+    android:layout_marginLeft="@dimen/fresco_margin"
+     android:layout_marginTop="@dimen/fresco_margin"
+     />
+
+    <TextView
+        android:id="@+id/car_content_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="brand"
+        android:textSize="@dimen/Loge_carText_14sp"
+        android:layout_below="@id/car_content_fresco"
+        android:layout_marginLeft="@dimen/fresco_margin"
+        android:layout_marginTop="10dp"/>
+
+
+</RelativeLayout>

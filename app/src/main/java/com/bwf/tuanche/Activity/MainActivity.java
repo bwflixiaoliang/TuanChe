@@ -1,8 +1,10 @@
 package com.bwf.tuanche.Activity;
 
 import android.view.View;
+import android.widget.Button;
 
 import com.bwf.framwork.base.BaseActivity;
+import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.tuanche.R;
 
 public class MainActivity extends BaseActivity {
@@ -19,7 +21,13 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView() {
-
+        Button AAAA = findViewByIdNoCast(R.id.AAAA);
+        AAAA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IntentUtils.openActivity(MainActivity.this,CarContentActivity.class);
+            }
+        });
     }
 
     @Override

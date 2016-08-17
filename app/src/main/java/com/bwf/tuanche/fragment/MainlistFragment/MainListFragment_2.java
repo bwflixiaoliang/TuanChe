@@ -1,4 +1,4 @@
-package com.bwf.tuanche.MainlistFragment;
+package com.bwf.tuanche.fragment.MainlistFragment;
 
 import android.view.View;
 

@@ -3,8 +3,8 @@ package com.bwf.tuanche;
 import android.view.View;
 
 import com.bwf.framwork.base.BaseActivity;
-import com.bwf.tuanche.MainlistFragment.MainListFragment_1;
-import com.bwf.tuanche.MainlistFragment.MainListFragment_2;
+import com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_1;
+import com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_2;
 
 public class MainListActivity extends BaseActivity {
 

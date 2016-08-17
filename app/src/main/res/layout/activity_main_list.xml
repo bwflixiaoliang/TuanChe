@@ -53,7 +53,7 @@
             android:id="@+id/main_list_frag1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:name="com.bwf.tuanche.MainlistFragment.MainListFragment_1"
+            android:name="com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_1"
             />
         <View
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@
             android:id="@+id/main_list_frag2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:name="com.bwf.tuanche.MainlistFragment.MainListFragment_2"/>
+            android:name="com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_2"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="5dp"

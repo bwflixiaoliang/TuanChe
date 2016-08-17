@@ -23,7 +23,9 @@
         <activity
             android:name=".Activity.CarContentActivity"
             android:label="@string/title_activity_car_content"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MainListActivity" />
     </application>
 
 </manifest>

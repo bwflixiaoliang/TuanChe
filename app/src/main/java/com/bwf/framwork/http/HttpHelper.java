@@ -1,6 +1,7 @@
 package com.bwf.framwork.http;
 
 
+import com.bwf.framwork.utils.LogUtils;
 import com.bwf.framwork.utils.UrlUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 
@@ -10,7 +11,6 @@ import com.zhy.http.okhttp.OkHttpUtils;
  * Description:
  */
 public class HttpHelper {
-
 
     public static void getDetail(String url,String pageNo,String pageSize,HttpCallBack callBack){
         OkHttpUtils
@@ -54,7 +54,10 @@ public class HttpHelper {
     }
     //热门品牌数据请求方法 ?isBuy=2&cityId=156
     public static  void  getDataHotLogo(String isBuy,String cityId,HttpCallBack callBack){
-        OkHttpUtils.post().url(UrlUtils.HOTLOGO_URL)
+        LogUtils.e("url--->"+UrlUtils.HOTLOGO_URL);
+        LogUtils.e("url参数-->cityId="+cityId+",isBuy="+isBuy+"");
+        OkHttpUtils.post().
+                url(UrlUtils.HOTLOGO_URL)
                 .addParams("cityId",cityId)
                 .addParams("isBuy",isBuy)
                 .build()
@@ -74,7 +77,7 @@ public class HttpHelper {
                 .build()
                 .execute(callBack);
     }
-    //选车列表数据请求方法？cityId =159
+    //选车列表数据请求方法？cityId =156
     public static void  getDataSelectCarList(String cityId,HttpCallBack callBack){
         OkHttpUtils.post().url(UrlUtils.SELECTCAR_URL)
                 .addParams("cityId",cityId)

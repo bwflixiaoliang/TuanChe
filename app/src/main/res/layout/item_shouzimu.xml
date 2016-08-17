@@ -1,28 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.bwf.tuanche.CarContentFragment.HotLogeFragment01"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/shouzimu_height"
         android:gravity="left"
         android:background="@color/huise">
         <TextView
+            android:id="@+id/shouzimu_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hot_brand"
+            android:text="A"
             android:textColor="@color/black"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:textSize="@dimen/Loge_carText_16sp"/>
     </RelativeLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/car_contentRecy"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
 </LinearLayout>

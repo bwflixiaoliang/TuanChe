@@ -8,5 +8,12 @@
     <dimen name="Loge_carText_14sp">14sp</dimen>
     <dimen name="Loge_carText_16sp">16sp</dimen>
     <dimen name="fresco_margin">25dp</dimen>
+    <dimen name="shouzimu_height">40dp</dimen>
+
+
+    <dimen name="text_12">12dp</dimen>
+    <dimen name="text_14">14dp</dimen>
+    <dimen name="text_16">16dp</dimen>
+    <dimen name="text_18">18dp</dimen>
 
 </resources>

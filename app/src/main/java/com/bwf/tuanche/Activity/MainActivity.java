@@ -1,10 +1,12 @@
 package com.bwf.tuanche.Activity;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
 import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.utils.IntentUtils;
+import com.bwf.tuanche.MainListActivity;
 import com.bwf.tuanche.R;
 
 public class MainActivity extends BaseActivity {
@@ -16,7 +18,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void beforeInitView() {
-
+//        Intent intent=new Intent(this,MainListActivity.class);
+//        startActivity(intent);
     }
 
     @Override

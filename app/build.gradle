@@ -26,7 +26,6 @@ dependencies {
     compile 'com.android.support:design:24.0.0'
     //facebook图片处理
     compile 'com.facebook.fresco:fresco:0.12.0'
-
     //okhttp
     compile 'com.zhy:okhttputils:2.6.2'
 }

@@ -7,9 +7,6 @@ import com.bwf.framwork.base.BaseBean;
  * Description：
  */
 public class Result extends BaseBean{
-    public String code;
-
-    public String msg;
 
     public ResultBean result;
 

@@ -9,6 +9,10 @@ import android.support.v7.widget.RecyclerView.ViewHolder;
  * Description:
  */
 public class CarHotRecyclerAdatper extends RecyclerView.Adapter<CarHotRecyclerAdatper.CarHotViewHolder> {
+
+
+
+
     @Override
     public CarHotViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return null;

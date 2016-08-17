@@ -10,13 +10,15 @@
        android:padding="5dp"
        android:text="热门品牌"
        />
-    <GridLayout
+    <GridView
+        android:id="@+id/GridView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:numColumns="auto_fit"
-        android:columnWidth="90dp"
+        android:background="@color/colorwhite"
+        android:columnWidth="120dp"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="1dp"
-        android:horizontalSpacing="1dp">
-    </GridLayout>
+        android:gravity="center"
+       >
+    </GridView>
 </LinearLayout>

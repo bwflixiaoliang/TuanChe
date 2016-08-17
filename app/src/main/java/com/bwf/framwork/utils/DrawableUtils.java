@@ -5,6 +5,8 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.widget.TextView;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 
 /**
  * Created by Administrator on 2016/4/29.
@@ -49,7 +51,6 @@ public class DrawableUtils {
         myTextview.setCompoundDrawables(null, drawable, null, null);
 
     }
-
     /**
      * 设置drawableBottom图片
      */

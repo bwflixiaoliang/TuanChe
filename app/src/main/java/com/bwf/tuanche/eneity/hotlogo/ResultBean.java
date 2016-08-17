@@ -1,5 +1,7 @@
 package com.bwf.tuanche.eneity.hotlogo;
 
+import com.bwf.framwork.base.BaseBean;
+
 import java.util.List;
 
 /**

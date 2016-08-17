@@ -9,9 +9,6 @@ import java.util.List;
  * Description：
  */
 public class HotCarTypeResult extends BaseBean{
-    public String code;
-
-    public String msg;
 
     public List<HotCarResultBean> result ;
 

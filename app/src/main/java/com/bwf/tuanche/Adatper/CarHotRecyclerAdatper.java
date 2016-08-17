@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.RecyclerView.ViewHolder;
+
 /**
  * Created by lixiaoliang on 2016/8/17.
  * Description:
@@ -23,7 +24,8 @@ public class CarHotRecyclerAdatper extends RecyclerView.Adapter<CarHotRecyclerAd
     public int getItemCount() {
         return 0;
     }
-    public class CarHotViewHolder extends ViewHolder{
+
+    public class CarHotViewHolder extends ViewHolder {
         public CarHotViewHolder(View itemView) {
             super(itemView);
         }

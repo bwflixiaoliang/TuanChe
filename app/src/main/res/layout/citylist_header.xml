@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="200dp">
+        <TextView
+            android:background="#E8E8E8"
+            style="@style/citytext"
+            android:textColor="#000"
+            android:text="定位城市" />
+        <TextView
+            android:id="@+id/citylist_textLocation"
+            android:background="#fff"
+            style="@style/citytext"
+            android:textColor="#E4313F"
+            android:text="定位中"/>
+        <TextView
+            android:background="#E8E8E8"
+            style="@style/citytext"
+            android:textColor="#000"
+            android:text="周边城市" />
+        <include layout="@layout/citylist_head_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <View
+            android:layout_width="match_parent"
+            android:background="#000"
+            android:layout_height="1dp"/>
+        <!--
+        <ListView
+            android:id="@+id/citylist_cityAround"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+            -->
+        <TextView
+            android:background="#E8E8E8"
+            style="@style/citytext"
+            android:textColor="#000"
+            android:text="热门城市" />
+        <ListView
+            android:id="@+id/citylist_hotCity"
+            android:layout_width="match_parent"
+            android:divider="#000"
+            android:dividerHeight="1dp"
+            android:layout_height="wrap_content"/>
+</LinearLayout>

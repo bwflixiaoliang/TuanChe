@@ -45,6 +45,7 @@
         </activity>
         <activity android:name=".MainListActivity" />
         <activity android:name=".Activity.CityListActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait"></activity>
         <!-- 百度定位部分-->
         <!--  -->

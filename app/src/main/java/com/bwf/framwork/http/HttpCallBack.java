@@ -35,11 +35,9 @@ public abstract class HttpCallBack<T extends BaseBean> extends StringCallback {
     public void onResponse(String response, int id) {
 
         if (StringUtils.isNotEmpty(response)){
-            ToastUtil.showToastLong(response);
             try{
                 BaseBean baseBean = JSON.parseObject(response, BaseBean.class);
                 if ("10000".equals(baseBean.code)){
-                    ToastUtil.showToastLong(response);
                     onSuccess(JSON.parseObject(response,tClass));
                 }else {
                     onFail(baseBean.msg);

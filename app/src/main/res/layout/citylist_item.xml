@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/citylist_item_tvTitle"
+        android:background="#E8E8E8"
+        android:layout_height="40dp"
+        style="@style/citytext"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:text="定位城市" />
+    <TextView
+        android:id="@+id/citylist_item_tvContent"
+        android:background="#fff"
+        android:layout_height="40dp"
+        style="@style/citytext"
+        android:textSize="@dimen/text_16"
+        android:text="定位中"/>
+</LinearLayout>

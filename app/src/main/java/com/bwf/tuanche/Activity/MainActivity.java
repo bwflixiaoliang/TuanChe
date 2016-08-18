@@ -24,6 +24,9 @@ import com.bwf.tuanche.MainListActivity;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.eneity.location.LocationBean;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.https.HttpsUtils;
+import com.zhy.http.okhttp.request.RequestCall;
 
 import java.util.List;
 
@@ -67,16 +70,16 @@ public class MainActivity extends BaseActivity implements Handler.Callback,BDLoc
     public boolean handleMessage(Message message) {
         switch (message.what){
             case 1:
-                if(isFirst){
+//                if(isFirst){
                     startImage.setVisibility(View.GONE);
                     guidePager.setVisibility(View.VISIBLE);
                     guidePager.setAdapter(new WelcomePagerAdapter(this));
-                }else{
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("locationCity",locationCity);
-                    IntentUtils.openActivity(this,MainListActivity.class,bundle);
-                    finish();
-                }
+//                }else{
+//                    Bundle bundle = new Bundle();
+//                    bundle.putSerializable("locationCity",locationCity);
+//                    IntentUtils.openActivity(this,MainListActivity.class,bundle);
+//                    finish();
+//                }
                 break;
         }
         return false;
@@ -106,6 +109,6 @@ public class MainActivity extends BaseActivity implements Handler.Callback,BDLoc
             public void onFail(String errMsg) {
                 ToastUtil.showToastLong(errMsg);
             }
-        });
+        },this);
     }
 }

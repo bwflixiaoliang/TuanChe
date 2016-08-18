@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TuanChe</string>
+    <string name="nowCity_name">当前城市-%s</string>
 </resources>

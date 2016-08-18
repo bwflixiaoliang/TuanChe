@@ -17,7 +17,7 @@ public abstract class BaseListAdpter<T, VH extends BaseListAdpter.ViewHolder> ex
 
     private Context context;
 
-    private View rootView;
+    protected ViewGroup rootView;
 
     public BaseListAdpter(Context context) {
         this.context = context;
@@ -52,7 +52,7 @@ public abstract class BaseListAdpter<T, VH extends BaseListAdpter.ViewHolder> ex
         VH viewHolder = null;
         if (convertView == null) {
             convertView = View.inflate(context, getResourceId(), null);
-            rootView = convertView;
+            rootView = (ViewGroup) convertView;
             viewHolder = onCreateViewHolder(viewGroup);
             convertView.setTag(viewHolder);
         } else {

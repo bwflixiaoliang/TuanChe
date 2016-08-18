@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import com.bwf.framwork.tools.AppManager;
+import com.zhy.http.okhttp.OkHttpUtils;
 
 /**
  * Created by Lizhangfeng on 2016/7/13 0013.
@@ -111,6 +112,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     @Override
     protected void onDestroy() {
         AppManager.getInstance().remove(this);
+        OkHttpUtils.getInstance().cancelTag(this);
         super.onDestroy();
     }
 }

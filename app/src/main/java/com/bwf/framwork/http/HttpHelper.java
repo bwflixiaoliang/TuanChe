@@ -1,8 +1,11 @@
 package com.bwf.framwork.http;
 
 
+import android.app.Activity;
+
 import com.bwf.framwork.utils.UrlUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.request.RequestCall;
 
 
 /**
@@ -10,7 +13,6 @@ import com.zhy.http.okhttp.OkHttpUtils;
  * Description:
  */
 public class HttpHelper {
-
 
     public static void getDetail(String url,String pageNo,String pageSize,HttpCallBack callBack){
         OkHttpUtils
@@ -31,12 +33,13 @@ public class HttpHelper {
                 .execute(callBack);
     }
     //当前城市数据请求方法
-    public static void getDataNowCity(String longitude,String latitude,HttpCallBack callBack){
-        OkHttpUtils.post().url(UrlUtils.NOWCITY_URL)
+    public static void getDataNowCity(String longitude, String latitude, HttpCallBack callBack, Activity activity){
+                 OkHttpUtils.post().url(UrlUtils.NOWCITY_URL)
                 .addParams("longitude",longitude)
                 .addParams("latitude",latitude)
+                .tag(activity)
                 .build()
-                .execute(callBack);
+        .execute(callBack);
     }
     //热门车型数据请求方法?count=2&offset=0&cityId=156
     public static void getDataHotCarType(String count,String offset,String cityId ,HttpCallBack callBack){
@@ -107,5 +110,5 @@ public class HttpHelper {
                 .build()
                 .execute(callBack);
     }
-    //
+
 }

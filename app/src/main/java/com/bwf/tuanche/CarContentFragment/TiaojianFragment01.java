@@ -9,6 +9,7 @@ import com.bwf.tuanche.Adatper.CarJibieRecyclerAdatper;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.eneity.TiaojianCar.CarRank;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,7 +19,9 @@ public class TiaojianFragment01 extends BaseFragment {
     private CarJibieRecyclerAdatper jibieRecyclerAdatper;
     private List<CarRank> bos;
 
+
     public void setLevle(List<CarRank> bos) {
+
         this.bos = bos;
         showData();
     }

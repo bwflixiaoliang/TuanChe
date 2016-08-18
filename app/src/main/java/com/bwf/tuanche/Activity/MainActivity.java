@@ -6,7 +6,6 @@ import android.widget.Button;
 
 import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.utils.IntentUtils;
-import com.bwf.tuanche.MainListActivity;
 import com.bwf.tuanche.R;
 
 public class MainActivity extends BaseActivity {

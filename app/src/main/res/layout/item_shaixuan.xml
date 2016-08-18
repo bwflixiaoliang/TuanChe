@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:freson="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/shape_black"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/item01_image"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            freson:placeholderImage="@mipmap/default_special_2" />
+
+        <TextView
+            android:id="@+id/SX_item_text01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/Loge_carText_16sp" />
+
+        <TextView
+            android:id="@+id/SX_item_text02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="content"
+            android:textColor="@color/read"
+            android:textSize="@dimen/Loge_carText_14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/read"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/SX_item_text03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="7dp"
+                android:text="@string/item_text03"
+                android:textColor="@color/white"
+                android:textSize="@dimen/Loge_carText_14sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/shape_black"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/item02_image"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            freson:placeholderImage="@mipmap/default_special_2" />
+
+        <TextView
+            android:id="@+id/SX_item02_text01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/Loge_carText_16sp" />
+
+        <TextView
+            android:id="@+id/SX_item02_text02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="content"
+            android:textColor="@color/read"
+            android:textSize="@dimen/Loge_carText_14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/read"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/SX_item02_text03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="7dp"
+                android:text="@string/item_text03"
+                android:textColor="@color/white"
+                android:textSize="@dimen/Loge_carText_14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

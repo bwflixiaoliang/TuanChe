@@ -26,6 +26,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainListActivity" />
+        <activity
+            android:name=".Activity.CarScreenActivity"
+            android:label="@string/title_activity_car_screen"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

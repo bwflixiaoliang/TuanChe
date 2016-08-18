@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.utils.IntentUtils;
+import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.Adatper.CarViewPragerAdapter;
 import com.bwf.tuanche.CarContentFragment.LogoCarFragment;
 import com.bwf.tuanche.CarContentFragment.TiaojianCarFragment;
@@ -53,6 +54,33 @@ public class CarContentActivity extends BaseActivity {
         pragerAdapter = new CarViewPragerAdapter(getSupportFragmentManager(),fargments);
         logo_tiaojian_car.setAdapter(pragerAdapter);
         logo_tiaojian_car.setCurrentItem(0);
+
+        logo_tiaojian_car.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if(position == 0){
+                    Loge_car.setBackgroundResource(R.mipmap.round_red_left);
+                    Loge_car.setTextColor(getResources().getColor(R.color.white));
+                    Tiaojian_car.setBackgroundResource(R.mipmap.round_white_right);
+                    Tiaojian_car.setTextColor(getResources().getColor(R.color.read));
+                }else if(position == 1 ){
+                    Loge_car.setBackgroundResource(R.mipmap.round_white_left);
+                    Loge_car.setTextColor(getResources().getColor(R.color.read));
+                    Tiaojian_car.setBackgroundResource(R.mipmap.round_red_right);
+                    Tiaojian_car.setTextColor(getResources().getColor(R.color.white));
+                }
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
     }
 
     @Override

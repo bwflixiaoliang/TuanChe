@@ -16,6 +16,7 @@ import com.bwf.tuanche.eneity.TiaojianCar.CarRank;
 import com.bwf.tuanche.eneity.hotlogo.HotLogo;
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,7 +29,11 @@ public class CarJibieRecyclerAdatper extends RecyclerView.Adapter<CarJibieRecycl
     private Context context;
     private boolean isSelect =true;
 
+    private List<String> names;
+
     public CarJibieRecyclerAdatper(Context context, List<CarRank> list) {
+        names = new ArrayList<>();
+        names.clear();
         this.context = context;
         this.list = list;
     }
@@ -57,12 +62,16 @@ public class CarJibieRecyclerAdatper extends RecyclerView.Adapter<CarJibieRecycl
                     if(isSelect == false){
                         ImageLoader.getInstance().disPlayImage(holder.jibie_content_fresco,list.get(position).defIcon);
                         holder.jibie_content_text.setTextColor(Color.BLACK);
+                        names.remove(list.get(position).name);
                         isSelect = true;
                     }else if(isSelect == true){
                         ImageLoader.getInstance().disPlayImage(holder.jibie_content_fresco,list.get(position).icon);
                         holder.jibie_content_text.setTextColor(Color.RED);
+                        names.add(list.get(position).name);
                         isSelect = false;
                     }
+                    //拿到点击选中的集合，是name
+                    ToastUtil.showToast(""+names.size());
                 }
             });
         }

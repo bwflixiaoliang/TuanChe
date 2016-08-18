@@ -26,13 +26,14 @@
             android:drawableRight="@mipmap/icon_top_add_arrow"
             />
         <EditText
+            android:id="@+id/search_ed"
             android:layout_width="0dp"
             android:gravity="center_vertical"
             android:layout_height="match_parent"
             android:paddingTop="2dp"
-
             android:layout_weight="5"
             android:textSize="@dimen/text_14"
+            android:focusable="false"
             android:hint="请输入品牌、车型"
             android:background="@drawable/shape"
             android:drawableLeft="@mipmap/search"
@@ -93,7 +94,11 @@
                 android:layout_height="wrap_content"
                 android:name="com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_4"
                 />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
         </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>

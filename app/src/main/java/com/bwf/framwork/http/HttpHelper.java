@@ -3,6 +3,9 @@ package com.bwf.framwork.http;
 
 import com.bwf.framwork.utils.UrlUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import okhttp3.OkHttpClient;
 
 
 /**
@@ -37,7 +40,7 @@ public class HttpHelper {
                 .execute(callBack);
     }
     //热门车型数据请求方法?count=2&offset=0&cityId=156
-    public static void getDataHotCarType(String count,String offset,String cityId ,HttpCallBack callBack){
+    public static void getDataHotCarType(String count,String offset,String cityId ,HttpCallBackArray callBack){
         OkHttpUtils.post().url(UrlUtils.HOTCARTYPE_URL)
                 .addParams("cityId",cityId)
                 .addParams("count",count)
@@ -105,4 +108,11 @@ public class HttpHelper {
                 .build()
                 .execute(callBack);
     }
+    public static void getHotSearch(String cityId,StringCallback callback){
+        OkHttpUtils.post().url(UrlUtils.HOTSEARCH_URL)
+                .addParams("cityId",cityId)
+                .build()
+                .execute(callback);
+    }
+
 }

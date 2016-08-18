@@ -5,6 +5,7 @@
    <TextView
        android:layout_width="match_parent"
        android:layout_height="30dp"
+       android:background="@color/colorwhite"
        android:textColor="@color/colorblack"
        android:textSize="@dimen/text_16"
        android:padding="5dp"
@@ -12,10 +13,13 @@
        />
     <GridView
         android:id="@+id/GridView"
+        android:layout_marginTop="1dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="auto_fit"
-        android:background="@color/colorwhite"
+        android:horizontalSpacing ="1dp"
+        android:verticalSpacing ="1dp"
+        android:numColumns="3"
+        android:background="@color/gray"
         android:columnWidth="120dp"
         android:stretchMode="columnWidth"
         android:gravity="center"

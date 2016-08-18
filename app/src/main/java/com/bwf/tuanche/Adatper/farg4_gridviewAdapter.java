@@ -7,6 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.bwf.tuanche.R;
+import com.bwf.tuanche.eneity.hotcartype.HotCarResultBean;
 import com.bwf.tuanche.eneity.hotlogo.HotLogo;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -16,24 +17,24 @@ import java.util.List;
  * Created by fengchao on 2016/8/17.
  * Description：
  */
-public class gridviewAdapter extends BaseAdapter{
-    private List<HotLogo> hotLogos;
+public class farg4_gridviewAdapter extends BaseAdapter{
+    private List<HotCarResultBean> result;
 
     private Context context;
 
-    public gridviewAdapter(List<HotLogo> hotLogos,Context context) {
-        this.hotLogos = hotLogos;
+    public farg4_gridviewAdapter(List<HotCarResultBean> result, Context context) {
+        this.result = result;
         this.context=context;
     }
 
     @Override
     public int getCount() {
-        return hotLogos==null?0:hotLogos.size();
+        return result==null?0:result.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return hotLogos.get(i)==null?null:hotLogos.get(i);
+        return result.get(i)==null?null:result.get(i);
     }
 
     @Override
@@ -46,30 +47,24 @@ public class gridviewAdapter extends BaseAdapter{
         ViewHolder viewHolder=null;
         if(conview==null){
             viewHolder=new ViewHolder();
-            conview=View.inflate(context, R.layout.topbrand_item,null);
-            viewHolder.textView1= (TextView) conview.findViewById(R.id.topbrand_item_tv1);
-            viewHolder.textView2= (TextView) conview.findViewById(R.id.topbrand_item_tv2);
-            viewHolder.simpleDraweeView= (SimpleDraweeView) conview.findViewById(R.id.topbrand_item_sdv);
+            conview=View.inflate(context, R.layout.frag4_item,null);
+            viewHolder.textView1= (TextView) conview.findViewById(R.id.frag4_t1);
+            viewHolder.textView2= (TextView) conview.findViewById(R.id.frag4_t2);
+            viewHolder.textView3= (TextView) conview.findViewById(R.id.frag4_t3);
+            viewHolder.simpleDraweeView= (SimpleDraweeView) conview.findViewById(R.id.frag4_f1);
             conview.setTag(viewHolder);
         }
         viewHolder= (ViewHolder) conview.getTag();
-        viewHolder.textView1.setText(hotLogos.get(position).name);
-        if(position!=8){
-        viewHolder.textView2.setText("已有"+hotLogos.get(position).baseNum+"报名");
-        }else {
-            viewHolder.textView2.setText("");
-        }
-        if(position==8){
-            viewHolder.simpleDraweeView.setImageResource(R.mipmap.icon_more);
-        }else{
-            viewHolder.simpleDraweeView.setImageURI(hotLogos.get(position).logo);
-        }
-
+        viewHolder.textView1.setText(result.get(position).styleName);
+        viewHolder.textView2.setText(result.get(position).content);
+        viewHolder.textView3.setText(result.get(position).pricePrefix+result.get(position).price);
+        viewHolder.simpleDraweeView.setImageURI(result.get(position).logo);
         return conview;
     }
     private class  ViewHolder{
         private TextView textView1;
         private TextView textView2;
+        private TextView textView3;
         private SimpleDraweeView simpleDraweeView;
 
 }

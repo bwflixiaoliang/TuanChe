@@ -6,7 +6,7 @@
     <color name="colorblack">#000</color>
     <color name="colorwhite">#fff</color>
     <color name="colorred">#D02B14</color>
-    <color name="gray">#939393</color>
+    <color name="gray">#E3E3E3</color>
     <color name="orange">#DFC351</color>
     <color name="blue">#457DD7</color>
 </resources>

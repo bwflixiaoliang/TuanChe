@@ -8,7 +8,10 @@ import com.bwf.framwork.base.BaseFragment;
 import com.bwf.framwork.utils.ListViewUtils;
 import com.bwf.tuanche.Adatper.gridviewAdapter;
 import com.bwf.tuanche.R;
+import com.bwf.tuanche.eneity.hotlogo.HotLogo;
 import com.bwf.tuanche.eneity.hotlogo.Result;
+
+import java.util.List;
 
 /**
  * Created by fengchao on 2016/8/16.
@@ -46,7 +49,11 @@ public class MainListFragment_2 extends BaseFragment{
     }
 
     public void getData(Result result){
-        gridviewAdapter gridviewAdapter=new gridviewAdapter(result.result.list,getContext());
+        List<HotLogo> newdata=result.result.list;
+        HotLogo hotLogo=new HotLogo();
+        hotLogo.name="更多";
+        newdata.add(hotLogo);
+        gridviewAdapter gridviewAdapter=new gridviewAdapter(newdata,getContext());
         gridView.setAdapter(gridviewAdapter);
         ListViewUtils.calGridViewWidthAndHeigh(3,gridView);
         gridviewAdapter.notifyDataSetChanged();

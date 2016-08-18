@@ -28,7 +28,7 @@ import java.util.List;
 public class MainListFragment_1 extends BaseFragment{
     private TextView main_list_lowprice,main_list_tiemo,main_list_newcartype,main_list_baoxian;
 
-    private SimpleDraweeView f_lowprice,f_tiemo,f_new,f_baoxian;
+    private SimpleDraweeView f_lowprice,f_tiemo,f_new,f_baoxian,main_list_bigimg;
 
     private SimpleDraweeView[] draweeViews;
 
@@ -49,6 +49,7 @@ public class MainListFragment_1 extends BaseFragment{
         main_list_tiemo=findViewByIdNoCast(R.id.main_list_tiemo);
         main_list_newcartype=findViewByIdNoCast(R.id.main_list_newcartype);
         main_list_baoxian=findViewByIdNoCast(R.id.main_list_baoxian);
+        main_list_bigimg=findViewByIdNoCast(R.id.main_list_bigimg);
         f_lowprice=findViewByIdNoCast(R.id.f_lowprice);
         f_tiemo=findViewByIdNoCast(R.id.f_tiemo);
         f_new=findViewByIdNoCast(R.id.f_new);
@@ -73,12 +74,13 @@ public class MainListFragment_1 extends BaseFragment{
             textViews[i].setText(nc.get(i).name);
             draweeViews[i].setImageURI(Uri.parse(nc.get(i).pic));
             draweeViews[i].setScaleType(SimpleDraweeView.ScaleType.FIT_CENTER);
-            LogUtils.e("TTTTTTTTTT"+nc.get(i).name+","+nc.get(i).pic);
         }
     }
 
 
     }
 
-
+    public void getBigBanner(String url){
+        main_list_bigimg.setImageURI(url);
+    }
 }

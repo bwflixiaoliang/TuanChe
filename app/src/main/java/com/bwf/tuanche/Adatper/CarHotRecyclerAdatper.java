@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bwf.framwork.image.ImageLoader;
 import com.bwf.framwork.utils.ToastUtil;
+import com.bwf.tuanche.MyApplication;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.eneity.hotlogo.HotLogo;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -21,18 +22,18 @@ import java.util.List;
  */
 public class CarHotRecyclerAdatper extends RecyclerView.Adapter<CarHotRecyclerAdatper.CarHotViewHolder> {
 
-    private List<HotLogo> list;
+    private  List<HotLogo> list;
 
     private Context context;
 
-    public CarHotRecyclerAdatper( Context context,List<HotLogo> list) {
+    public CarHotRecyclerAdatper(Context context, List<HotLogo> list) {
         this.context = context;
         this.list = list;
     }
 
     @Override
     public CarHotViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = View.inflate(context, R.layout.item_hot_car_content,null);
+        View view = View.inflate(context, R.layout.item_hot_car_content, null);
         CarHotViewHolder hotViewHolder = new CarHotViewHolder(view);
 
         hotViewHolder.car_content_fresco = (SimpleDraweeView) view.findViewById(R.id.car_content_fresco);
@@ -44,8 +45,8 @@ public class CarHotRecyclerAdatper extends RecyclerView.Adapter<CarHotRecyclerAd
     @Override
     public void onBindViewHolder(CarHotViewHolder holder, final int position) {
         //加载数据
-        if(list != null && !list.isEmpty()){
-            ImageLoader.getInstance().disPlayImage(holder.car_content_fresco,list.get(position).logo);
+        if (list != null && !list.isEmpty()) {
+            ImageLoader.getInstance().disPlayImage(holder.car_content_fresco, list.get(position).logo);
             holder.car_content_text.setText(list.get(position).name);
 
             holder.car_content_fresco.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +60,7 @@ public class CarHotRecyclerAdatper extends RecyclerView.Adapter<CarHotRecyclerAd
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return list == null ? 0 : list.size();
     }
 
     public class CarHotViewHolder extends ViewHolder {

@@ -30,7 +30,6 @@
             android:text="brand"
             android:textColor="@color/black"
             android:textSize="@dimen/Loge_carText_14sp" />
-
     </LinearLayout>
 
 

@@ -3,9 +3,12 @@ package com.bwf.tuanche;
 import android.app.Application;
 import android.content.Context;
 
+import com.bwf.tuanche.eneity.hotlogo.HotLogo;
+import com.bwf.tuanche.eneity.logocarlist.LogoCarListBean;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.zhy.http.okhttp.OkHttpUtils;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -17,6 +20,22 @@ import okhttp3.OkHttpClient;
 public class MyApplication extends Application {
 
     private static MyApplication myApplication;
+
+    //低价购车—品牌选车
+    private List<HotLogo> list;
+    private List<LogoCarListBean> result;
+    public List<HotLogo> getList() {
+        return list;
+    }
+    public void setList(List<HotLogo> list) {
+        this.list = list;
+    }
+    public List<LogoCarListBean> getResult() {
+        return result;
+    }
+    public void setResult(List<LogoCarListBean> result) {
+        this.result = result;
+    }
 
     @Override
     public void onCreate() {

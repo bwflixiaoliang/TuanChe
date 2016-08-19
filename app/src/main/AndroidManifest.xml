@@ -29,7 +29,8 @@
         <activity
             android:name=".Activity.CarScreenActivity"
             android:label="@string/title_activity_car_screen"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activity.CarSearchActivity"></activity>
     </application>
 
 </manifest>

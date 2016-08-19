@@ -108,4 +108,11 @@ public class HttpHelper {
                 .build()
                 .execute(callBack);
     }
+    //汽车列表cityId=156
+    public static void getDataCarList(String cityId,HttpCallBack callBack){
+        OkHttpUtils.post().url(UrlUtils.CARLIST_URL)
+                .addParams("cityId",cityId)
+                .build()
+                .execute(callBack);
+    }
 }

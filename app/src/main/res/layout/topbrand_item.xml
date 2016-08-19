@@ -18,13 +18,11 @@
         android:textSize="@dimen/text_14"
         android:textColor="@color/colorblack"
         android:layout_gravity="center_horizontal"
-        android:text="123"
         />
     <TextView
         android:id="@+id/topbrand_item_tv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="123"
         android:layout_gravity="center_horizontal"
         android:textSize="@dimen/text_12"
         android:textColor="@color/colorblack"

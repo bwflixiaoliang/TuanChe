@@ -10,8 +10,6 @@ public class BaseBean{
 
     public String msg;//返回msg
 
-    public String result;
-
     @Override
     public String toString() {
         return "BaseBean{" +

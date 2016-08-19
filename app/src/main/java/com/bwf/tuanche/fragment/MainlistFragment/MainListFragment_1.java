@@ -68,7 +68,7 @@ public class MainListFragment_1 extends BaseFragment{
 
     }
     public void setData(TuanCheResult result){
-    if(result!=null){
+    if(result.result!=null){
        List<Nc> nc=result.result.nc;
         for(int i=0;i<nc.size();i++){
             textViews[i].setText(nc.get(i).name);

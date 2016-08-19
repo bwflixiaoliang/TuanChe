@@ -1,20 +1,20 @@
-package com.bwf.tuanche.eneity.hotlogo;
+package com.bwf.tuanche.eneity.searchonly;
 
 import com.bwf.framwork.base.BaseBean;
 
 import java.util.List;
 
 /**
- * Created by fengchao on 2016/8/16.
+ * Created by fengchao on 2016/8/19.
  * Description：
  */
-public class ResultBean{
-    public List<HotLogo> list ;
+public class ResultBean extends BaseBean{
+    public List<SearchResult> result;
 
     @Override
     public String toString() {
         return "ResultBean{" +
-                "list=" + list +
+                "result=" + result +
                 '}';
     }
 }

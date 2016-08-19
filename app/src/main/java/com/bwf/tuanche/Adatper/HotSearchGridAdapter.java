@@ -1,6 +1,7 @@
 package com.bwf.tuanche.Adatper;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -24,17 +25,17 @@ public class HotSearchGridAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        return 0;
+        return list==null?0:list.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return list.get(i);
     }
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return i;
     }
 
     @Override
@@ -42,23 +43,21 @@ public class HotSearchGridAdapter extends BaseAdapter{
         ViewHolder viewHolder=null;
         if(view==null){
             viewHolder=new ViewHolder();
-            view=View.inflate(context, R.layout.topbrand_item,null);
-            viewHolder.textView1= (TextView) view.findViewById(R.id.topbrand_item_tv1);
-            viewHolder.textView2= (TextView) view.findViewById(R.id.topbrand_item_tv2);
+            view=View.inflate(context, R.layout.itemofgridview,null);
+            viewHolder.textView1= (TextView) view.findViewById(R.id.item_text);
             view.setTag(viewHolder);
         }
         viewHolder= (ViewHolder) view.getTag();
-        viewHolder.textView1.setText(list.get(position));
-        if(position==4||position==8||position==12){
-            viewHolder.textView2.setVisibility(View.GONE);
+        if(list.get(position).equals("全部车型")){
+            viewHolder.textView1.setTextColor(Color.parseColor("#D02B14"));
+            viewHolder.textView1.setText(list.get(position));
         }
+        viewHolder.textView1.setText(list.get(position));
         return view;
     }
 
     private class  ViewHolder{
         private TextView textView1;
-        private TextView textView2;
-
     }
 
 }

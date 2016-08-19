@@ -49,7 +49,9 @@ public class MainListFragment_2 extends BaseFragment{
     }
 
     public void getData(Result result){
+        if(result.result!=null){
         List<HotLogo> newdata=result.result.list;
+
         HotLogo hotLogo=new HotLogo();
         hotLogo.name="更多";
         newdata.add(hotLogo);
@@ -58,5 +60,5 @@ public class MainListFragment_2 extends BaseFragment{
         ListViewUtils.calGridViewWidthAndHeigh(3,gridView);
         gridviewAdapter.notifyDataSetChanged();
 
-    }
+    }}
 }

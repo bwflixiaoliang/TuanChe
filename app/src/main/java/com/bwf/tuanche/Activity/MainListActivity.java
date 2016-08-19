@@ -2,6 +2,7 @@ package com.bwf.tuanche.Activity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -38,7 +39,9 @@ public class MainListActivity extends BaseActivity {
 
     private LinearLayout ll_con1,ll_con2,ll_con3;
 
-    private TextView main_page,main_dingdan,main_kefu,main_wode;
+    private String cityName,cityId;
+
+    private TextView main_page,main_dingdan,main_kefu,main_wode,content_city;
 
     private int[] select_ids=new int[]{R.mipmap.nav_icon_home_sel,R.mipmap.nav_icon_order_sel,R.mipmap.nav_icon_server_sel,R.mipmap.nav_icon_my_sel};
 
@@ -57,7 +60,10 @@ public class MainListActivity extends BaseActivity {
 
     @Override
     public void beforeInitView() {
-
+        cityName = getIntent().getStringExtra("cityName");
+        cityId = getIntent().getStringExtra("cityId");
+        cityName = cityName==null?"北京":cityName;
+        cityId =cityId ==null?"156":cityId;
     }
 
     @Override
@@ -69,6 +75,7 @@ public class MainListActivity extends BaseActivity {
         ll_con1= (LinearLayout) findViewById(R.id.ll_con1);
         ll_con2= (LinearLayout) findViewById(R.id.ll_con2);
         ll_con3= (LinearLayout) findViewById(R.id.ll_con3);
+        content_city=findViewByIdNoCast(R.id.content_city);
         ed_search=findViewByIdNoCast(R.id.search_ed);
         main_page=findViewByIdNoCast(R.id.main_page);
         main_dingdan=findViewByIdNoCast(R.id.main_dingdan);
@@ -80,6 +87,7 @@ public class MainListActivity extends BaseActivity {
 
     @Override
     public void initData() {
+        content_city.setText(cityName);
         getData();
     }
 
@@ -153,11 +161,12 @@ public class MainListActivity extends BaseActivity {
         /**
          * 底价购车
          */
-        HttpHelper.getDataAtCity("156", new HttpCallBack<TuanCheResult>() {
+        HttpHelper.getDataAtCity(cityId, new HttpCallBack<TuanCheResult>() {
             @Override
             public void onSuccess(TuanCheResult result) {
-
+                if(result.result!=null)
                 mainListFragment_1.setData(result);
+                else LogUtils.e("onSuccess__"+ "为空");
             }
             @Override
             public void onFail(String errMsg) {
@@ -166,12 +175,14 @@ public class MainListActivity extends BaseActivity {
         });
 
         /**
-         * 热门品牌
+         * 热门品牌l
          */
-        HttpHelper.getDataHotLogo("2", "156", new HttpCallBack<Result>() {
+        HttpHelper.getDataHotLogo("2", cityId, new HttpCallBack<Result>() {
             @Override
             public void onSuccess(Result result) {
+                if(result!=null)
                 mainListFragment_2.getData(result);
+                else LogUtils.e("onSuccess__"+ "为空");
             }
 
             @Override
@@ -183,10 +194,10 @@ public class MainListActivity extends BaseActivity {
         /**
          * 首页品牌
          */
-        HttpHelper.getDataHomePageBanner("156", new HttpCallBack<BannerResult>() {
+        HttpHelper.getDataHomePageBanner(cityId, new HttpCallBack<BannerResult>() {
             @Override
             public void onSuccess(BannerResult result) {
-                if(result!=null){
+                if(result.result!=null){
                     mainListFragment_1.getBigBanner(result.result.header_banner.get(0).adImgUrl);
                     mainListFragment_3.setData(result.result.center_banner,result.result.position_banner);
                 }
@@ -200,9 +211,10 @@ public class MainListActivity extends BaseActivity {
         /**
          *
          */
-        HttpHelper.getDataHotCarType("20", "10", "156", new HttpCallBackArray<HotCarResultBean>() {
+        HttpHelper.getDataHotCarType("20", "10", cityId, new HttpCallBackArray<HotCarResultBean>() {
             @Override
             public void onSuccess(List<HotCarResultBean> result) {
+                if(result!=null)
                 mainListFragment_4.setData(result);
             }
 

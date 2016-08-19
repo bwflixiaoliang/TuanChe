@@ -14,6 +14,7 @@
         android:focusableInTouchMode="true"
         >
         <TextView
+            android:id="@+id/content_city"
             android:layout_width="0dp"
             android:gravity="center"
             android:paddingLeft="5dp"
@@ -21,7 +22,6 @@
             android:layout_weight="1.5"
             android:textSize="@dimen/text_16"
             android:textColor="@color/colorblack"
-            android:text="成都"
             android:paddingRight="5dp"
             android:drawableRight="@mipmap/icon_top_add_arrow"
             />

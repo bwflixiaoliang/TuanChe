@@ -3,6 +3,7 @@ package com.bwf.framwork.http;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.bwf.framwork.base.BaseBean;
+import com.bwf.framwork.base.BaseBean1;
 import com.bwf.framwork.utils.StringUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -37,7 +38,7 @@ public abstract class HttpCallBackArray<T> extends StringCallback {
 
             try{
 
-                BaseBean baseBean = JSON.parseObject(response, BaseBean.class);
+                BaseBean1 baseBean = JSON.parseObject(response, BaseBean1.class);
 
                 if ("10000".equals(baseBean.code)){
                     onSuccess(JSON.parseArray(baseBean.result,tClass));

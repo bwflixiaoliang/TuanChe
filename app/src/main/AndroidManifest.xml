@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.MainListActivity" />
-        <activity android:name=".Activity.HotSearch_Activity"></activity>
+        <activity android:name=".Activity.HotSearch_Activity" />
+        <activity android:name=".Activity.Search_only_Activity"></activity>
     </application>
 
 </manifest>

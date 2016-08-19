@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   android:orientation="vertical"
-    android:clipToPadding="true"
     android:fitsSystemWindows="true"
-    tools:context="com.bwf.tuanche.Activity.HotSearch_Activity">
+    android:clipToPadding="true"
+    android:orientation="vertical"
+    tools:context=".Activity.Search_only_Activity">
     <LinearLayout
         android:id="@+id/title"
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             android:src="@mipmap/icon_back"
             />
         <EditText
-            android:id="@+id/search_wodesousuo"
+            android:id="@+id/searchonly_wodesousuo"
             android:layout_width="0dp"
             android:gravity="center_vertical"
             android:layout_height="match_parent"
@@ -49,18 +49,13 @@
             android:padding="5dp"
             />
     </LinearLayout>
-    <TextView
+    <ListView
+        android:id="@+id/searchonly_list"
+        android:scrollbars="none"
+        android:divider="@color/gray"
+        android:dividerHeight="1dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textColor="@color/colorblack"
-        android:textSize="@dimen/text_18"
-        android:text="热门搜索"
-        android:padding="12dp"
-        />
-    <android.support.v4.view.ViewPager
-        android:id="@+id/search_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        ></android.support.v4.view.ViewPager>
+        android:layout_height="match_parent">
 
+    </ListView>
 </LinearLayout>

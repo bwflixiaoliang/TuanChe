@@ -19,18 +19,14 @@
             style="@style/citytext"
             android:textColor="#000"
             android:text="周边城市" />
-        <include layout="@layout/citylist_head_item"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <View
-            android:layout_width="match_parent"
-            android:background="#000"
-            android:layout_height="1dp"/>
-        <!--
         <ListView
             android:id="@+id/citylist_cityAround"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <!--
+                <include layout="@layout/citylist_head_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
             -->
         <TextView
             android:background="#E8E8E8"

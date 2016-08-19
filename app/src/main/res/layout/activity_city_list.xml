@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/parent_cityList"
     android:fitsSystemWindows="true"
     tools:context="com.bwf.tuanche.Activity.CityListActivity">
     <RelativeLayout
@@ -66,4 +67,11 @@
         android:textColor="#000"
         android:text="定位城市"
         android:visibility="gone"/>
+    <com.bwf.tuanche.View.LoadAnimation
+        android:id="@+id/citylist_loadAnimation"
+        android:layout_below="@id/citylist_title"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:background="#fff"
+        android:layout_height="match_parent"/>
 </RelativeLayout>

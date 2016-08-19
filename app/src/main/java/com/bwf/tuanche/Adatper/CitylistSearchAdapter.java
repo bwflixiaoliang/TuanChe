@@ -1,13 +1,16 @@
 package com.bwf.tuanche.Adatper;
 
-import android.content.ContentValues;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.bwf.framwork.utils.DisplayUtil;
+import com.bwf.tuanche.R;
 
 import java.util.List;
 
@@ -43,6 +46,7 @@ public class CitylistSearchAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         TextView textView = new TextView(context);
         AbsListView.LayoutParams params = new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.height = DisplayUtil.dip2px(context,23);
         textView.setLayoutParams(params);
         textView.setGravity(Gravity.CENTER);
         textView.setText(stringList.get(i));

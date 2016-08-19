@@ -29,11 +29,13 @@ import com.zhy.http.okhttp.https.HttpsUtils;
 import com.zhy.http.okhttp.request.RequestCall;
 
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends BaseActivity implements Handler.Callback,BDLocationListener {
     private SimpleDraweeView startImage;
     private ViewPager guidePager;
     private Handler mHandler;
+    private Map<String,String> cityMap;
     private boolean isFirst;
     private LocationBean.LocationCity locationCity;
     @Override
@@ -44,6 +46,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback,BDLoc
     @Override
     public void beforeInitView() {
         isFirst = SharePrefreceHelper.getInstence(this).isFirst();
+        cityMap = SharePrefreceHelper.getInstence(this).getLastCity();
         if(!isFirst) new MapLocation().onCreate(getApplicationContext(),this);
     }
 
@@ -70,16 +73,20 @@ public class MainActivity extends BaseActivity implements Handler.Callback,BDLoc
     public boolean handleMessage(Message message) {
         switch (message.what){
             case 1:
-//                if(isFirst){
+                if(isFirst){
                     startImage.setVisibility(View.GONE);
                     guidePager.setVisibility(View.VISIBLE);
                     guidePager.setAdapter(new WelcomePagerAdapter(this));
-//                }else{
-//                    Bundle bundle = new Bundle();
-//                    bundle.putSerializable("locationCity",locationCity);
-//                    IntentUtils.openActivity(this,MainListActivity.class,bundle);
-//                    finish();
-//                }
+                }else{
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("locationCity",locationCity);
+                    if(cityMap!=null){
+                        bundle.putString("cityName",cityMap.get("cityName"));
+                        bundle.putString("cityId",cityMap.get("cityId"));
+                    }
+                    IntentUtils.openActivity(this,MainListActivity.class,bundle);
+                    finish();
+                }
                 break;
         }
         return false;

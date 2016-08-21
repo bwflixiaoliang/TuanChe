@@ -98,7 +98,7 @@ public class CityListActivity extends BaseActivity implements BDLocationListener
                 }
                 break;
             case R.id.citylist_imageBack:
-
+                IntentUtils.openActivity(this,TestActivity.class);
                 break;
         }
     }
@@ -200,7 +200,6 @@ public class CityListActivity extends BaseActivity implements BDLocationListener
     private void setCityList(){
         if(openCityList!=null){
             Collections.sort(openCityList);
-            Log.i("msg","openCityList--sort--->"+openCityList.toString());
             listViewContent.setAdapter(new CityListAdapter(openCityList,this,listener,currentCity));
             for (int i = 0; i <openCityList.size() ; i++) {
                 String first = openCityList.get(i).pinyin.toUpperCase().trim().substring(0,1);

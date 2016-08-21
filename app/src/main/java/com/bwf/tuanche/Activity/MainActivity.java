@@ -73,20 +73,20 @@ public class MainActivity extends BaseActivity implements Handler.Callback,BDLoc
     public boolean handleMessage(Message message) {
         switch (message.what){
             case 1:
-                if(isFirst){
+//                if(isFirst){
                     startImage.setVisibility(View.GONE);
                     guidePager.setVisibility(View.VISIBLE);
                     guidePager.setAdapter(new WelcomePagerAdapter(this));
-                }else{
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("locationCity",locationCity);
-                    if(cityMap!=null){
-                        bundle.putString("cityName",cityMap.get("cityName"));
-                        bundle.putString("cityId",cityMap.get("cityId"));
-                    }
-                    IntentUtils.openActivity(this,MainListActivity.class,bundle);
-                    finish();
-                }
+//                }else{
+//                    Bundle bundle = new Bundle();
+//                    bundle.putSerializable("locationCity",locationCity);
+//                    if(cityMap!=null){
+//                        bundle.putString("cityName",cityMap.get("cityName"));
+//                        bundle.putString("cityId",cityMap.get("cityId"));
+//                    }
+//                    IntentUtils.openActivity(this,MainListActivity.class,bundle);
+//                    finish();
+//                }
                 break;
         }
         return false;

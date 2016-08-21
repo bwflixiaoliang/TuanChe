@@ -1,32 +1,36 @@
 package com.bwf.tuanche.Activity;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.framwork.utils.ToastUtil;
+import com.bwf.tuanche.Adatper.CarHotRecyclerAdatper;
 import com.bwf.tuanche.Adatper.CarViewPragerAdapter;
-import com.bwf.tuanche.CarContentFragment.LogoCarFragment;
-import com.bwf.tuanche.CarContentFragment.TiaojianCarFragment;
-import com.bwf.tuanche.MyApplication;
+import com.bwf.tuanche.fragment.CarContentFragment.LogoCarFragment;
+import com.bwf.tuanche.fragment.CarContentFragment.TiaojianCarFragment;
 import com.bwf.tuanche.R;
+import com.bwf.tuanche.View.MyPopWindow;
+import com.bwf.tuanche.eneity.hotlogo.HotLogo;
 import com.bwf.tuanche.eneity.hotlogo.ResultBean;
+import com.bwf.tuanche.eneity.logocarlist.LogoCarListBean;
 import com.bwf.tuanche.eneity.logocarlist.LogoCarListResult;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarContentActivity extends BaseActivity {
+public class CarContentActivity extends BaseActivity{
 
     private ImageView content_back,content_search;
     private Button Loge_car,Tiaojian_car;
+    private LinearLayout car_content_tietle;
 
     private ViewPager logo_tiaojian_car;
     private List<Fragment> fargments;
@@ -52,6 +56,7 @@ public class CarContentActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        car_content_tietle = findViewByIdNoCast(R.id.car_content_tietle);
         content_back = findViewByIdNoCast(R.id.content_back);
         Loge_car = findViewByIdNoCast(R.id.Loge_car);
         Tiaojian_car = findViewByIdNoCast(R.id.Tiaojian_car);
@@ -98,6 +103,28 @@ public class CarContentActivity extends BaseActivity {
         //请求数据
         getHotLogo();
         getLogoCar();
+
+        //点击品牌列表弹出PopWindow
+        logoCarFragment.setCallBack(new LogoCarFragment.CarListCallBack() {
+            @Override
+            public void getPopWindow(LogoCarListBean carListBean) {
+                if(carListBean != null){
+                    MyPopWindow myPopWindow = new MyPopWindow(CarContentActivity.this,carListBean,cityId);
+                    myPopWindow.showPopWindow(car_content_tietle);
+                }
+            }
+        });
+
+        //点击热门品牌弹出PopWindow
+        logoCarFragment.setRecycleBack(new CarHotRecyclerAdatper.CallRecycleBack() {
+            @Override
+            public void callRecyclePop(HotLogo hotLogo) {
+                if(hotLogo != null){
+                    MyPopWindow myPopWindow02 = new MyPopWindow(CarContentActivity.this,hotLogo,cityId);
+                    myPopWindow02.showPopWindow(car_content_tietle);
+                }
+            }
+        });
     }
 
     @Override

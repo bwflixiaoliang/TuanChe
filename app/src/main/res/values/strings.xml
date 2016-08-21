@@ -5,6 +5,7 @@
     <string name="Loge_car">品牌选车</string>
     <string name="Tiaojian_car">条件选车</string>
     <string name="hot_brand">热门</string>
+    <string name="hot_pice">价格</string>
     <string name="tiaojian_jibie">级别</string>
     <string name="tiaojian_guojia">国别</string>
     <string name="tiaojian_pailiang">排量</string>

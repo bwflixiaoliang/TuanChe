@@ -1,18 +1,12 @@
 package com.bwf.tuanche.Activity;
 
 import android.graphics.Color;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.utils.IntentUtils;
-import com.bwf.tuanche.CarContentFragment.TiaojianCarFragment;
 import com.bwf.tuanche.R;
 
 public class CarScreenActivity extends BaseActivity {
@@ -65,7 +59,6 @@ public class CarScreenActivity extends BaseActivity {
                 shaixuan_hotcar_but.setTextColor(Color.BLACK);
                 hot_car_view.setBackgroundColor(Color.WHITE);
                 break;
-
         }
     }
 }

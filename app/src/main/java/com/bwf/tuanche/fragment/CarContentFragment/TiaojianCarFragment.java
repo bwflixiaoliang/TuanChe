@@ -1,15 +1,8 @@
-package com.bwf.tuanche.CarContentFragment;
+package com.bwf.tuanche.fragment.CarContentFragment;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.bwf.framwork.base.BaseBean;
 import com.bwf.framwork.base.BaseFragment;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;

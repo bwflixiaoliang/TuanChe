@@ -22,13 +22,14 @@ import java.util.List;
  */
 public class CarHotRecyclerAdatper extends RecyclerView.Adapter<CarHotRecyclerAdatper.CarHotViewHolder> {
 
-    private  List<HotLogo> list;
-
+    private List<HotLogo> list;
     private Context context;
+    private CallRecycleBack recycleBack;
 
-    public CarHotRecyclerAdatper(Context context, List<HotLogo> list) {
+    public CarHotRecyclerAdatper(Context context, List<HotLogo> list, CallRecycleBack recycleBack) {
         this.context = context;
         this.list = list;
+        this.recycleBack = recycleBack;
     }
 
     @Override
@@ -48,11 +49,12 @@ public class CarHotRecyclerAdatper extends RecyclerView.Adapter<CarHotRecyclerAd
         if (list != null && !list.isEmpty()) {
             ImageLoader.getInstance().disPlayImage(holder.car_content_fresco, list.get(position).logo);
             holder.car_content_text.setText(list.get(position).name);
-
             holder.car_content_fresco.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ToastUtil.showToast(list.get(position).name);
+                    if (recycleBack != null) {
+                        recycleBack.callRecyclePop(list.get(position));
+                    }
                 }
             });
         }
@@ -71,5 +73,10 @@ public class CarHotRecyclerAdatper extends RecyclerView.Adapter<CarHotRecyclerAd
         public CarHotViewHolder(View itemView) {
             super(itemView);
         }
+    }
+
+    //回调接口，弹出POpWindow
+    public interface CallRecycleBack {
+        void callRecyclePop(HotLogo hotLogo);
     }
 }

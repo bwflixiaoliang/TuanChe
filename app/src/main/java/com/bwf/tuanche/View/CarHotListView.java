@@ -45,11 +45,11 @@ public class CarHotListView extends ListView {
         addHeaderView(hotLogoview);
     }
 
-    public  void  setRecycler(List<HotLogo> list){
+    public  void  setRecycler(List<HotLogo> list,CarHotRecyclerAdatper.CallRecycleBack recycleBack){
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context,4);
         car_contentRecy.setLayoutManager(gridLayoutManager);
         //加载RcycleView数据
-        recyclerAdatper = new CarHotRecyclerAdatper(context,list);
+        recyclerAdatper = new CarHotRecyclerAdatper(context,list,recycleBack);
         car_contentRecy.setAdapter(recyclerAdatper);
     }
 }

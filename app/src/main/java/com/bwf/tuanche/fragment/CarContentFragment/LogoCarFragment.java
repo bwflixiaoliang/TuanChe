@@ -1,9 +1,10 @@
-package com.bwf.tuanche.CarContentFragment;
+package com.bwf.tuanche.fragment.CarContentFragment;
 
 import android.view.View;
+import android.widget.AdapterView;
 
 import com.bwf.framwork.base.BaseFragment;
-import com.bwf.framwork.utils.ToastUtil;
+import com.bwf.tuanche.Adatper.CarHotRecyclerAdatper;
 import com.bwf.tuanche.Adatper.CarLogoListAdapter;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.View.CarHotListView;
@@ -20,6 +21,18 @@ public class LogoCarFragment extends BaseFragment {
     private CarLogoListAdapter ListAdapter;
     private List<HotLogo> list;
     private List<LogoCarListBean> result;
+
+    //PopWindow的回调
+    private CarListCallBack callBack;
+    private CarHotRecyclerAdatper.CallRecycleBack recycleBack;
+
+
+    public void setCallBack(CarListCallBack callBack) {
+        this.callBack = callBack;
+    }
+    public void setRecycleBack(CarHotRecyclerAdatper.CallRecycleBack recycleBack) {
+        this.recycleBack = recycleBack;
+    }
 
     public void setList(List<HotLogo> list) {
         this.list = list;
@@ -54,18 +67,35 @@ public class LogoCarFragment extends BaseFragment {
     //显示热门品牌
     public void showHotLogo() {
         if (list != null) {
-            car_hot_listView.setRecycler(list);
+            car_hot_listView.setRecycler(list,recycleBack);
         }
     }
 
     //显示品牌列表
     public void showLogoList() {
-        ListAdapter = new CarLogoListAdapter(result,getContext());
+        ListAdapter = new CarLogoListAdapter(result, getContext());
         car_hot_listView.setAdapter(ListAdapter);
+        car_hot_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                //回调到Activity中，弹出PopWindow
+                //1。拿到点击Item的对象
+                LogoCarListBean carListBean = (LogoCarListBean) adapterView.getItemAtPosition(position);
+                if (callBack != null) {
+                    callBack.getPopWindow(carListBean);
+                }
+            }
+        });
     }
 
     @Override
     public void onClick(View view) {
 
     }
+
+    //回调到Activity中实现弹出PopWindow
+    public interface CarListCallBack {
+        void getPopWindow(LogoCarListBean carListBean);
+    }
+
 }

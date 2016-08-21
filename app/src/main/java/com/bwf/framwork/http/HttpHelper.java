@@ -90,7 +90,7 @@ public class HttpHelper {
                 .build()
                 .execute(callBack);
     }
-    //根据车品牌获取车列表t ype=0&cityId=156&brandId=25
+    //根据车品牌获取车列表type=0&cityId=156&brandId=25
     public static void  getDataCarByBrand(String type,String cityId,String brandId ,HttpCallBack callBack){
         OkHttpUtils.post().url(UrlUtils.SELECTCARLISTBYBRAND_URL)
                 .addParams("type",type)

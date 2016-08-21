@@ -1,4 +1,4 @@
-package com.bwf.tuanche.CarContentFragment;
+package com.bwf.tuanche.fragment.CarContentFragment;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,7 +9,6 @@ import com.bwf.tuanche.Adatper.CarJibieRecyclerAdatper;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.eneity.TiaojianCar.CarRank;
 
-import java.util.ArrayList;
 import java.util.List;
 
 

@@ -57,7 +57,14 @@ public class CarLogoListAdapter extends BaseListAdpter<LogoCarListBean, CarLogoL
         holder.carLogo_list_last.setText(logoCarListBean.penname);
         ImageLoader.getInstance().disPlayImage(holder.carLogo_list_image, logoCarListBean.logo);
         holder.carLogo_list_text.setText(logoCarListBean.name);
-
+        if(position > 1){
+            LogoCarListBean logo2 = (LogoCarListBean) getItem(position - 1);
+            if (logoCarListBean.penname.equals(logo2.penname)) {
+                holder.carLogo_list_last.setVisibility(View.GONE);
+            } else {
+                holder.carLogo_list_last.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     public class MyViewHolder extends BaseListAdpter.ViewHolder {

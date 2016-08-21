@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context="com.bwf.tuanche.CarContentFragment.TiaojianCarFragment">
+    tools:context=".fragment.CarContentFragment.TiaojianCarFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,21 +17,21 @@
             <!--级别选车-->
             <fragment
                 android:id="@+id/jibie_tiaojianCar"
-                android:name="com.bwf.tuanche.CarContentFragment.TiaojianFragment01"
+                android:name="com.bwf.tuanche.fragment.CarContentFragment.TiaojianFragment01"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <!--国产选车-->
             <fragment
                 android:id="@+id/guochan_tiaojianCar"
-                android:name="com.bwf.tuanche.CarContentFragment.TiaojianFragment02"
+                android:name="com.bwf.tuanche.fragment.CarContentFragment.TiaojianFragment02"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <!--排量选车-->
             <fragment
                 android:id="@+id/pailiang_tiaojianCar"
-                android:name="com.bwf.tuanche.CarContentFragment.TiaojianFragment03"
+                android:name="com.bwf.tuanche.fragment.CarContentFragment.TiaojianFragment03"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

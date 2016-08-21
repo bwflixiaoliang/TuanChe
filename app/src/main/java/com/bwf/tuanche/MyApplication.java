@@ -21,21 +21,6 @@ public class MyApplication extends Application {
 
     private static MyApplication myApplication;
 
-    //低价购车—品牌选车
-    private List<HotLogo> list;
-    private List<LogoCarListBean> result;
-    public List<HotLogo> getList() {
-        return list;
-    }
-    public void setList(List<HotLogo> list) {
-        this.list = list;
-    }
-    public List<LogoCarListBean> getResult() {
-        return result;
-    }
-    public void setResult(List<LogoCarListBean> result) {
-        this.result = result;
-    }
 
     @Override
     public void onCreate() {
@@ -46,7 +31,6 @@ public class MyApplication extends Application {
         Fresco.initialize(this);
         //初始化okhttp
         initOkhttp();
-
     }
 
     /**

@@ -5,15 +5,16 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="com.bwf.tuanche.Activity.MainListActivity">
+
     <LinearLayout
-        android:orientation="horizontal"
         android:id="@+id/ll_con1"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_width="match_parent">
-            <include
-                android:id="@+id/include1"
-                layout="@layout/content_1"
-                />
+        android:orientation="horizontal">
+
+        <include
+            android:id="@+id/include1"
+            layout="@layout/content_1" />
     </LinearLayout>
 
     <LinearLayout
@@ -21,90 +22,88 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone"
-        >
+        android:visibility="gone">
+
         <include
             android:id="@+id/include2"
-            layout="@layout/content_2"
-            />
+            layout="@layout/content_2" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/ll_con3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone"
-        >
+        android:visibility="gone">
+
         <include
             android:id="@+id/include3"
-            layout="@layout/content_3"
-            />
+            layout="@layout/content_3" />
     </LinearLayout>
 
     <LinearLayout
-        android:background="@color/colorwhite"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
-       android:layout_alignParentBottom="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorwhite"
         android:gravity="center"
-        android:paddingTop="5dp"
-        >
+        android:orientation="horizontal"
+        android:paddingTop="5dp">
+
         <TextView
             android:id="@+id/main_page"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="首页"
-            android:paddingTop="10dp"
-            android:gravity="center_horizontal"
-            android:textSize="@dimen/text_12"
-            android:textColor="@color/colorred"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:drawableTop="@mipmap/nav_icon_home_sel"
-           />
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:text="首页"
+            android:textColor="@color/colorred"
+            android:textSize="@dimen/text_12" />
+
         <TextView
             android:id="@+id/main_dingdan"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="订单"
-            android:paddingTop="10dp"
-            android:gravity="center_horizontal"
-            android:textSize="@dimen/text_12"
-            android:textColor="@color/black"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:drawableTop="@mipmap/nav_icon_order_nor"
-            />
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:text="订单"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_12" />
+
         <ImageView
             android:id="@+id/dijia"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@mipmap/icon_low_price"
-            />
+            android:src="@mipmap/icon_low_price" />
+
         <TextView
             android:id="@+id/kefu"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="客服"
-            android:paddingTop="10dp"
-            android:gravity="center_horizontal"
-            android:textSize="@dimen/text_12"
-            android:textColor="@color/black"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:drawableTop="@mipmap/nav_icon_server_nor"
-            />
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:text="客服"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_12" />
+
         <TextView
             android:id="@+id/wode"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="我的"
-            android:paddingTop="10dp"
-            android:gravity="center_horizontal"
-            android:textSize="@dimen/text_12"
-            android:textColor="@color/black"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:drawableTop="@mipmap/nav_icon_my_nor"
-            />
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:text="我的"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_12" />
 
     </LinearLayout>
 </RelativeLayout>

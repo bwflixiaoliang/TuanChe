@@ -51,7 +51,7 @@ public class CarContentActivity extends BaseActivity{
     @Override
     public void beforeInitView() {
         isBuy = "2";
-        cityId = "156";
+        cityId = getIntent().getStringExtra("cityId");
         fargments = new ArrayList<>();
     }
 
@@ -132,7 +132,7 @@ public class CarContentActivity extends BaseActivity{
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.content_back://点击返回
-                IntentUtils.openActivity(this,MainActivity.class);
+                IntentUtils.openActivity(this,MainListActivity.class);
                 break;
             case R.id.Loge_car://品牌选车
                 Loge_car.setBackgroundResource(R.mipmap.round_red_left);
@@ -157,7 +157,7 @@ public class CarContentActivity extends BaseActivity{
     /**
      * 请求热门品牌参数
      */
-    public void getHotLogo(){
+    private void getHotLogo(){
         //加载数据动画
 
         //加载热门品牌数据，热门品牌数据请求方法 ?isBuy=2&cityId=156
@@ -182,7 +182,7 @@ public class CarContentActivity extends BaseActivity{
     /**
      * 请求品牌列表参数
      */
-    public void getLogoCar(){
+    private void getLogoCar(){
         //加载数据动画
 
         HttpHelper.getDataCarList(cityId, new HttpCallBack<LogoCarListResult>() {

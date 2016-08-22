@@ -2,9 +2,11 @@ package com.bwf.tuanche.Activity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,6 +15,7 @@ import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpCallBackArray;
 import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.utils.DrawableUtils;
+import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.framwork.utils.LogUtils;
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.R;
@@ -38,21 +41,24 @@ public class MainListActivity extends BaseActivity {
 
     private MainListFragment_4 mainListFragment_4;
 
-    private LinearLayout ll_con1,ll_con2,ll_con3;
+    private LinearLayout ll_con1, ll_con2, ll_con3;
 
-    private String cityName,cityId;
+    private String cityName, cityId;
 
-    private TextView main_page,main_dingdan,main_kefu,main_wode,content_city;
+    private TextView main_page, main_dingdan, main_kefu, main_wode, content_city;
 
-    private int[] select_ids=new int[]{R.mipmap.nav_icon_home_sel,R.mipmap.nav_icon_order_sel,R.mipmap.nav_icon_server_sel,R.mipmap.nav_icon_my_sel};
+    private int[] select_ids = new int[]{R.mipmap.nav_icon_home_sel, R.mipmap.nav_icon_order_sel, R.mipmap.nav_icon_server_sel, R.mipmap.nav_icon_my_sel};
 
-    private int[] normal_ids=new int[]{R.mipmap.nav_icon_home_nor,R.mipmap.nav_icon_order_nor,R.mipmap.nav_icon_server_nor,R.mipmap.nav_icon_my_nor};
+    private int[] normal_ids = new int[]{R.mipmap.nav_icon_home_nor, R.mipmap.nav_icon_order_nor, R.mipmap.nav_icon_server_nor, R.mipmap.nav_icon_my_nor};
 
     private TextView[] textViews;
 
     private EditText ed_search;
 
-    private boolean page=true,dingdan=false,kefu=false,wode=false;
+    private boolean page = true, dingdan = false, kefu = false, wode = false;
+
+    //跳转低价购车页面
+    private ImageView dijia;
 
     @Override
     public int getContentViewId() {
@@ -63,28 +69,30 @@ public class MainListActivity extends BaseActivity {
     public void beforeInitView() {
         cityName = getIntent().getStringExtra("cityName");
         cityId = getIntent().getStringExtra("cityId");
-        cityName = cityName==null?"成都":cityName;
-        cityId =cityId ==null?"156":cityId;
-        //
+        cityName = cityName == null ? "成都" : cityName;
+        cityId = cityId == null ? "156" : cityId;
     }
 
     @Override
     public void initView() {
-        mainListFragment_1= (MainListFragment_1) getSupportFragmentManager().findFragmentById(R.id.main_list_frag1);
-        mainListFragment_2= (MainListFragment_2) getSupportFragmentManager().findFragmentById(R.id.main_list_frag2);
-        mainListFragment_3= (MainListFragment_3) getSupportFragmentManager().findFragmentById(R.id.main_list_frag3);
-        mainListFragment_4= (MainListFragment_4) getSupportFragmentManager().findFragmentById(R.id.main_list_frag4);
-        ll_con1= (LinearLayout) findViewById(R.id.ll_con1);
-        ll_con2= (LinearLayout) findViewById(R.id.ll_con2);
-        ll_con3= (LinearLayout) findViewById(R.id.ll_con3);
-        content_city=findViewByIdNoCast(R.id.content_city);
-        ed_search=findViewByIdNoCast(R.id.search_ed);
-        main_page=findViewByIdNoCast(R.id.main_page);
-        main_dingdan=findViewByIdNoCast(R.id.main_dingdan);
-        main_kefu=findViewByIdNoCast(R.id.kefu);
-        main_wode=findViewByIdNoCast(R.id.wode);
-        textViews=new TextView[]{main_page,main_dingdan,main_kefu,main_wode};
-        setOnClick(main_page,main_dingdan,main_kefu,main_wode,ed_search);
+        mainListFragment_1 = (MainListFragment_1) getSupportFragmentManager().findFragmentById(R.id.main_list_frag1);
+        mainListFragment_2 = (MainListFragment_2) getSupportFragmentManager().findFragmentById(R.id.main_list_frag2);
+        mainListFragment_3 = (MainListFragment_3) getSupportFragmentManager().findFragmentById(R.id.main_list_frag3);
+        mainListFragment_4 = (MainListFragment_4) getSupportFragmentManager().findFragmentById(R.id.main_list_frag4);
+        ll_con1 = (LinearLayout) findViewById(R.id.ll_con1);
+        ll_con2 = (LinearLayout) findViewById(R.id.ll_con2);
+        ll_con3 = (LinearLayout) findViewById(R.id.ll_con3);
+        content_city = findViewByIdNoCast(R.id.content_city);
+        ed_search = findViewByIdNoCast(R.id.search_ed);
+        main_page = findViewByIdNoCast(R.id.main_page);
+        main_dingdan = findViewByIdNoCast(R.id.main_dingdan);
+        main_kefu = findViewByIdNoCast(R.id.kefu);
+        main_wode = findViewByIdNoCast(R.id.wode);
+        textViews = new TextView[]{main_page, main_dingdan, main_kefu, main_wode};
+        setOnClick(main_page, main_dingdan, main_kefu, main_wode, ed_search);
+        //跳转低价购车页面
+        dijia = findViewByIdNoCast(R.id.dijia);
+        setOnClick(dijia);
     }
 
     @Override
@@ -95,81 +103,88 @@ public class MainListActivity extends BaseActivity {
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()){
+        switch (view.getId()) {
             case R.id.main_page:
-                if(page==true){
+                if (page == true) {
                     return;
-                }else {
-                    page=true;
-                    dingdan=false;
-                    kefu=false;
-                    wode=false;
+                } else {
+                    page = true;
+                    dingdan = false;
+                    kefu = false;
+                    wode = false;
                     ll_con1.setVisibility(View.VISIBLE);
                     ll_con2.setVisibility(View.GONE);
                     ll_con3.setVisibility(View.GONE);
                     setSelect(0);
                 }
-                 break;
+                break;
             case R.id.main_dingdan:
-                if(dingdan==true){
+                if (dingdan == true) {
                     return;
-                }else {
-                    page=false;
-                    dingdan=true;
-                    kefu=false;
-                    wode=false;
+                } else {
+                    page = false;
+                    dingdan = true;
+                    kefu = false;
+                    wode = false;
                     ll_con1.setVisibility(View.GONE);
                     ll_con2.setVisibility(View.GONE);
                     ll_con3.setVisibility(View.GONE);
                     setSelect(1);
                 }
-                 break;
+                break;
             case R.id.kefu:
-                if(kefu==true){
+                if (kefu == true) {
                     return;
-                }else {
-                    page=false;
-                    dingdan=false;
-                    kefu=true;
-                    wode=false;
+                } else {
+                    page = false;
+                    dingdan = false;
+                    kefu = true;
+                    wode = false;
                     ll_con1.setVisibility(View.GONE);
                     ll_con2.setVisibility(View.VISIBLE);
                     ll_con3.setVisibility(View.GONE);
                     setSelect(2);
                 }
-                 break;
+                break;
             case R.id.wode:
-                if(wode==true){
+                if (wode == true) {
                     return;
-                }else {
-                    page=false;
-                    dingdan=false;
-                    kefu=false;
-                    wode=true;
+                } else {
+                    page = false;
+                    dingdan = false;
+                    kefu = false;
+                    wode = true;
                     ll_con1.setVisibility(View.GONE);
                     ll_con2.setVisibility(View.GONE);
                     ll_con3.setVisibility(View.VISIBLE);
                     setSelect(3);
                 }
-                 break;
+                break;
             case R.id.search_ed:
-                Intent intent=new Intent(this,HotSearch_Activity.class);
+                Intent intent = new Intent(this, HotSearch_Activity.class);
                 startActivity(intent);
+                break;
+            case R.id.dijia://跳转低价购车页面
+                Bundle bundle = new Bundle();
+                bundle.putString("cityId",cityId);
+                IntentUtils.openActivity(this,CarContentActivity.class,bundle);
                 break;
 
         }
     }
-    public void getData(){
+
+    public void getData() {
         /**
          * 底价购车
          */
         HttpHelper.getDataAtCity(cityId, new HttpCallBack<TuanCheResult>() {
             @Override
             public void onSuccess(TuanCheResult result) {
-                if(result.result!=null)
-                mainListFragment_1.setData(result);
-                else LogUtils.e("onSuccess__"+ "为空");
+                if (result.result != null)
+                    mainListFragment_1.setData(result);
+                else LogUtils.e("onSuccess__" + "为空");
             }
+
             @Override
             public void onFail(String errMsg) {
                 ToastUtil.showToast("失败");
@@ -182,9 +197,9 @@ public class MainListActivity extends BaseActivity {
         HttpHelper.getDataHotLogo("2", cityId, new HttpCallBack<ResultBean>() {
             @Override
             public void onSuccess(ResultBean result) {
-                if(result!=null)
-                mainListFragment_2.getData(result,cityName);
-                else LogUtils.e("onSuccess__"+ "为空");
+                if (result != null)
+                    mainListFragment_2.getData(result, cityName);
+                else LogUtils.e("onSuccess__" + "为空");
             }
 
             @Override
@@ -199,9 +214,9 @@ public class MainListActivity extends BaseActivity {
         HttpHelper.getDataHomePageBanner(cityId, new HttpCallBack<BannerResult>() {
             @Override
             public void onSuccess(BannerResult result) {
-                if(result.result!=null){
-                    mainListFragment_1.getBigBanner(result.result.header_banner.get(0).adImgUrl);
-                    mainListFragment_3.setData(result.result.center_banner,result.result.position_banner);
+                if (result.result != null) {
+                    mainListFragment_1.getBigBanner(result.result.header_banner.get(0).adImgUrl,cityId);
+                    mainListFragment_3.setData(result.result.center_banner, result.result.position_banner);
                 }
             }
 
@@ -216,16 +231,17 @@ public class MainListActivity extends BaseActivity {
         HttpHelper.getDataHotCarType("20", "10", cityId, new HttpCallBackArray<HotCarResultBean>() {
             @Override
             public void onSuccess(List<HotCarResultBean> result) {
-                if(result!=null)
-                mainListFragment_4.setData(result,cityName);
+                if (result != null)
+                    mainListFragment_4.setData(result, cityName);
             }
 
             @Override
             public void onFail(String errMsg) {
-                LogUtils.e(errMsg+"TTTTTTTTTT");
+                LogUtils.e(errMsg + "TTTTTTTTTT");
             }
         });
     }
+
     public void setSelect(int postion) {
         for (int i = 0; i < textViews.length; i++) {
             if (i == postion) {

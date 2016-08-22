@@ -8,7 +8,7 @@ import java.io.Serializable;
  * Created by lixiaoliang on 2016/8/17.
  * Description:
  */
-public class LocationBean extends BaseBean  {
+public class LocationBean extends BaseBean implements Serializable {
     public LocationCity result;
     @Override
     public String toString() {

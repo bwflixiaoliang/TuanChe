@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:background="@color/colorwhite"
+        android:paddingTop="10dp"
+        android:paddingLeft="5dp"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="3"
+    android:orientation="horizontal"
+    >
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/deatil_frag4_item_sim"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:paddingLeft="10dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/deatil_frag4_item_tv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_16"
+            android:textColor="@color/grayshen"
+            android:text="团员"
+            android:gravity="center_vertical"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <RatingBar
+                android:id="@+id/deatil_frag4_item_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="1"
+                style="?android:attr/ratingBarStyleSmall"/>
+            <TextView
+                android:id="@+id/deatil_frag4_item_tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_14"
+                android:text="123"
+                android:layout_marginLeft="10dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+    <TextView
+        android:id="@+id/deatil_frag4_item_tvping"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="@dimen/text_16"
+        android:textColor="@color/colorblack"
+        android:gravity="center_vertical"
+        android:text="123"
+        />
+    </LinearLayout>
+</LinearLayout>

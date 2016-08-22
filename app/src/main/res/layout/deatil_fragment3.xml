@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    >
+        <TextView
+            android:background="@color/colorwhite"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:padding="5dp"
+            android:textColor="@color/colorblack"
+            android:text="购车流程"
+            android:layout_marginBottom="2dp"
+            />
+
+    <WebView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_height="350dp"
+        android:padding="10dp"
+        ></WebView>
+</LinearLayout>

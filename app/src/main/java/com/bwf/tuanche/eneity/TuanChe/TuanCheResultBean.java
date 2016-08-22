@@ -1,17 +1,17 @@
 package com.bwf.tuanche.eneity.TuanChe;
 
+import com.bwf.framwork.base.BaseBean;
+
 import java.util.List;
 
 /**
  * Created by fengchao on 2016/8/16.
  * Description：
  */
-public class TuanCheResultBean {
-//    private List<Oc> oc ;为空，暂时不知作用
+public class TuanCheResultBean{
 
     public List<Nc> nc ;
 
-//    private List<Tc> tc ;为空，暂时不知作用
 
 //    public void setOc(List<Oc> oc){
 //        this.oc = oc;
@@ -29,9 +29,11 @@ public class TuanCheResultBean {
     @Override
     public String toString() {
         return "TuanCheResultBean{" +
-                "nc=" + nc +
+                ", nc=" + nc +
                 '}';
     }
+
+
 //    public void setTc(List<Tc> tc){
 //        this.tc = tc;
 //    }

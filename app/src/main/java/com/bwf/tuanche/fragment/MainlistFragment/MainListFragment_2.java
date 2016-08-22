@@ -71,6 +71,7 @@ public class MainListFragment_2 extends BaseFragment{
                     Bundle bundle=new Bundle();
                     bundle.putSerializable("res",result.result.list.get(i));
                     intent.putExtras(bundle);
+                    intent.putExtra("carname",result.result.list.get(i).name);
                     intent.putExtra("cityname",cityName);
                     startActivity(intent);
                 }

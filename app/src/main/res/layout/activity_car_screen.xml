@@ -98,9 +98,10 @@
 
     </LinearLayout>
 
-
     <!--自定义ListView-->
-
-
+    <com.bwf.tuanche.View.CarScreenListView
+        android:id="@+id/car_screen_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

@@ -21,16 +21,19 @@ import java.util.List;
  */
 public class CarHotListView extends ListView {
 
-    private View  hotLogoview;
+    private View hotLogoview;
     private RecyclerView car_contentRecy;
     private CarHotRecyclerAdatper recyclerAdatper;
     private Context context;
+
     public CarHotListView(Context context) {
-        this(context,null);
+        this(context, null);
     }
+
     public CarHotListView(Context context, AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
+
     public CarHotListView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
@@ -38,18 +41,18 @@ public class CarHotListView extends ListView {
     }
 
     //初始化View
-    public void initView(Context context){
+    public void initView(Context context) {
         //添加头部热门品牌
-        hotLogoview = View.inflate(context, R.layout.fragment_logo_fragment01,null);
+        hotLogoview = View.inflate(context, R.layout.fragment_logo_fragment01, null);
         car_contentRecy = (RecyclerView) hotLogoview.findViewById(R.id.car_contentRecy);
         addHeaderView(hotLogoview);
     }
 
-    public  void  setRecycler(List<HotLogo> list,CarHotRecyclerAdatper.CallRecycleBack recycleBack){
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(context,4);
+    public void setRecycler(List<HotLogo> list, CarHotRecyclerAdatper.CallRecycleBack recycleBack) {
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 4);
         car_contentRecy.setLayoutManager(gridLayoutManager);
         //加载RcycleView数据
-        recyclerAdatper = new CarHotRecyclerAdatper(context,list,recycleBack);
+        recyclerAdatper = new CarHotRecyclerAdatper(context, list, recycleBack);
         car_contentRecy.setAdapter(recyclerAdatper);
     }
 }

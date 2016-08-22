@@ -9,9 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.PopupWindow;
-import android.widget.TextView;
 
-import com.bwf.framwork.base.BaseBean;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.utils.DisplayUtil;
@@ -35,6 +33,7 @@ public class MyPopWindow extends PopupWindow implements View.OnClickListener {
     private Context context;
     private LogoCarListBean carListBean;
     private HotLogo hotLogo;
+    private View myview;
 
     private String cityId;
     private String type;
@@ -63,44 +62,61 @@ public class MyPopWindow extends PopupWindow implements View.OnClickListener {
     }
 
     private void initView() {
-        View view = View.inflate(context, R.layout.item_carlsit_pop, null);
+        myview = View.inflate(context, R.layout.item_carlsit_pop, null);
         //popWindow的相关设置
-        this.setContentView(view);//加载一个布局
+        this.setContentView(myview);//加载一个布局
         this.setWidth(DisplayUtil.getDensity_Width(context));
         this.setHeight(DisplayUtil.getDensity_Height(context));
         this.setBackgroundDrawable(new BitmapDrawable());
         this.setFocusable(true);
+        //实例化一个ColorDrawable颜色为半透明
+//        ColorDrawable dw = new ColorDrawable(0xb0000000);
+//        this.setBackgroundDrawable(dw);
         this.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);//??????
         this.setAnimationStyle(R.style.PopupAnimationShowCarList);
 
         //设置热门与价格的点击监听
-        hot_car_list = (Button) view.findViewById(R.id.hot_car_list);
-        pice_car_list = (Button) view.findViewById(R.id.pice_car_list);
-        pop_left_null = view.findViewById(R.id.pop_left_null);
-        hot_car_down = view.findViewById(R.id.hot_car_down);
-        pice_car_down = view.findViewById(R.id.pice_car_down);
+        hot_car_list = (Button) myview.findViewById(R.id.hot_car_list);
+        pice_car_list = (Button) myview.findViewById(R.id.pice_car_list);
+        pop_left_null = myview.findViewById(R.id.pop_left_null);
+        hot_car_down = myview.findViewById(R.id.hot_car_down);
+        pice_car_down = myview.findViewById(R.id.pice_car_down);
         hot_car_list.setTextColor(Color.RED);
         hot_car_down.setBackgroundColor(Color.RED);
         hot_car_list.setOnClickListener(this);
         pice_car_list.setOnClickListener(this);
         pop_left_null.setOnClickListener(this);
-        list_car_list = (ListView) view.findViewById(R.id.list_car_list);
+        list_car_list = (ListView) myview.findViewById(R.id.list_car_list);
         //判断点击对象来自哪里，再请求相应的数据
-        if(carListBean != null){
+        if (carListBean != null) {
             getDataHot();
-        }else if(hotLogo != null){
+        } else if (hotLogo != null) {
             getDataSelectHot();
         }
+        //数据ListView的点击监听
         list_car_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //传递城市ID和车辆品牌ID
                 ToastUtil.showToast(cityId);
                 CarListBean carListBean = (CarListBean) adapterView.getItemAtPosition(i);
-                ToastUtil.showToast(""+carListBean.id);
+                ToastUtil.showToast("" + carListBean.id);
                 ToastUtil.showToast("跳转到相应的页面！");
             }
         });
+
+        //popWindow的滑动监听
+//        myview.setOnTouchListener(new OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//                switch (motionEvent.getAction()){
+//                    case MotionEvent.ACTION_UP:
+//                        ToastUtil.showToast("commming");
+//                    break;
+//                }
+//                return false;
+//            }
+//        });
     }
 
     //点击列表的数据请求
@@ -110,31 +126,33 @@ public class MyPopWindow extends PopupWindow implements View.OnClickListener {
             public void onSuccess(CarListResult resultAll) {
                 List<CarListBean> carListBeen = new ArrayList<>();
                 if (resultAll != null) {
-                    for(int i = 0 ; i < resultAll.result.size();i++)
+                    for (int i = 0; i < resultAll.result.size(); i++)
                         carListBeen.addAll(resultAll.result.get(i).styleList);
                     popAdapter = new CarListPopAdapter(carListBeen, context);
                     list_car_list.setAdapter(popAdapter);
                 }
             }
+
             @Override
             public void onFail(String errMsg) {
             }
         });
     }
 
-//    点击热门品牌的数据请求
-    private void getDataSelectHot(){
+    //    点击热门品牌的数据请求
+    private void getDataSelectHot() {
         HttpHelper.getDataCarByBrand(type, cityId, hotLogo.id, new HttpCallBack<CarListResult>() {
             @Override
             public void onSuccess(CarListResult resultAll) {
                 List<CarListBean> carListBeen = new ArrayList<>();
                 if (resultAll != null) {
-                    for(int i = 0 ; i < resultAll.result.size();i++)
+                    for (int i = 0; i < resultAll.result.size(); i++)
                         carListBeen.addAll(resultAll.result.get(i).styleList);
                     popAdapter = new CarListPopAdapter(carListBeen, context);
                     list_car_list.setAdapter(popAdapter);
                 }
             }
+
             @Override
             public void onFail(String errMsg) {
 
@@ -151,9 +169,9 @@ public class MyPopWindow extends PopupWindow implements View.OnClickListener {
                 hot_car_down.setBackgroundColor(Color.RED);
                 pice_car_list.setTextColor(Color.BLACK);
                 pice_car_down.setBackgroundColor(Color.WHITE);
-                if(carListBean != null){
+                if (carListBean != null) {
                     getDataHot();
-                }else if(hotLogo != null){
+                } else if (hotLogo != null) {
                     getDataSelectHot();
                 }
                 break;
@@ -163,9 +181,9 @@ public class MyPopWindow extends PopupWindow implements View.OnClickListener {
                 hot_car_down.setBackgroundColor(Color.WHITE);
                 pice_car_list.setTextColor(Color.RED);
                 pice_car_down.setBackgroundColor(Color.RED);
-                if(carListBean != null){
+                if (carListBean != null) {
                     getDataHot();
-                }else if(hotLogo != null){
+                } else if (hotLogo != null) {
                     getDataSelectHot();
                 }
                 break;

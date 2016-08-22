@@ -2,6 +2,7 @@ package com.bwf.tuanche.Activity;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -148,16 +149,17 @@ public class CarContentActivity extends BaseActivity{
                 logo_tiaojian_car.setCurrentItem(1);
                 break;
             case R.id.content_search://点击搜索
-                IntentUtils.openActivity(this,CarSearchActivity.class);
+                ToastUtil.showToast("点击跳转到搜索页面");
                 break;
         }
     }
-
 
     /**
      * 请求热门品牌参数
      */
     public void getHotLogo(){
+        //加载数据动画
+
         //加载热门品牌数据，热门品牌数据请求方法 ?isBuy=2&cityId=156
         HttpHelper.getDataHotLogo(isBuy, cityId, new HttpCallBack<ResultBean>() {
             @Override
@@ -165,10 +167,14 @@ public class CarContentActivity extends BaseActivity{
                 if(resultBean != null ){
                     logoCarFragment.setList(resultBean.result.list);
                 }
+                //加载完成消失动画
+
             }
             @Override
             public void onFail(String errMsg) {
-                ToastUtil.showToast(errMsg);
+               //加载失败显示的动画
+                //点击重新加载
+
             }
         });
     }
@@ -177,18 +183,33 @@ public class CarContentActivity extends BaseActivity{
      * 请求品牌列表参数
      */
     public void getLogoCar(){
+        //加载数据动画
+
         HttpHelper.getDataCarList(cityId, new HttpCallBack<LogoCarListResult>() {
             @Override
             public void onSuccess(LogoCarListResult result) {
                 if(result != null){
                     logoCarFragment.setResult(result.result);
                 }
+                //加载完成消失动画
+
             }
             @Override
             public void onFail(String errMsg) {
-
+                //加载失败显示的动画
+                //点击重新加载
             }
         });
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                ToastUtil.showToast("X坐标："+event.getX());
+                ToastUtil.showToast("comme");
+                break;
+        }
+        return super.onTouchEvent(event);
+    }
 }

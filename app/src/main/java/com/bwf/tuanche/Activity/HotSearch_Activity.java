@@ -1,6 +1,5 @@
 package com.bwf.tuanche.Activity;
 
-import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Adapter;
@@ -9,23 +8,22 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.alibaba.fastjson.JSON;
 import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.base.BaseBean1;
 import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.utils.IntentUtils;
+import com.bwf.framwork.utils.LogUtils;
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.Adatper.HotSearchGridAdapter;
 import com.bwf.tuanche.Adatper.hotSearchpagerAdapter;
 import com.bwf.tuanche.R;
+import com.bwf.tuanche.sql.History;
 import com.bwf.tuanche.sql.HistoryBean;
 import com.zhy.http.okhttp.callback.StringCallback;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import okhttp3.Call;
 
 public class HotSearch_Activity extends BaseActivity {
@@ -127,6 +125,17 @@ public class HotSearch_Activity extends BaseActivity {
                 Date date=new Date();
                 long l1=date.getTime();
                 historyBean.time=l1;
+                LogUtils.e("History"+historyBean.toString());
+                History history=new History();
+                history.insertnew(historyBean);
+                List<HistoryBean> history1=history.Querey();
+                if(history1!=null){
+                   LogUtils.e("车速居"+history1.toString());
+                }else {
+                    ToastUtil.showToast("数据库是空的");
+
+                }
+
 //                Intent intent=new Intent(HotSearch_Activity.this,Search_only_Activity.class);
 //                intent.putExtra("123",string);
 //                startActivity(intent);

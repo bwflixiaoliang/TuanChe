@@ -108,6 +108,13 @@ public class HttpHelper {
                 .build()
                 .execute(callBack);
     }
+    public static void getDataHotCarDetail(String brandId,String cityId,HttpCallBack callBack){
+        OkHttpUtils.post().url(UrlUtils.CARDETAILS_URL)
+                .addParams("firmbrandId",brandId)
+                .addParams("cityId",cityId)
+                .build()
+                .execute(callBack);
+    }
     public static void getHotSearch(String cityId,StringCallback callback){
         OkHttpUtils.post().url(UrlUtils.HOTSEARCH_URL)
                 .addParams("cityId",cityId)

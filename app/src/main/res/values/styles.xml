@@ -12,7 +12,13 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
-
-
+        <style name="MyRatingBar" parent="@android:style/Widget.RatingBar">
+            <item name="android:progressDrawable">@drawable/progressbar_style</item>
+            <item name="android:minHeight">5dip</item>
+            <item name="android:maxHeight">5dip</item>
+        </style>
+        <style name="Pop_Animationbuycar">
+            <item name="android:windowEnterAnimation">@anim/coming</item>
+            <item name="android:windowExitAnimation">@anim/outing</item>
+        </style>
 </resources>

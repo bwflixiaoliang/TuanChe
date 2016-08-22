@@ -62,7 +62,7 @@ public class MainListActivity extends BaseActivity {
     public void beforeInitView() {
         cityName = getIntent().getStringExtra("cityName");
         cityId = getIntent().getStringExtra("cityId");
-        cityName = cityName==null?"北京":cityName;
+        cityName = cityName==null?"成都":cityName;
         cityId =cityId ==null?"156":cityId;
     }
 
@@ -181,7 +181,7 @@ public class MainListActivity extends BaseActivity {
             @Override
             public void onSuccess(Result result) {
                 if(result!=null)
-                mainListFragment_2.getData(result);
+                mainListFragment_2.getData(result,cityName);
                 else LogUtils.e("onSuccess__"+ "为空");
             }
 
@@ -215,7 +215,7 @@ public class MainListActivity extends BaseActivity {
             @Override
             public void onSuccess(List<HotCarResultBean> result) {
                 if(result!=null)
-                mainListFragment_4.setData(result);
+                mainListFragment_4.setData(result,cityName);
             }
 
             @Override

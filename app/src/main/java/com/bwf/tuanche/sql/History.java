@@ -3,7 +3,12 @@ package com.bwf.tuanche.sql;
 import android.content.ContentValues;
 import android.database.Cursor;
 import com.bwf.framwork.base.BaseModel;
+import com.bwf.framwork.utils.LogUtils;
+import com.bwf.framwork.utils.ToastUtil;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,6 +35,7 @@ public class History extends BaseModel{
         contentValues.put("name",historyBean.name);
         contentValues.put("time",historyBean.time);
         insert(TABLENAME,contentValues);
+        LogUtils.e("添加数据"+contentValues.toString());
     }
 
     /**
@@ -41,16 +47,22 @@ public class History extends BaseModel{
         delete(TABLENAME,"time=?",arg);
     }
 
-    public HistoryBean Querey(){
-        String sql="select * from"+TABLENAME;
+    public List<HistoryBean> Querey(){
+        int count=0;
+        List<HistoryBean> historyBeanList=new ArrayList<>();
+        String sql="select * from "+TABLENAME;
         Cursor cursor=select(sql);
         if (cursor != null) {
-            if (cursor.moveToNext()) {//找到userid为123的数据了
+            if (cursor.moveToNext()) {
+                ToastUtil.showToast("------------");
+                historyBean=new HistoryBean();
                 historyBean.name = cursor.getString(cursor.getColumnIndex("name"));
                 historyBean.time = cursor.getLong(cursor.getColumnIndex("time"));
+                historyBeanList.add(historyBean);
             }
         }
-        return historyBean;
+
+        return historyBeanList;
 
     }
 

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:freson="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/car_list_textnew"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="brand"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:textSize="@dimen/Loge_carText_16sp"
+        android:textColor="@color/black"
+        android:background="@color/huise" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/car_list_image02"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            freson:placeholderImage="@mipmap/default_special_2"
+            freson:placeholderImageScaleType="fitCenter"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/carName_text001"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="carName"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/Loge_carText_14sp"/>
+
+
+            <TextView
+                android:id="@+id/carPice_text002"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="指导价："
+                android:paddingTop="8dp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/Loge_carText_12sp"/>
+
+            <TextView
+                android:id="@+id/carPice_text003"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="carPice"
+                android:paddingLeft="10dp"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/Loge_carText_12sp"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.bwf.tuanche.Activity.CarScreenActivity"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/huise">
+
+        <ImageView
+            android:id="@+id/shaixuan_back"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="@color/huise"
+            android:padding="12dp"
+            android:src="@mipmap/icon_back" />
+
+        <TextView
+            android:id="@+id/shaixuan_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/tijiao_screen"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title_text_Szie" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/shaixuan_hotcar_but"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:text="@string/shaixuan_hotcar"
+                android:textColor="@color/black"
+                android:textSize="@dimen/Loge_carText_16sp" />
+
+            <View
+                android:id="@+id/hot_car_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/white" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/shaixuan_picecar_but"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:text="@string/shaixuan_picecar"
+                android:textColor="@color/black"
+                android:textSize="@dimen/Loge_carText_16sp" />
+
+            <View
+                android:id="@+id/pice_car_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--自定义ListView-->
+    <com.bwf.tuanche.View.CarScreenListView
+        android:id="@+id/car_screen_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

@@ -1,4 +1,29 @@
 <resources>
     <string name="app_name">TuanChe</string>
     <string name="nowCity_name">当前城市-%s</string>
+    <string name="title_activity_car_content">CarContentActivity</string>
+    <string name="Loge_car">品牌选车</string>
+    <string name="Tiaojian_car">条件选车</string>
+    <string name="hot_brand">热门</string>
+    <string name="hot_pice">价格</string>
+    <string name="tiaojian_jibie">级别</string>
+    <string name="tiaojian_guojia">国别</string>
+    <string name="tiaojian_pailiang">排量</string>
+    <string name="guojia_text">country</string>
+    <string name="chongzhi_tiaojian">重置</string>
+    <string name="tijiao_tiaojian">提交</string>
+    <string name="tijiao_screen">筛选结果</string>
+    <string name="shaixuan_hotcar">热门车型</string>
+    <string name="shaixuan_picecar">价格最低</string>
+    <string name="item_text03">%s款符合您的条件</string>
+    <string name="car_search_text">搜索</string>
+    <string name="car_search_hint">请输入品牌、车型</string>
+    <string name="hot_brand_search">热门搜索</string>
+    <string name="hot_last_search">搜索历史</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_car_screen">CarScreenActivity</string>
+
 </resources>

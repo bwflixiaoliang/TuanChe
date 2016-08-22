@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".fragment.CarContentFragment.TiaojianCarFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!--级别选车-->
+            <fragment
+                android:id="@+id/jibie_tiaojianCar"
+                android:name="com.bwf.tuanche.fragment.CarContentFragment.TiaojianFragment01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!--国产选车-->
+            <fragment
+                android:id="@+id/guochan_tiaojianCar"
+                android:name="com.bwf.tuanche.fragment.CarContentFragment.TiaojianFragment02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!--排量选车-->
+            <fragment
+                android:id="@+id/pailiang_tiaojianCar"
+                android:name="com.bwf.tuanche.fragment.CarContentFragment.TiaojianFragment03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/tiaojian_rester"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/shape_rester_select"
+                    android:text="@string/chongzhi_tiaojian"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/Loge_carText_16sp" />
+
+                <Button
+                    android:id="@+id/tiaojian_commit"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape_commit_select"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/tijiao_tiaojian"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/Loge_carText_16sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</LinearLayout>

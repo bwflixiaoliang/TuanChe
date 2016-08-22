@@ -2,23 +2,20 @@ package com.bwf.tuanche.eneity.hotlogo;
 
 import com.bwf.framwork.base.BaseBean;
 
+import java.util.List;
+
 /**
  * Created by fengchao on 2016/8/16.
  * Description：
  */
 public class Result extends BaseBean{
-    public String code;
 
-    public String msg;
-
-    public ResultBean result;
+    public List<HotLogo>  list;
 
     @Override
     public String toString() {
         return "Result{" +
-                "code='" + code + '\'' +
-                ", msg='" + msg + '\'' +
-                ", result=" + result +
+                "list=" + list +
                 '}';
     }
 }

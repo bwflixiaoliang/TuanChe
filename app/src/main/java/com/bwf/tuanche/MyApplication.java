@@ -3,9 +3,12 @@ package com.bwf.tuanche;
 import android.app.Application;
 import android.content.Context;
 
+import com.bwf.tuanche.eneity.hotlogo.HotLogo;
+import com.bwf.tuanche.eneity.logocarlist.LogoCarListBean;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.zhy.http.okhttp.OkHttpUtils;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -18,6 +21,7 @@ public class MyApplication extends Application {
 
     private static MyApplication myApplication;
 
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -26,7 +30,6 @@ public class MyApplication extends Application {
         Fresco.initialize(this);
         //初始化okhttp
         initOkhttp();
-
     }
 
     /**

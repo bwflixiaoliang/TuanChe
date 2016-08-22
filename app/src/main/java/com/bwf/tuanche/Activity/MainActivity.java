@@ -1,7 +1,6 @@
 package com.bwf.tuanche.Activity;
 
 
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
@@ -10,25 +9,17 @@ import android.view.View;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
-import com.baidu.location.Poi;
 import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.map.MapLocation;
 import com.bwf.framwork.share.SharePrefreceHelper;
-import com.bwf.framwork.utils.IntentUtils;
-import com.bwf.framwork.utils.LogUtils;
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.Adatper.WelcomePagerAdapter;
-import com.bwf.tuanche.MainListActivity;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.eneity.location.LocationBean;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.https.HttpsUtils;
-import com.zhy.http.okhttp.request.RequestCall;
 
-import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends BaseActivity implements Handler.Callback,BDLocationListener {
@@ -56,7 +47,6 @@ public class MainActivity extends BaseActivity implements Handler.Callback,BDLoc
         startImage = findViewByIdNoCast(R.id.welcome_startImage);
         guidePager = findViewByIdNoCast(R.id.welcome_guidePager);
         mHandler.sendEmptyMessageDelayed(1,3000);
-
     }
 
     @Override

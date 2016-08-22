@@ -3,10 +3,18 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="huise">#EAEAEA</color>
+    <color name="read">#FF0000</color>
+    <color name="black">#000000</color>
     <color name="colorblack">#000</color>
     <color name="colorwhite">#fff</color>
     <color name="colorred">#D02B14</color>
     <color name="gray">#939393</color>
     <color name="orange">#DFC351</color>
     <color name="blue">#457DD7</color>
+    <color name="jibie_down">#F4F4F4</color>
+    <color name="rester_TJ">#03A9F4</color>
+    <color name="commit_no">#EAAEDA</color>
 </resources>

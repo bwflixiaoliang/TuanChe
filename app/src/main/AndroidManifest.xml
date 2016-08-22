@@ -61,6 +61,15 @@
             android:value="qP8xQGb4IsYkyQy1Ca5YXd6QM0Wkstpj" />
 
         <activity android:name=".Activity.TestActivity"></activity>
+        <activity
+            android:name=".Activity.CarContentActivity"
+            android:label="@string/title_activity_car_content"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.CarScreenActivity"
+            android:label="@string/title_activity_car_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

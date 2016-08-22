@@ -21,8 +21,9 @@ public class UrlUtils {
     public static final String HOMEPAGEBANNER_URL =BASE_URL+"/bwf_TuanChe_BannerServlet";//?cityId=156
     //选择城市列表
     public static final String CITYLIST_URL = BASE_URL+"/bwf_TuanChe_Getcitys";//?pageSize=4
-    //8、选车—热门 接口在修复中；
-    //选车列表
+    //8、选车—列表
+    public static final String CARLIST_URL = BASE_URL+"/bwf_TuanChe_XuanbrandmapServlet";//?cityId=156（8月18日新增）
+    //选车热门品牌
     public static final String SELECTCAR_URL =BASE_URL+"/bwf_TuanChe_SelectTopBrand";//?cityId=156
     //选车 国产 进口，排量
     public static final String SELECTCARBYPARAMS_URL =BASE_URL+"/bwf_TuanChe_SelectCarInfosServlet";//

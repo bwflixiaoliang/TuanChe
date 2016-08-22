@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shouzimu_height"
+        android:background="@color/huise"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="@string/hot_brand"
+        android:textColor="@color/black"
+        android:textSize="@dimen/Loge_carText_16sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/car_contentRecy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

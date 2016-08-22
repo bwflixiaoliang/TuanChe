@@ -63,7 +63,6 @@ public abstract class BaseListAdpter<T, VH extends BaseListAdpter.ViewHolder> ex
 
         if (t != null)
             onBindViewHolder(viewHolder, t, postion);
-
         return convertView;
     }
 

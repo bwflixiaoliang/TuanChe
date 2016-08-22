@@ -22,28 +22,32 @@ import java.util.TimerTask;
 public class LoadAnimation extends RelativeLayout implements View.OnClickListener {
     private View rootView;
     private ImageView imageView_anima;
-    private TextView tv_loading,tv_loaded;
+    private TextView tv_loading, tv_loaded;
     private AnimationDrawable drawable;
     private LoadListener listener;
     private Timer timer;
-    private String [] loadingText = new String[]{"加载中","加载中·","加载中··","加载中···"};
+    private String[] loadingText = new String[]{"加载中", "加载中·", "加载中··", "加载中···"};
     private int count;
+
     public LoadAnimation(Context context) {
-        this(context,null);
+        this(context, null);
     }
+
     public LoadAnimation(Context context, AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public LoadAnimation(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView(context);
     }
+
     public void setListener(LoadListener listener) {
         this.listener = listener;
     }
-    private void  initView(Context context){
-        rootView = View.inflate(context, R.layout.loadanimation,null);
+
+    private void initView(Context context) {
+        rootView = View.inflate(context, R.layout.loadanimation, null);
         imageView_anima = (ImageView) rootView.findViewById(R.id.animation_image);
         tv_loading = (TextView) rootView.findViewById(R.id.animation_textloading);
         tv_loaded = (TextView) rootView.findViewById(R.id.animation_textloaded);
@@ -51,61 +55,79 @@ public class LoadAnimation extends RelativeLayout implements View.OnClickListene
         addView(rootView);
         startLoadAnimation();
     }
-    public void startLoadAnimation(){
+
+    public void startLoadAnimation() {
         timer = new Timer();
         tv_loaded.setVisibility(GONE);
         tv_loading.setVisibility(VISIBLE);
         imageView_anima.setBackgroundResource(R.drawable.loading);
-        if(getVisibility()!=VISIBLE)setVisibility(VISIBLE);
-         drawable = (AnimationDrawable) imageView_anima.getBackground();
-        if(drawable!=null&&!drawable.isRunning())drawable.start();
-        timer.schedule(getTimerTask(),500,500);
+        if (getVisibility() != VISIBLE) setVisibility(VISIBLE);
+        drawable = (AnimationDrawable) imageView_anima.getBackground();
+        if (drawable != null && !drawable.isRunning()) drawable.start();
+        timer.schedule(getTimerTask(), 500, 500);
     }
-    public void successLoad(){
-        if(timer!=null){timer.cancel();timer=null;count=0;}
-        if(drawable!=null&&drawable.isRunning())drawable.stop();
+
+    public void successLoad() {
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+            count = 0;
+        }
+        if (drawable != null && drawable.isRunning()) drawable.stop();
         drawable = null;
         setVisibility(GONE);
     }
-    public void failLoadNodata(LoadListener listener){
+
+    public void failLoadNodata(LoadListener listener) {
         this.listener = listener;
-        if(timer!=null){timer.cancel();timer=null;count=0;}
-        if(getVisibility()!=VISIBLE)setVisibility(VISIBLE);
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+            count = 0;
+        }
+        if (getVisibility() != VISIBLE) setVisibility(VISIBLE);
         tv_loaded.setVisibility(VISIBLE);
         tv_loading.setVisibility(GONE);
-        if(drawable!=null&&drawable.isRunning())drawable.stop();
+        if (drawable != null && drawable.isRunning()) drawable.stop();
         drawable = null;
         imageView_anima.setBackgroundResource(R.mipmap.loading_nodata);
         tv_loaded.setText("暂无数据 点击重试");
     }
-    public void failLoadNoNetWork(LoadListener listener){
+
+    public void failLoadNoNetWork(LoadListener listener) {
         this.listener = listener;
-        if(timer!=null){timer.cancel();timer=null;count=0;}
-        if(getVisibility()!=VISIBLE)setVisibility(VISIBLE);
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+            count = 0;
+        }
+        if (getVisibility() != VISIBLE) setVisibility(VISIBLE);
         tv_loaded.setVisibility(VISIBLE);
         tv_loading.setVisibility(GONE);
-        if(drawable!=null&&drawable.isRunning())drawable.stop();
+        if (drawable != null && drawable.isRunning()) drawable.stop();
         drawable = null;
         imageView_anima.setBackgroundResource(R.mipmap.loading_nonetwork);
         tv_loaded.setText("网络连接失败 点击重试");
     }
-    public TimerTask getTimerTask(){
+
+    public TimerTask getTimerTask() {
         return new TimerTask() {
             @Override
             public void run() {
-                if(count==4)count=0;
+                if (count == 4) count = 0;
                 post(new Runnable() {
                     @Override
                     public void run() {
-                        tv_loading.setText(loadingText[count%4]);
+                        tv_loading.setText(loadingText[count % 4]);
                     }
                 });
                 count++;
             }
         };
     }
-    public void release(){
-        if(timer!=null){
+
+    public void release() {
+        if (timer != null) {
             timer.cancel();
             timer = null;
         }
@@ -113,12 +135,12 @@ public class LoadAnimation extends RelativeLayout implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-        if(view==tv_loaded){
-            if(listener!=null)listener.reLoad();
+        if (view == tv_loaded) {
+            if (listener != null) listener.reLoad();
         }
     }
 
-    public interface LoadListener{
+    public interface LoadListener {
         void reLoad();
     }
 }

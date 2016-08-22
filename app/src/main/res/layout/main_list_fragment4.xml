@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="35dp"
+      android:textSize="@dimen/text_18"
+      android:background="@color/colorwhite"
+      android:textColor="@color/colorblack"
+      android:text="热门车型"
+      android:padding="5dp"
+      />
+    <GridView
+        android:id="@+id/frag4_gridview"
+        android:layout_width="match_parent"
+        android:layout_marginTop="1dp"
+        android:numColumns="2"
+        android:background="@color/gray"
+        android:horizontalSpacing = "1dp"
+        android:verticalSpacing = "1dp"
+        android:layout_height="wrap_content">
+    </GridView>
+</LinearLayout>

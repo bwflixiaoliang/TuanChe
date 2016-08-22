@@ -22,6 +22,7 @@ import java.util.List;
  */
 public class CarHotRecyclerAdatper extends RecyclerView.Adapter<CarHotRecyclerAdatper.CarHotViewHolder> {
 
+<<<<<<< HEAD
     private List<HotLogo> list;
     private Context context;
     private CallRecycleBack recycleBack;
@@ -32,6 +33,8 @@ public class CarHotRecyclerAdatper extends RecyclerView.Adapter<CarHotRecyclerAd
         this.recycleBack = recycleBack;
     }
 
+=======
+>>>>>>> localtcw
     @Override
     public CarHotViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = View.inflate(context, R.layout.item_hot_car_content, null);

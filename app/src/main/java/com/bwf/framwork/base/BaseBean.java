@@ -10,7 +10,10 @@ public class BaseBean{
 
     public String msg;//返回msg
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> localtcw
     @Override
     public String toString() {
         return "BaseBean{" +

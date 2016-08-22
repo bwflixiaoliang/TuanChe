@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+<<<<<<< HEAD
     <style name="citytext">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>
@@ -14,10 +15,13 @@
         <item name="android:textSize">@dimen/text_16</item>
         <item name="android:gravity">center_vertical</item>
     </style>
+=======
+>>>>>>> localtcw
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+<<<<<<< HEAD
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
@@ -30,4 +34,15 @@
     </style>
 
 
+=======
+        <style name="MyRatingBar" parent="@android:style/Widget.RatingBar">
+            <item name="android:progressDrawable">@drawable/progressbar_style</item>
+            <item name="android:minHeight">5dip</item>
+            <item name="android:maxHeight">5dip</item>
+        </style>
+        <style name="Pop_Animationbuycar">
+            <item name="android:windowEnterAnimation">@anim/coming</item>
+            <item name="android:windowExitAnimation">@anim/outing</item>
+        </style>
+>>>>>>> localtcw
 </resources>

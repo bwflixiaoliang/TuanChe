@@ -4,44 +4,22 @@
     android:layout_height="match_parent">
    <LinearLayout
        android:layout_width="match_parent"
-       android:layout_height="50dp"
+       android:layout_height="80dp"
+       android:background="@color/gray"
        android:orientation="horizontal">
        <LinearLayout
            android:layout_weight="1"
            android:orientation="horizontal"
            android:layout_width="0dp"
+           android:paddingRight="1dp"
            android:layout_height="match_parent">
-           <LinearLayout
+               <com.facebook.drawee.view.SimpleDraweeView
+               android:id="@+id/f_chexian"
                android:layout_width="0dp"
-               android:layout_height="match_parent"
-               android:layout_weight="2"
-               android:orientation="vertical"
-               >
-               <TextView
-                   android:id="@+id/chexian"
-                   android:textColor="@color/colorPrimary"
-                   android:textSize="@dimen/text_18"
+                  android:paddingRight="1dp"
+                   android:background="@color/colorwhite"
                    android:paddingTop="5dp"
-                   android:paddingLeft="7dp"
-                   android:layout_width="match_parent"
-                   android:layout_height="0dp"
-                   android:layout_weight="1"
-                   android:text="123"/>
-               <TextView
-                   android:id="@+id/jiesheng"
-                   android:layout_width="match_parent"
-                   android:layout_height="0dp"
-                   android:layout_weight="1"
-                   android:textSize="@dimen/text_16"
-                   android:textColor="@color/gray"
-                   android:paddingLeft="7dp"
-                   android:paddingBottom="10dp"
-                   android:text="123"
-                   />
-           </LinearLayout>
-           <com.facebook.drawee.view.SimpleDraweeView
-               android:id="@+id/tu"
-               android:layout_width="0dp"
+                   android:paddingBottom="5dp"
                android:layout_height="match_parent"
                android:layout_weight="1"/>
        </LinearLayout>
@@ -50,39 +28,16 @@
            android:orientation="horizontal"
            android:layout_width="0dp"
            android:layout_height="match_parent">
-           <LinearLayout
-               android:layout_width="0dp"
-               android:layout_height="match_parent"
-               android:layout_weight="2"
-               android:orientation="vertical"
-               >
-               <TextView
-                   android:id="@+id/chexian"
-                   android:textColor="@color/colorred"
-                   android:textSize="@dimen/text_18"
-                   android:paddingTop="5dp"
-                   android:paddingLeft="7dp"
-                   android:layout_width="match_parent"
-                   android:layout_height="0dp"
-                   android:layout_weight="1"
-                   android:text="123"/>
-               <TextView
-                   android:id="@+id/jiesheng"
-                   android:layout_width="match_parent"
-                   android:layout_height="0dp"
-                   android:layout_weight="1"
-                   android:textSize="@dimen/text_16"
-                   android:textColor="@color/gray"
-                   android:paddingLeft="7dp"
-                   android:paddingBottom="10dp"
-                   android:text="123"
-                   />
-           </LinearLayout>
-           <com.facebook.drawee.view.SimpleDraweeView
-               android:id="@+id/tu"
-               android:layout_width="0dp"
-               android:layout_height="match_parent"
-               android:layout_weight="1"/>
+               <com.facebook.drawee.view.SimpleDraweeView
+                   android:id="@+id/f_baozhang"
+                   android:layout_width="0dp"
+                    android:paddingTop="5dp"
+                   android:paddingBottom="5dp"
+                   android:paddingRight="1dp"
+                   android:background="@color/colorwhite"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"/>
+
        </LinearLayout>
    </LinearLayout>
     <View
@@ -93,6 +48,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:background="@color/gray"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
@@ -100,36 +56,43 @@
             android:orientation="horizontal"
             android:layout_weight="1"
             >
-          <LinearLayout
+          <RelativeLayout
+              android:layout_marginRight="1dp"
+              android:layout_marginBottom="1dp"
               android:layout_width="0dp"
               android:layout_height="match_parent"
               android:layout_weight="1"
-              android:orientation="vertical"
+              android:paddingRight="1dp"
+              android:background="@color/colorwhite"
               >
               <TextView
+                  android:id="@+id/tv_hunying"
                   android:layout_width="match_parent"
-                  android:layout_height="0dp"
-                  android:layout_weight="1"
+                  android:layout_height="25dp"
                   android:textSize="@dimen/text_18"
                   android:textColor="@color/orange"
                   android:text="123"
-                  android:gravity="center"
+                  android:gravity="center_horizontal"
                   />
               <TextView
+                  android:id="@+id/tv_hunying2"
                   android:layout_width="match_parent"
-                  android:layout_height="0dp"
-                  android:layout_weight="1"
+                  android:layout_below="@id/tv_hunying"
+                  android:layout_height="20dp"
                   android:textSize="@dimen/text_14"
                   android:textColor="@color/gray"
                   android:text="123"
-                  android:gravity="center"
+                  android:gravity="center_horizontal"
                   />
               <com.facebook.drawee.view.SimpleDraweeView
-                  android:layout_width="match_parent"
-                  android:layout_height="0dp"
-                  android:layout_weight="4"
+                  android:layout_below="@id/tv_hunying2"
+                  android:id="@+id/f_hunying"
+                  android:layout_width="90dp"
+                  android:layout_height="110dp"
+                  android:layout_marginTop="10dp"
+                  android:layout_centerHorizontal="true"
                   />
-          </LinearLayout>
+          </RelativeLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -146,37 +109,47 @@
                         android:layout_weight="1"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
+                        android:background="@color/colorwhite"
                         >
                         <TextView
+                            android:id="@+id/tv_mm1"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
+                            android:paddingTop="@dimen/text_12"
                             android:textColor="@color/colorred"
-                            android:textSize="@dimen/text_16"
-                            android:gravity="center"
+                            android:textSize="@dimen/text_14"
+                            android:gravity="center_horizontal"
                             android:text="123"
                             />
                         <TextView
+                            android:id="@+id/tv_mm2"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:textColor="@color/gray"
-                            android:textSize="@dimen/text_14"
-                            android:gravity="center"
+                            android:paddingBottom="20dp"
+                            android:textColor="@color/colorblack"
+                            android:textSize="@dimen/text_12"
+                            android:gravity="center_horizontal"
                             android:text="123"
                             />
                     </LinearLayout>
                     <com.facebook.drawee.view.SimpleDraweeView
-                        android:id="@+id/mother"
-                        android:layout_width="0dp"
+                        android:id="@+id/f_mother"
+                        android:layout_width="30dp"
+                        android:background="@color/colorwhite"
                         android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         />
                 </LinearLayout>
                 <LinearLayout
+                   android:layout_marginTop="1dp"
                     android:layout_width="match_parent"
+                    android:layout_marginBottom="1dp"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:background="@color/colorwhite"
                     android:orientation="horizontal">
                     <LinearLayout
                         android:layout_width="0dp"
@@ -185,138 +158,44 @@
                         android:orientation="vertical"
                         >
                         <TextView
+                            android:id="@+id/tv_zijia"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
+                            android:paddingTop="10dp"
                             android:layout_weight="1"
                             android:textColor="@color/blue"
                             android:textSize="@dimen/text_16"
-                            android:gravity="center"
+                            android:gravity="center_horizontal"
                             android:text="123"
                             />
                         <TextView
+                            android:id="@+id/tv_zijia2"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:textColor="@color/gray"
-                            android:textSize="@dimen/text_14"
-                            android:gravity="center"
+                            android:paddingBottom="20dp"
+                            android:textColor="@color/colorblack"
+                            android:textSize="@dimen/text_12"
+                            android:gravity="center_horizontal"
                             android:text="123"
                             />
                     </LinearLayout>
                     <com.facebook.drawee.view.SimpleDraweeView
                         android:id="@+id/zijieche"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_width="30dp"
+                        android:layout_height="45dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-        <LinearLayout
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/frag3_recylerview"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="horizontal"
-            android:layout_weight="0.7"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
             >
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:textSize="@dimen/text_16"
-                    android:textColor="@color/colorblack"
-                    android:text="123"
-                    android:gravity="center"
-                    />
-                <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textSize="@dimen/text_14"
-                android:textColor="@color/gray"
-                android:text="123"
-                android:gravity="center"
-                />
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/shangwu"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="3"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:textSize="@dimen/text_16"
-                    android:textColor="@color/colorblack"
-                    android:text="123"
-                    android:gravity="center"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:textSize="@dimen/text_14"
-                    android:textColor="@color/gray"
-                    android:text="123"
-                    android:gravity="center"
-                    />
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/shangwu"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="3"
-                    />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:textSize="@dimen/text_16"
-                    android:textColor="@color/colorblack"
-                    android:text="123"
-                    android:gravity="center"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:textSize="@dimen/text_14"
-                    android:textColor="@color/gray"
-                    android:text="123"
-                    android:gravity="center"
-                    />
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/shangwu"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="3"
-                    />
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-
-
+        </android.support.v7.widget.RecyclerView>
     </LinearLayout>
-
-
-
 </LinearLayout>

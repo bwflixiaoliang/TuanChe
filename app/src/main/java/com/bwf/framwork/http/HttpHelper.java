@@ -8,6 +8,9 @@ import android.app.Activity;
 import com.bwf.framwork.utils.LogUtils;
 
 import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import okhttp3.OkHttpClient;
 
 
 /**
@@ -44,7 +47,7 @@ public class HttpHelper {
         .execute(callBack);
     }
     //热门车型数据请求方法?count=2&offset=0&cityId=156
-    public static void getDataHotCarType(String count,String offset,String cityId ,HttpCallBack callBack){
+    public static void getDataHotCarType(String count,String offset,String cityId ,HttpCallBackArray callBack){
         OkHttpUtils.post().url(UrlUtils.HOTCARTYPE_URL)
                 .addParams("cityId",cityId)
                 .addParams("count",count)
@@ -115,6 +118,7 @@ public class HttpHelper {
                 .build()
                 .execute(callBack);
     }
+<<<<<<< HEAD
     //版本更新数据请求
     public static void getDataVersionUpgrade(HttpCallBack callBack){
         OkHttpUtils.post().url(UrlUtils.VERSIONUPDATE_URL).build().execute(callBack);
@@ -122,8 +126,23 @@ public class HttpHelper {
     //汽车列表cityId=156
     public static void getDataCarList(String cityId,HttpCallBack callBack){
         OkHttpUtils.post().url(UrlUtils.CARLIST_URL)
+=======
+    public static void getDataHotCarDetail(String brandId,String cityId,HttpCallBack callBack){
+        OkHttpUtils.post().url(UrlUtils.CARDETAILS_URL)
+                .addParams("firmbrandId",brandId)
+>>>>>>> localtcw
                 .addParams("cityId",cityId)
                 .build()
                 .execute(callBack);
     }
+<<<<<<< HEAD
+=======
+    public static void getHotSearch(String cityId,StringCallback callback){
+        OkHttpUtils.post().url(UrlUtils.HOTSEARCH_URL)
+                .addParams("cityId",cityId)
+                .build()
+                .execute(callback);
+    }
+
+>>>>>>> localtcw
 }

@@ -5,7 +5,11 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+<<<<<<< HEAD
         <option name="gradleHome" value="E:\Androidstudy\Android Studio\Android Studio\gradle\gradle-2.10" />
+=======
+        <option name="gradleHome" value="D:\Android Studio project\Android Studio\gradle\gradle-2.10" />
+>>>>>>> localtcw
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />

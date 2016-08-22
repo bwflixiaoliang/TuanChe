@@ -3,30 +3,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     tools:context="com.bwf.tuanche.MainListActivity">
     <LinearLayout
         android:id="@+id/main_title"
+=======
+    android:fitsSystemWindows="true"
+    tools:context=".Activity.MainListActivity">
+    <LinearLayout
+        android:id="@+id/ll_con1"
+>>>>>>> localtcw
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <include
+            android:id="@+id/include1"
+            layout="@layout/content_1"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_con2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+        <include
+            android:id="@+id/include2"
+            layout="@layout/content_2"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_con3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+        <include
+            android:id="@+id/include3"
+            layout="@layout/content_3"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/colorwhite"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:orientation="horizontal"
+       android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:paddingTop="5dp"
         >
         <TextView
+            android:id="@+id/main_page"
             android:layout_width="0dp"
-            android:gravity="center"
-            android:paddingLeft="10dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="@dimen/text_16"
-            android:textColor="@color/colorblack"
-            android:text="123"
-            android:paddingRight="5dp"
-            android:drawableRight="@mipmap/icon_top_add_arrow"
+            android:text="首页"
+            android:paddingTop="10dp"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/text_12"
+            android:textColor="@color/colorred"
+            android:layout_height="match_parent"
+            android:drawableTop="@mipmap/nav_icon_home_sel"
+           />
+        <TextView
+            android:id="@+id/main_dingdan"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="订单"
+            android:paddingTop="10dp"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/text_12"
+            android:textColor="@color/gray"
+            android:layout_height="match_parent"
+            android:drawableTop="@mipmap/nav_icon_order_nor"
             />
-        <EditText
+        <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
+<<<<<<< HEAD
             android:paddingTop="2dp"
             android:layout_weight="5"
             android:textSize="@dimen/text_14"
@@ -60,17 +117,38 @@
             android:layout_width="match_parent"
             android:layout_height="5dp"
             android:background="@color/gray"
+=======
+            android:layout_weight="1"
+            android:paddingBottom="10dp"
+            android:src="@mipmap/icon_low_price"/>
+        <TextView
+            android:id="@+id/main_kefu"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="客服"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/text_12"
+            android:paddingTop="10dp"
+            android:textColor="@color/gray"
+            android:layout_height="match_parent"
+            android:drawableTop="@mipmap/nav_icon_server_nor"
+>>>>>>> localtcw
             />
-        <fragment
-            android:id="@+id/main_list_frag2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:name="com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_2"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@color/gray"
+        <TextView
+            android:id="@+id/main_wode"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="我的"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/text_12"
+            android:paddingTop="10dp"
+            android:textColor="@color/gray"
+            android:layout_height="match_parent"
+            android:drawableTop="@mipmap/nav_icon_my_nor"
             />
     </LinearLayout>
+<<<<<<< HEAD
 </ScrollView>
+=======
+>>>>>>> localtcw
 </RelativeLayout>

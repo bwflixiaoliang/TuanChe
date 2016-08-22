@@ -35,7 +35,7 @@
             android:textSize="@dimen/text_14"
             android:focusable="false"
             android:hint="请输入品牌、车型"
-            android:background="@drawable/shape"
+            android:background="@drawable/shape_black"
             android:drawableLeft="@mipmap/search"
             />
         <ImageView

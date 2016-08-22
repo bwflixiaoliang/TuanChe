@@ -20,6 +20,7 @@ import com.bwf.tuanche.eneity.Banner.BannerResult;
 import com.bwf.tuanche.eneity.TuanChe.TuanCheResult;
 import com.bwf.tuanche.eneity.hotcartype.HotCarResultBean;
 import com.bwf.tuanche.eneity.hotlogo.Result;
+import com.bwf.tuanche.eneity.hotlogo.ResultBean;
 import com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_1;
 import com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_2;
 import com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_3;
@@ -64,6 +65,7 @@ public class MainListActivity extends BaseActivity {
         cityId = getIntent().getStringExtra("cityId");
         cityName = cityName==null?"成都":cityName;
         cityId =cityId ==null?"156":cityId;
+        //
     }
 
     @Override
@@ -79,8 +81,8 @@ public class MainListActivity extends BaseActivity {
         ed_search=findViewByIdNoCast(R.id.search_ed);
         main_page=findViewByIdNoCast(R.id.main_page);
         main_dingdan=findViewByIdNoCast(R.id.main_dingdan);
-        main_kefu=findViewByIdNoCast(R.id.main_kefu);
-        main_wode=findViewByIdNoCast(R.id.main_wode);
+        main_kefu=findViewByIdNoCast(R.id.kefu);
+        main_wode=findViewByIdNoCast(R.id.wode);
         textViews=new TextView[]{main_page,main_dingdan,main_kefu,main_wode};
         setOnClick(main_page,main_dingdan,main_kefu,main_wode,ed_search);
     }
@@ -122,7 +124,7 @@ public class MainListActivity extends BaseActivity {
                     setSelect(1);
                 }
                  break;
-            case R.id.main_kefu:
+            case R.id.kefu:
                 if(kefu==true){
                     return;
                 }else {
@@ -136,7 +138,7 @@ public class MainListActivity extends BaseActivity {
                     setSelect(2);
                 }
                  break;
-            case R.id.main_wode:
+            case R.id.wode:
                 if(wode==true){
                     return;
                 }else {
@@ -177,9 +179,9 @@ public class MainListActivity extends BaseActivity {
         /**
          * 热门品牌l
          */
-        HttpHelper.getDataHotLogo("2", cityId, new HttpCallBack<Result>() {
+        HttpHelper.getDataHotLogo("2", cityId, new HttpCallBack<ResultBean>() {
             @Override
-            public void onSuccess(Result result) {
+            public void onSuccess(ResultBean result) {
                 if(result!=null)
                 mainListFragment_2.getData(result,cityName);
                 else LogUtils.e("onSuccess__"+ "为空");

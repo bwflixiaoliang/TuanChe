@@ -8,7 +8,7 @@ import java.util.List;
  * Created by fengchao on 2016/8/16.
  * Description：
  */
-public class Result extends BaseBean{
+public class Result {
 
     public List<HotLogo>  list;
 

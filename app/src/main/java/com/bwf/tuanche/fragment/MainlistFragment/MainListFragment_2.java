@@ -14,7 +14,7 @@ import com.bwf.tuanche.Activity.DeatilActivity;
 import com.bwf.tuanche.Adatper.gridviewAdapter;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.eneity.hotlogo.HotLogo;
-import com.bwf.tuanche.eneity.hotlogo.Result;
+import com.bwf.tuanche.eneity.hotlogo.ResultBean;
 
 import java.util.List;
 
@@ -53,7 +53,7 @@ public class MainListFragment_2 extends BaseFragment{
 
     }
 
-    public void getData(final Result result, final String cityName){
+    public void getData(final ResultBean result, final String cityName){
         if(result.result!=null){
         List<HotLogo> newdata=result.result.list;
             LogUtils.e(result.toString());

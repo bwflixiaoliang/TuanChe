@@ -118,25 +118,25 @@ public class HttpHelper {
                 .build()
                 .execute(callBack);
     }
-<<<<<<< HEAD
     //版本更新数据请求
     public static void getDataVersionUpgrade(HttpCallBack callBack){
         OkHttpUtils.post().url(UrlUtils.VERSIONUPDATE_URL).build().execute(callBack);
     }
     //汽车列表cityId=156
     public static void getDataCarList(String cityId,HttpCallBack callBack){
-        OkHttpUtils.post().url(UrlUtils.CARLIST_URL)
-=======
-    public static void getDataHotCarDetail(String brandId,String cityId,HttpCallBack callBack){
-        OkHttpUtils.post().url(UrlUtils.CARDETAILS_URL)
-                .addParams("firmbrandId",brandId)
->>>>>>> localtcw
+        OkHttpUtils.post()
+                .url(UrlUtils.CARLIST_URL)
                 .addParams("cityId",cityId)
                 .build()
                 .execute(callBack);
     }
-<<<<<<< HEAD
-=======
+    public static void getDataHotCarDetail(String brandId,String cityId,HttpCallBack callBack){
+        OkHttpUtils.post().url(UrlUtils.CARDETAILS_URL)
+                .addParams("firmbrandId",brandId)
+                .addParams("cityId",cityId)
+                .build()
+                .execute(callBack);
+    }
     public static void getHotSearch(String cityId,StringCallback callback){
         OkHttpUtils.post().url(UrlUtils.HOTSEARCH_URL)
                 .addParams("cityId",cityId)
@@ -144,5 +144,4 @@ public class HttpHelper {
                 .execute(callback);
     }
 
->>>>>>> localtcw
 }

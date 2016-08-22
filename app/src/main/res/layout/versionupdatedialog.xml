@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:background="#7000"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_marginLeft="15dp"
+        android:layout_width="315dp"
+        android:layout_height="wrap_content">
+        <View
+            android:id="@+id/upgrade_view"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/upgradebg"
+            android:layout_width="300dp"
+            android:layout_alignBottom="@+id/upgrade_image"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@id/upgrade_image"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/upgrade_hint"/>
+        <TextView
+            android:id="@+id/upgrade_tvVersionCode"
+            android:background="@drawable/versioncodegb"
+            android:layout_width="65dp"
+            android:layout_height="22dp"
+            android:gravity="center"
+            android:layout_below="@id/upgrade_image"
+            android:layout_marginTop="-90dp"
+            android:layout_marginLeft="195dp"
+            android:textColor="#fff"
+            android:text="2.32.1"/>
+        <TextView
+            android:id="@+id/upgrade_tvContent"
+            android:layout_below="@id/upgrade_image"
+            android:gravity="center_horizontal"
+            android:layout_width="300dp"
+            android:background="#fff"
+            android:textColor="#000"
+            android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_below="@id/upgrade_tvContent"
+        android:layout_width="300dp"
+        android:background="@drawable/upgradebg2"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/upgrade_btnUpgrade"
+            android:layout_margin="10dp"
+            android:layout_width="100dp"
+            android:background="@mipmap/upgrade_btn_normal"
+            android:layout_height="35dp" />
+    </LinearLayout>
+        <Button
+            android:id="@+id/upgrade_close"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignRight="@id/upgrade_view"
+            android:layout_alignTop="@id/upgrade_view"
+            android:layout_marginRight="-15dp"
+            android:layout_marginTop="-15dp"
+            android:background="@mipmap/icon_close_normal"/>
+    </RelativeLayout>
+</RelativeLayout>

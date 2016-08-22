@@ -168,6 +168,7 @@ public class CityListActivity extends BaseActivity implements BDLocationListener
             }
         });
     }
+   //请求网络数据···
     private void  getData(){
         HttpHelper.getDataCityList("4", new HttpCallBack<CityListBean>() {
             @Override
@@ -197,6 +198,7 @@ public class CityListActivity extends BaseActivity implements BDLocationListener
             }
         });
     }
+    //设置城市数据列表···
     private void setCityList(){
         if(openCityList!=null){
             Collections.sort(openCityList);
@@ -211,6 +213,7 @@ public class CityListActivity extends BaseActivity implements BDLocationListener
             }
         }
     }
+    //设置热门城市数据加载···
     private void  setHeadViewList(List<CityListBean.CityListResult.OpenCity> openCityList,ListView listView){
         List<List<CityListBean.CityListResult.OpenCity>> hotlist = new ArrayList<>();
         List<CityListBean.CityListResult.OpenCity> hotCityList1 =new ArrayList<>();
@@ -227,6 +230,7 @@ public class CityListActivity extends BaseActivity implements BDLocationListener
         listView.setAdapter(new CityListHeadAdapter(hotlist,CityListActivity.this,listener,currentCity));
         ListViewUtils.measureListViewHeight(listView);
     }
+   //设置周边城市数据加载···
     private void setSurroundListView(){
         List<CityListBean.CityListResult.OpenCity> CityList =new ArrayList<>();
         List<CityListBean.CityListResult.OpenCity> CityList1 =new ArrayList<>();

@@ -110,5 +110,10 @@ public class HttpHelper {
                 .build()
                 .execute(callBack);
     }
-
+    //版本更新数据请求
+    public static void getDataVersionUpgrade(HttpCallBack callBack){
+        OkHttpUtils.post().url(UrlUtils.VERSIONUPDATE_URL)
+                .build()
+                .execute(callBack);
+    }
 }

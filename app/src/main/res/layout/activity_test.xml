@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
     tools:context="com.bwf.tuanche.Activity.TestActivity">
     <com.bwf.tuanche.View.ReScrollView
+        android:id="@+id/test_myScroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.bwf.tuanche.View.ReScrollView>
+        android:layout_height="match_parent">
+    </com.bwf.tuanche.View.ReScrollView>
 </RelativeLayout>

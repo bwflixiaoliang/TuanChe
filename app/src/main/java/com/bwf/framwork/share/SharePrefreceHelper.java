@@ -29,7 +29,7 @@ public class SharePrefreceHelper extends PrefrenceWrapper {
     public Map<String,String> getLastCity(){
         Map<String,String> map = new HashMap<String,String>();
         map.put("cityName",getString("cityName","北京"));
-        map.put("ciytId",getString("cityId","10"));
+        map.put("cityId",getString("cityId","10"));
         return map;
     }
     public boolean isFirst(){

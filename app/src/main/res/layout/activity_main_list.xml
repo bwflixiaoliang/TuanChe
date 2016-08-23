@@ -6,6 +6,49 @@
     android:fitsSystemWindows="true"
     tools:context="com.bwf.tuanche.Activity.MainListActivity">
     <LinearLayout
+        android:id="@+id/mainList_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:visibility="gone"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:textSize="@dimen/text_16"
+            android:textColor="@color/colorblack"
+            android:paddingRight="5dp"
+            android:drawableRight="@mipmap/icon_top_add_arrow"
+            />
+        <EditText
+            android:layout_width="0dp"
+            android:gravity="center_vertical"
+            android:layout_height="match_parent"
+            android:paddingTop="2dp"
+            android:layout_weight="5"
+            android:textSize="@dimen/text_14"
+            android:focusable="false"
+            android:hint="请输入品牌、车型"
+            android:background="@drawable/shape_black"
+            android:drawableLeft="@mipmap/search"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:src="@mipmap/icon_top_icon_saomiao"
+            android:padding="10dp"
+            />
+    </LinearLayout>
+    <LinearLayout
         android:orientation="horizontal"
         android:id="@+id/ll_con1"
         android:layout_height="match_parent"
@@ -15,7 +58,6 @@
                 layout="@layout/content_1"
                 />
     </LinearLayout>
-
     <LinearLayout
         android:id="@+id/ll_con2"
         android:layout_width="match_parent"
@@ -40,13 +82,12 @@
             layout="@layout/content_3"
             />
     </LinearLayout>
-
     <LinearLayout
         android:background="@color/colorwhite"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal"
-       android:layout_alignParentBottom="true"
+        android:layout_alignParentBottom="true"
         android:gravity="center"
         android:paddingTop="5dp"
         >
@@ -105,6 +146,11 @@
             android:layout_height="match_parent"
             android:drawableTop="@mipmap/nav_icon_my_nor"
             />
-
     </LinearLayout>
+    <com.bwf.tuanche.View.LoadAnimation
+        android:id="@+id/mainList_loadAnimation"
+        android:layout_below="@id/mainList_title"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </RelativeLayout>

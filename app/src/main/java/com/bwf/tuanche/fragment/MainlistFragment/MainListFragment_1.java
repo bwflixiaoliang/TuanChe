@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bwf.framwork.base.BaseBean;
@@ -36,6 +37,8 @@ public class MainListFragment_1 extends BaseFragment{
     @Override
     protected int getResource() {
         return R.layout.main_list_fragment1;
+
+
     }
 
     @Override

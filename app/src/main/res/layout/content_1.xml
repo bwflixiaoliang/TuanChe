@@ -46,59 +46,10 @@
             android:padding="10dp"
             />
     </LinearLayout>
-    <ScrollView
+    <com.bwf.tuanche.View.ReScrollView
         android:id="@+id/scrollView"
         android:layout_below="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <fragment
-                android:id="@+id/main_list_frag1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:name="com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_1"
-                />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@color/gray"
-                />
-            <fragment
-                android:id="@+id/main_list_frag2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:name="com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_2"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@color/gray"
-                />
-            <fragment
-                android:id="@+id/main_list_frag3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:name="com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_3"
-                />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@color/gray"
-                />
-            <fragment
-                android:id="@+id/main_list_frag4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:name="com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_4"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp" />
-        </LinearLayout>
-
-    </ScrollView>
-
+    </com.bwf.tuanche.View.ReScrollView>
 </LinearLayout>

@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.bwf.framwork.base.BaseBean;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.utils.ToastUtil;
@@ -77,5 +76,6 @@ public class VersionUpdateDialog extends Dialog implements View.OnClickListener{
                 break;
         }
     }
+
 }
 

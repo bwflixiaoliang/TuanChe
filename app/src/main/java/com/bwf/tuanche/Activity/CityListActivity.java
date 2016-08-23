@@ -1,5 +1,6 @@
 package com.bwf.tuanche.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -15,6 +16,7 @@ import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.map.MapLocation;
+import com.bwf.framwork.tools.RequestAndResultCode;
 import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.framwork.utils.ListViewUtils;
 import com.bwf.tuanche.Adatper.CityListAdapter;
@@ -92,10 +94,11 @@ public class CityListActivity extends BaseActivity implements BDLocationListener
                 }
                 break;
             case R.id.citylist_imageBack:
-                IntentUtils.openActivity(this,TestActivity.class);
+                finish();
                 break;
         }
     }
+
     @Override
     public void onReceiveLocation(BDLocation bdLocation) {
         Log.i("msg","<-------onReceiveLocation------->");
@@ -248,10 +251,14 @@ public class CityListActivity extends BaseActivity implements BDLocationListener
             Bundle bundle = new Bundle();
             bundle.putString("cityName",cityName);
             bundle.putString("cityId",cityId);
-            IntentUtils.openActivity(CityListActivity.this, MainListActivity.class,bundle);
+            Intent intent = new Intent();
+            intent.putExtras(bundle);
+            CityListActivity.this.setResult(RequestAndResultCode.CityListResultCode,intent);
             CityListActivity.this.finish();
         }
     };
+
+
     //下载动画的重新下载的案件监听
     private LoadAnimation.LoadListener loadListener = new LoadAnimation.LoadListener() {
         @Override
@@ -260,7 +267,6 @@ public class CityListActivity extends BaseActivity implements BDLocationListener
             getData();
         }
     };
-
     @Override
     protected void onDestroy() {
         //取消下载动画的timer;

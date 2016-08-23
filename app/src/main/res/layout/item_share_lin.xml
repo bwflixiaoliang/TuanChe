@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/share_text_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share_text_01"
+        android:textColor="@color/white"
+        android:textSize="@dimen/Loge_carText_14sp"
+        android:layout_margin="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/share_to_qqF"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/btn_share_pengyou"
+            android:layout_margin="10dp"/>
+        <ImageView
+            android:id="@+id/share_to_qqZ"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/btn_share_weixin"
+            android:layout_margin="10dp"/>
+
+        <ImageView
+            android:id="@+id/share_to_sina"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/btn_share_sina"
+            android:layout_margin="10dp"/>
+
+        <ImageView
+            android:id="@+id/share_to_qqW"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/btn_share_tenxun"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/share_finsh"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@mipmap/icon_x"
+        android:padding="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"/>
+
+</LinearLayout>

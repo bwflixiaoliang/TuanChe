@@ -52,7 +52,9 @@ public class CarHotListView extends ListView {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 4);
         car_contentRecy.setLayoutManager(gridLayoutManager);
         //加载RcycleView数据
-        recyclerAdatper = new CarHotRecyclerAdatper(context, list, recycleBack);
-        car_contentRecy.setAdapter(recyclerAdatper);
+        if(list != null){
+            recyclerAdatper = new CarHotRecyclerAdatper(context, list, recycleBack);
+            car_contentRecy.setAdapter(recyclerAdatper);
+        }
     }
 }

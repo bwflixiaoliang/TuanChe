@@ -16,6 +16,7 @@ import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.utils.LogUtils;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.View.Popwindow_buycarStyle;
+import com.bwf.tuanche.View.SharePopWindow;
 import com.bwf.tuanche.eneity.detail.DetailResultBean;
 import com.bwf.tuanche.eneity.hotlogo.HotLogo;
 import com.bwf.tuanche.fragment.DetailFramgent.DetailFragment1;
@@ -34,6 +35,8 @@ public class DeatilActivity extends BaseActivity {
     private HotLogo hotLogo;
 
     private TextView carname;
+
+    private ImageView search_tv;
 
     private String cityName,thecarname;
 
@@ -65,11 +68,13 @@ public class DeatilActivity extends BaseActivity {
         img_back_detail.setOnClickListener(this);
         carname=findViewByIdNoCast(R.id.carname);
         scrollView=findViewByIdNoCast(R.id.scrollView_detail);
+        search_tv = findViewByIdNoCast(R.id.search_tv);
         detailFragment1= (DetailFragment1) getSupportFragmentManager().findFragmentById(R.id.deatil_frag1);
         detailFragment2= (DetailFragment2) getSupportFragmentManager().findFragmentById(R.id.deatil_frag2);
         detailFragment3= (DetailFragment3) getSupportFragmentManager().findFragmentById(R.id.deatil_frag3);
         detailFragment4= (DetailFragment4) getSupportFragmentManager().findFragmentById(R.id.deatil_frag4);
         detailFragment5= (DetailFragment5) getSupportFragmentManager().findFragmentById(R.id.deatil_frag5);
+        search_tv.setOnClickListener(this);
     }
 
     @Override
@@ -82,12 +87,13 @@ public class DeatilActivity extends BaseActivity {
         HttpHelper.getDataCarDetail("166", "31", "156", new HttpCallBack<DetailResultBean>() {
             @Override
             public void onSuccess(DetailResultBean result) {
-                LogUtils.e("TTTT"+result.toString());
-                detailFragment1.getdata(hotLogo,result.result);
-                detailFragment2.setData(result.result.tcbzDesc);
-                detailFragment3.setdata(result.result);
-                detailFragment4.setdata(result.result);
-                detailFragment5.setdata(result.result);
+                if(result != null){
+                    detailFragment1.getdata(hotLogo,result.result);
+                    detailFragment2.setData(result.result.tcbzDesc);
+                    detailFragment3.setdata(result.result);
+                    detailFragment4.setdata(result.result);
+                    detailFragment5.setdata(result.result);
+                }
             }
 
             @Override
@@ -102,6 +108,10 @@ public class DeatilActivity extends BaseActivity {
             case R.id.img_back_detail:
                 Intent intent=new Intent(this,MainListActivity.class);
                 startActivity(intent);
+            break;
+            case R.id.search_tv:
+                SharePopWindow sharePopWindow = new SharePopWindow(this);
+                sharePopWindow.showPopWindow();
             break;
         }
     }

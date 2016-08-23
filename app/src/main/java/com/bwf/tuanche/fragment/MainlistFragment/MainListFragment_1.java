@@ -29,10 +29,10 @@ import java.util.List;
  * Created by fengchao on 2016/8/16.
  * Description：
  */
-public class MainListFragment_1 extends BaseFragment{
-    private TextView main_list_lowprice,main_list_tiemo,main_list_newcartype,main_list_baoxian;
+public class MainListFragment_1 extends BaseFragment {
+    private TextView main_list_lowprice, main_list_tiemo, main_list_newcartype, main_list_baoxian;
 
-    private SimpleDraweeView f_lowprice,f_tiemo,f_new,f_baoxian,main_list_bigimg;
+    private SimpleDraweeView f_lowprice, f_tiemo, f_new, f_baoxian, main_list_bigimg;
 
     private SimpleDraweeView[] draweeViews;
 
@@ -55,19 +55,19 @@ public class MainListFragment_1 extends BaseFragment{
 
     @Override
     protected void initView(View rootView) {
-        main_list_lowprice=findViewByIdNoCast(R.id.main_list_lowprice);
-        main_list_tiemo=findViewByIdNoCast(R.id.main_list_tiemo);
-        main_list_newcartype=findViewByIdNoCast(R.id.main_list_newcartype);
-        main_list_baoxian=findViewByIdNoCast(R.id.main_list_baoxian);
-        main_list_bigimg=findViewByIdNoCast(R.id.main_list_bigimg);
-        f_lowprice=findViewByIdNoCast(R.id.f_lowprice);
-        f_tiemo=findViewByIdNoCast(R.id.f_tiemo);
-        f_new=findViewByIdNoCast(R.id.f_new);
-        f_baoxian=findViewByIdNoCast(R.id.f_baoxian);
+        main_list_lowprice = findViewByIdNoCast(R.id.main_list_lowprice);
+        main_list_tiemo = findViewByIdNoCast(R.id.main_list_tiemo);
+        main_list_newcartype = findViewByIdNoCast(R.id.main_list_newcartype);
+        main_list_baoxian = findViewByIdNoCast(R.id.main_list_baoxian);
+        main_list_bigimg = findViewByIdNoCast(R.id.main_list_bigimg);
+        f_lowprice = findViewByIdNoCast(R.id.f_lowprice);
+        f_tiemo = findViewByIdNoCast(R.id.f_tiemo);
+        f_new = findViewByIdNoCast(R.id.f_new);
+        f_baoxian = findViewByIdNoCast(R.id.f_baoxian);
         //点击跳转到低价购车页面
         ll_lowprice = findViewByIdNoCast(R.id.ll_lowprice);
-        draweeViews=new SimpleDraweeView[]{f_lowprice,f_tiemo,f_new,f_baoxian};
-        textViews=new TextView[]{main_list_lowprice,main_list_tiemo,main_list_newcartype,main_list_baoxian};
+        draweeViews = new SimpleDraweeView[]{f_lowprice, f_tiemo, f_new, f_baoxian};
+        textViews = new TextView[]{main_list_lowprice, main_list_tiemo, main_list_newcartype, main_list_baoxian};
         //点击跳转到低价购车页面的监听
         ll_lowprice.setOnClickListener(this);
     }
@@ -79,29 +79,28 @@ public class MainListFragment_1 extends BaseFragment{
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             //点击跳转到低价购车页面
             case R.id.ll_lowprice:
                 Bundle bundle = new Bundle();
-                bundle.putString("cityId",cityId);
-                IntentUtils.openActivity(getContext(), CarContentActivity.class,bundle);
+                bundle.putString("cityId", cityId);
+                IntentUtils.openActivity(getContext(), CarContentActivity.class, bundle);
                 break;
         }
     }
-    public void setData(TuanCheResult result){
-    if(result.result!=null){
-       List<Nc> nc=result.result.nc;
-        for(int i=0;i<nc.size();i++){
-            textViews[i].setText(nc.get(i).name);
-            draweeViews[i].setImageURI(Uri.parse(nc.get(i).pic));
-            draweeViews[i].setScaleType(SimpleDraweeView.ScaleType.FIT_CENTER);
+
+    public void setData(TuanCheResult result) {
+        if (result.result != null) {
+            List<Nc> nc = result.result.nc;
+            for (int i = 0; i < nc.size(); i++) {
+                textViews[i].setText(nc.get(i).name);
+                draweeViews[i].setImageURI(Uri.parse(nc.get(i).pic));
+                draweeViews[i].setScaleType(SimpleDraweeView.ScaleType.FIT_CENTER);
+            }
         }
     }
 
-
-    }
-
-    public void getBigBanner(String url,String cityId){
+    public void getBigBanner(String url, String cityId) {
         this.cityId = cityId;
         main_list_bigimg.setImageURI(url);
     }

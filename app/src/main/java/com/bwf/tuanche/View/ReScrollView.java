@@ -26,15 +26,16 @@ public class ReScrollView extends ScrollView {
     private int headerHeight;//下拉view的原始高度
     private TextView tv_title;
     private ImageView imageView;
-    private  Context context;
+    private Context context;
     private int screenHeight;
     private PullListenr listenr;
+
     public ReScrollView(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public ReScrollView(Context context, AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public ReScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -47,15 +48,15 @@ public class ReScrollView extends ScrollView {
         this.listenr = listenr;
     }
 
-    private void  initView(Context context){
-        if(rootView!=null)return;
-        rootView = (LinearLayout) View.inflate(context, R.layout.refresh_scrollview,null);
+    private void initView(Context context) {
+        if (rootView != null) return;
+        rootView = (LinearLayout) View.inflate(context, R.layout.refresh_scrollview, null);
         HeaderView = rootView.findViewById(R.id.scrollView_header);
-        tv_title = (TextView)HeaderView.findViewById(R.id.refresh_tvTitle);
+        tv_title = (TextView) HeaderView.findViewById(R.id.refresh_tvTitle);
         imageView = (ImageView) HeaderView.findViewById(R.id.refresh_image);
         screenHeight = DisplayUtil.getDensity_Height(context);
         addView(rootView);
-        HeaderView.measure(0,0);
+        HeaderView.measure(0, 0);
         headerHeight = HeaderView.getMeasuredHeight();
         //测试
         imageView.setOnClickListener(new OnClickListener() {
@@ -65,82 +66,87 @@ public class ReScrollView extends ScrollView {
             }
         });
     }
-    public void setContentResource(int id){
-        rootView.addView(View.inflate(context,id,null));
+
+    public void setContentResource(int id) {
+        rootView.addView(View.inflate(context, id, null));
     }
+
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
-        if(changed){
+        if (changed) {
             imageView.setImageResource(R.mipmap.icon_loading_refresh1);
-            HeaderView.setPadding(0,-headerHeight,0,0);
+            HeaderView.setPadding(0, -headerHeight, 0, 0);
             tv_title.setText("下拉刷新");
         }
     }
+
     //下拉动画用到的属性
     private int startY;//触摸起始的Y坐标
     private int moveY;//Y轴方向移动的距离
     private int startScrollY;//触摸起始时scrollView滚动的Y轴位置
     private boolean upToRefresh;//是否松开刷新
     private boolean isComplement = true;//是否完成刷新
+
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-        switch (ev.getAction()){
+        switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 startScrollY = getScrollY();
-                startY  = (int) ev.getY();
+                startY = (int) ev.getY();
                 upToRefresh = false;
                 moveY = 0;
                 break;
             case MotionEvent.ACTION_MOVE:
-                if(!isComplement)break;
-                moveY = (int)ev.getY()-startY;
-                if(moveY>0&&startScrollY==0){
-                    Log.i("msg","moveY"+moveY);
-                    Log.i("msg","startY---->"+startY+"<>endY---->"+ev.getY());
-                    HeaderView.setPadding(0,moveY-headerHeight,0,0);
-                    if(moveY>screenHeight/10){
+                if (!isComplement) break;
+                moveY = (int) ev.getY() - startY;
+                if (moveY > 0 && startScrollY == 0) {
+                    Log.i("msg", "moveY" + moveY);
+                    Log.i("msg", "startY---->" + startY + "<>endY---->" + ev.getY());
+                    HeaderView.setPadding(0, moveY - headerHeight, 0, 0);
+                    if (moveY > screenHeight / 10) {
                         tv_title.setText("松开加载");
                         upToRefresh = true;
-                    }
-                    else {
+                    } else {
                         tv_title.setText("下拉刷新");
                         upToRefresh = false;
                     }
                 }
                 break;
             case MotionEvent.ACTION_UP:
-                if(startScrollY==0&&isComplement&&moveY>0){
-                    if(upToRefresh){
+                if (startScrollY == 0 && isComplement && moveY > 0) {
+                    if (upToRefresh) {
                         refreshAnimation();
-                        if(listenr!=null)listenr.refresh();
-                    }
-                    else {
-                        HeaderView.setPadding(0,-headerHeight,0,0);
-                        scrollTo(0,0);
+                        if (listenr != null) listenr.refresh();
+                    } else {
+                        HeaderView.setPadding(0, -headerHeight, 0, 0);
+                        scrollTo(0, 0);
                     }
                 }
                 break;
         }
-        if(!isComplement)
+        if (!isComplement)
             return false;
         return super.onTouchEvent(ev);
     }
-    public interface PullListenr{
+
+    public interface PullListenr {
         void refresh();
     }
-    public void refreshComplete(){
+
+    public void refreshComplete() {
         isComplement = true;
         imageView.setImageResource(R.mipmap.icon_loading_refresh1);
-        HeaderView.setPadding(0,-headerHeight,0,0);
+        HeaderView.setPadding(0, -headerHeight, 0, 0);
         tv_title.setText("下拉刷新");
-        scrollTo(0,0);
+        scrollTo(0, 0);
     }
-    private void refreshAnimation(){
+
+    private void refreshAnimation() {
         isComplement = false;
-        HeaderView.setPadding(0,0,0,0);
+        HeaderView.setPadding(0, 0, 0, 0);
         imageView.setImageResource(R.drawable.refreshing);
         tv_title.setText("数据加载中···");
-        scrollTo(0,0);
+        scrollTo(0, 0);
     }
 }

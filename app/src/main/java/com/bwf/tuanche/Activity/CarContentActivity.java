@@ -1,7 +1,9 @@
 package com.bwf.tuanche.Activity;
 
+import android.content.DialogInterface;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +17,8 @@ import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.Adatper.CarHotRecyclerAdatper;
 import com.bwf.tuanche.Adatper.CarViewPragerAdapter;
+import com.bwf.tuanche.View.ShareCarMessDialog;
+import com.bwf.tuanche.View.SharePopWindow;
 import com.bwf.tuanche.fragment.CarContentFragment.LogoCarFragment;
 import com.bwf.tuanche.fragment.CarContentFragment.TiaojianCarFragment;
 import com.bwf.tuanche.R;
@@ -148,8 +152,8 @@ public class CarContentActivity extends BaseActivity{
                 Tiaojian_car.setTextColor(getResources().getColor(R.color.white));
                 logo_tiaojian_car.setCurrentItem(1);
                 break;
-            case R.id.content_search://点击搜索
-                ToastUtil.showToast("点击跳转到搜索页面");
+            case R.id.content_search://点击跳转搜索页面
+                IntentUtils.openActivity(this,Search_only_Activity.class);
                 break;
         }
     }

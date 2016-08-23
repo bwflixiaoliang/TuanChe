@@ -20,6 +20,7 @@
     <string name="car_search_hint">请输入品牌、车型</string>
     <string name="hot_brand_search">热门搜索</string>
     <string name="hot_last_search">搜索历史</string>
+    <string name="share_text_01">分享到</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

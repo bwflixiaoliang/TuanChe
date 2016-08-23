@@ -46,6 +46,8 @@ public class MainListFragment_1 extends BaseFragment {
     @Override
     protected int getResource() {
         return R.layout.main_list_fragment1;
+
+
     }
 
     @Override
@@ -70,6 +72,10 @@ public class MainListFragment_1 extends BaseFragment {
         textViews = new TextView[]{main_list_lowprice, main_list_tiemo, main_list_newcartype, main_list_baoxian};
         //点击跳转到低价购车页面的监听
         ll_lowprice.setOnClickListener(this);
+    }
+
+    public void setCityId(String cityId) {
+        this.cityId = cityId;
     }
 
     @Override
@@ -100,8 +106,7 @@ public class MainListFragment_1 extends BaseFragment {
         }
     }
 
-    public void getBigBanner(String url, String cityId) {
-        this.cityId = cityId;
+    public void getBigBanner(String url) {
         main_list_bigimg.setImageURI(url);
     }
 }

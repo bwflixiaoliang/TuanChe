@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.bwf.framwork.base.BaseListAdpter;
 import com.bwf.framwork.utils.DisplayUtil;
+import com.bwf.framwork.utils.LogUtils;
 import com.bwf.tuanche.R;
 
 /**
@@ -59,12 +60,12 @@ public class ReScrollView extends ScrollView {
         HeaderView.measure(0, 0);
         headerHeight = HeaderView.getMeasuredHeight();
         //测试
-        imageView.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                refreshComplete();
-            }
-        });
+//        imageView.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                refreshComplete();
+//            }
+//        });
     }
 
     public void setContentResource(int id) {
@@ -93,7 +94,8 @@ public class ReScrollView extends ScrollView {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 startScrollY = getScrollY();
-                startY = (int) ev.getY();
+                startY  = (int) ev.getY();
+                LogUtils.i("msg","ev.getRawY()-->"+ev.getRawY());
                 upToRefresh = false;
                 moveY = 0;
                 break;

@@ -1,5 +1,6 @@
 package com.bwf.framwork.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -68,6 +69,11 @@ public class IntentUtils {
         }
         context.startActivity(Intent);
     }
-
+    public static void openActivityWithResult(Activity activity, Class<?> pClass,int requestCode,Bundle bundle){
+        Intent intent = new Intent(activity,pClass);
+        if(bundle!=null)
+        intent.putExtras(bundle);
+        activity.startActivityForResult(intent,requestCode);
+    }
 
 }

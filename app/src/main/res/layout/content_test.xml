@@ -1,17 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/test_myScroll_tv"
-            android:background="#A54"
-            android:text="1"
-            android:layout_width="match_parent"
-            android:layout_height="600dp" />
-        <TextView
-            android:background="#fff"
-            android:layout_width="match_parent"
-            android:text="2"
-            android:gravity="bottom"
-            android:layout_height="600dp" />
+    android:layout_height="wrap_content">
+                <fragment
+                    android:id="@+id/main_list_frag1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:name="com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_1"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/gray"
+                    />
+                <fragment
+                    android:id="@+id/main_list_frag2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:name="com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_2"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/gray"
+                    />
+                <fragment
+                    android:id="@+id/main_list_frag3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:name="com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_3"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/gray"
+                    />
+                <fragment
+                    android:id="@+id/main_list_frag4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:name="com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_4"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp" />
 </LinearLayout>

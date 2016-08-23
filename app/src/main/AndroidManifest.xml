@@ -57,7 +57,8 @@
         <activity
             android:name=".Activity.MainListActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".Activity.CityListActivity"
             android:screenOrientation="portrait"

@@ -38,4 +38,8 @@
             <item name="android:windowEnterAnimation">@anim/coming</item>
             <item name="android:windowExitAnimation">@anim/outing</item>
         </style>
+    <style name="Pop_Animationsamecarbrand">
+        <item name="android:windowEnterAnimation">@anim/joining</item>
+        <item name="android:windowExitAnimation">@anim/outjoining</item>
+    </style>
 </resources>

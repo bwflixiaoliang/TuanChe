@@ -136,7 +136,8 @@
                     </LinearLayout>
                     <com.facebook.drawee.view.SimpleDraweeView
                         android:id="@+id/f_mother"
-                        android:layout_width="30dp"
+                        android:layout_width="0dp"
+                        android:padding="5dp"
                         android:background="@color/colorwhite"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
@@ -182,8 +183,9 @@
                     </LinearLayout>
                     <com.facebook.drawee.view.SimpleDraweeView
                         android:id="@+id/zijieche"
-                        android:layout_width="30dp"
-                        android:layout_height="45dp"
+                        android:layout_width="0dp"
+                         android:padding="5dp"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         />

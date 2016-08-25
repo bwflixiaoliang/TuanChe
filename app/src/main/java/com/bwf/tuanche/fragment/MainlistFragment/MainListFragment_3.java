@@ -66,6 +66,7 @@ public class MainListFragment_3 extends BaseFragment{
     }
 
     public void setData(List<CenterBannerBean> centerBannerBeen, List<PositionBanner>positionBanners){
+       if(centerBannerBeen==null||positionBanners==null)return;
         f_chexian.setImageURI(centerBannerBeen.get(0).adImgUrl);
         f_baozhang.setImageURI(centerBannerBeen.get(1).adImgUrl);
         f_hun.setImageURI(positionBanners.get(0).iconUrl);

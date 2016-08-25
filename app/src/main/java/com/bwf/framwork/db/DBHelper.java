@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.bwf.framwork.Constants;
 import com.bwf.framwork.base.BaseModel;
+import com.bwf.framwork.utils.LogUtils;
 import com.bwf.tuanche.MyApplication;
 
 
@@ -33,11 +34,13 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // getReadableDatabase();//主要用于查询
         // write;//增，删，改
+        LogUtils.i("msg","createTab--->");
 
         try {
             for (int i = 0; i < Constants.TABLES.length; i++) {
-                Class<BaseModel> baseModelClass = (Class<BaseModel>) Class.forName(Constants.TABLES[i]);//根据类名反射拿到Class
+                Class<? extends BaseModel> baseModelClass = (Class<? extends BaseModel>) Class.forName(Constants.TABLES[i]);//根据类名反射拿到Class
                 BaseModel baseModel = baseModelClass.newInstance();//根据Class拿到对象
+                LogUtils.i("msg","createTab--->"+baseModel.getCreateTableSql());
                 db.execSQL(baseModel.getCreateTableSql());
 
             }

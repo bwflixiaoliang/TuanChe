@@ -24,16 +24,20 @@ import com.bwf.framwork.utils.LogUtils;
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.View.LoadAnimation;
+import com.bwf.tuanche.View.LocationCityChangeDialog;
 import com.bwf.tuanche.View.ReScrollView;
 import com.bwf.tuanche.View.VersionUpdateDialog;
 import com.bwf.tuanche.eneity.Banner.BannerResult;
 import com.bwf.tuanche.eneity.TuanChe.TuanCheResult;
 import com.bwf.tuanche.eneity.hotcartype.HotCarResultBean;
 import com.bwf.tuanche.eneity.hotlogo.ResultBean;
+import com.bwf.tuanche.eneity.location.LocationBean;
 import com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_1;
 import com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_2;
 import com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_3;
 import com.bwf.tuanche.fragment.MainlistFragment.MainListFragment_4;
+import com.uuzuche.lib_zxing.activity.CaptureActivity;
+import com.uuzuche.lib_zxing.activity.CodeUtils;
 
 import java.util.List;
 
@@ -42,17 +46,17 @@ public class MainListActivity extends BaseActivity {
     private MainListFragment_2 mainListFragment_2;
     private MainListFragment_3 mainListFragment_3;
     private MainListFragment_4 mainListFragment_4;
-
+    private ImageView image_Zxing;
     private LinearLayout ll_con1,ll_con2,ll_con3,title;
     private String cityName,cityId;
-    private TextView main_page,main_dingdan,main_kefu,main_wode,content_city;
+    private TextView main_page,main_dingdan,main_kefu,main_wode,content_city,lastCityName;
     private int[] select_ids=new int[]{R.mipmap.nav_icon_home_sel,R.mipmap.nav_icon_order_sel,R.mipmap.nav_icon_server_sel,R.mipmap.nav_icon_my_sel};
     private int[] normal_ids=new int[]{R.mipmap.nav_icon_home_nor,R.mipmap.nav_icon_order_nor,R.mipmap.nav_icon_server_nor,R.mipmap.nav_icon_my_nor};
     private TextView[] textViews;
     private ReScrollView scrollView;
     private EditText ed_search;
-
-    private boolean page = true, dingdan = false, kefu = false, wode = false;
+    private LocationBean.LocationCity locationCity;
+    private boolean page = true, dingdan = false, kefu = false, wode = false,isLocation;
 
     //跳转低价购车页面
     private ImageView dijia;
@@ -64,10 +68,11 @@ public class MainListActivity extends BaseActivity {
 
     @Override
     public void beforeInitView() {
+        locationCity = (LocationBean.LocationCity) getIntent().getSerializableExtra("locationCity");
         cityName = getIntent().getStringExtra("cityName");
         cityId = getIntent().getStringExtra("cityId");
-        cityName = cityName == null ? "成都" : cityName;
-        cityId = cityId == null ? "156" : cityId;
+        if(locationCity==null||locationCity.name.equals(cityName)) isLocation = true;
+        else isLocation = false;
         LogUtils.i("msg","beforeInitView--->cityName--"+cityName+"---cityId:"+cityId);
     }
     @Override
@@ -83,6 +88,8 @@ public class MainListActivity extends BaseActivity {
         scrollView.setContentResource(R.layout.content_test);
         scrollView.setOnPullListenr(pullListenr);
         content_city=findViewByIdNoCast(R.id.content_city);
+        lastCityName = findViewByIdNoCast(R.id.mainList_tvlastCity);
+        setOnClick(R.id.mainList_Zxing);
         content_city.setOnClickListener(this);
         ed_search=findViewByIdNoCast(R.id.search_ed);
         main_page=findViewByIdNoCast(R.id.main_page);
@@ -101,8 +108,11 @@ public class MainListActivity extends BaseActivity {
     @Override
     public void initData() {
         content_city.setText(cityName);
+        lastCityName.setText(cityName);
         startLoadAnimation();
         getData();
+        if(!isLocation)new LocationCityChangeDialog(MainListActivity.this,locationCity.name,changeCityListener).show();
+        else new LocationCityChangeDialog(MainListActivity.this,"成都",changeCityListener).show();
         new VersionUpdateDialog(this);
     }
     //带结果跳转
@@ -118,11 +128,14 @@ public class MainListActivity extends BaseActivity {
                         if(cityId!=null){
                             LogUtils.i("msg","onActivityResult--->+cityName:"+cityId);
                             content_city.setText(cityName);
+                            lastCityName.setText(cityName);
                             mainListFragment_1.setCityId(cityId);
                             startLoadAnimation();
                             getData();
                         }
                     }
+                    break;
+                case RESULT_OK:
                     break;
             }
         }
@@ -137,6 +150,7 @@ public class MainListActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         LogUtils.i("msg","onDestroy");
+        mHandler.removeCallbacksAndMessages(null);
         super.onDestroy();
     }
 
@@ -210,6 +224,9 @@ public class MainListActivity extends BaseActivity {
                     ll_con3.setVisibility(View.VISIBLE);
                     setSelect(3);
                 }
+                break;
+            case R.id.mainList_Zxing:
+                IntentUtils.openActivityWithResult(this,CaptureActivity.class, RequestAndResultCode.MainListrequestCode,null);
                 break;
             case R.id.search_ed:
                 Intent intent = new Intent(this, HotSearch_Activity.class);
@@ -377,6 +394,19 @@ public class MainListActivity extends BaseActivity {
             getData();
         }
     };
+   //改变城市监听
+    private LocationCityChangeDialog.DialogOnClickListener changeCityListener = new LocationCityChangeDialog.DialogOnClickListener() {
+       @Override
+       public void changeCity() {
+           ToastUtil.showToast("改变城市");
+           if(locationCity==null)return;
+            cityName = locationCity.name;
+            cityId = locationCity.id;
+            content_city.setText(cityName);
+            lastCityName.setText(cityName);
+            getData();
+       }
+   };
     //再按一下退出；
     private boolean isExit;
     @Override

@@ -16,9 +16,11 @@ import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.map.MapLocation;
+import com.bwf.framwork.share.SharePrefreceHelper;
 import com.bwf.framwork.tools.RequestAndResultCode;
 import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.framwork.utils.ListViewUtils;
+import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.Adatper.CityListAdapter;
 import com.bwf.tuanche.Adatper.CityListHeadAdapter;
 import com.bwf.tuanche.Adatper.CitylistSearchAdapter;
@@ -100,7 +102,6 @@ public class CityListActivity extends BaseActivity implements BDLocationListener
                 }
                 break;
             case R.id.citylist_imageBack:
-                IntentUtils.openActivity(this, TestActivity.class);
                 finish();
                 break;
         }
@@ -266,12 +267,17 @@ public class CityListActivity extends BaseActivity implements BDLocationListener
             if (openCity == null) return;
             String cityName = openCity.name;
             String cityId = openCity.id;
+            String openStatus =openCity.openStatus;
             Bundle bundle = new Bundle();
             bundle.putString("cityName",cityName);
             bundle.putString("cityId",cityId);
             Intent intent = new Intent();
             intent.putExtras(bundle);
-            CityListActivity.this.setResult(RequestAndResultCode.CityListResultCode,intent);
+            if(SharePrefreceHelper.getInstence(CityListActivity.this).isFirst()){
+                 IntentUtils.openActivity(CityListActivity.this,MainListActivity.class,bundle);
+                SharePrefreceHelper.getInstence(CityListActivity.this).setFirst();
+            }else
+                CityListActivity.this.setResult(RequestAndResultCode.CityListResultCode,intent);
             CityListActivity.this.finish();
         }
     };

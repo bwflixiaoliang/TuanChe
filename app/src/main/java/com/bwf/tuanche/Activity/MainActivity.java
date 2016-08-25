@@ -35,7 +35,6 @@ public class MainActivity extends BaseActivity implements Handler.Callback,BDLoc
     public int getContentViewId() {
         return R.layout.activity_main;
     }
-
     @Override
     public void beforeInitView() {
         isFirst = SharePrefreceHelper.getInstence(this).isFirst();

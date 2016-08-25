@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">TuanChe</string>
     <string name="nowCity_name">当前城市-%s</string>
+    <string name="changeCity">当前您所在的城市为%s，是否切换</string>
     <string name="title_activity_car_content">CarContentActivity</string>
     <string name="Loge_car">品牌选车</string>
     <string name="Tiaojian_car">条件选车</string>

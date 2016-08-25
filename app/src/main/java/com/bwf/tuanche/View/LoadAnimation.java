@@ -2,8 +2,12 @@ package com.bwf.tuanche.View;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Canvas;
 import android.graphics.drawable.AnimationDrawable;
 import android.util.AttributeSet;
+import android.util.TypedValue;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -41,6 +45,7 @@ public class LoadAnimation extends RelativeLayout implements View.OnClickListene
         super(context, attrs, defStyleAttr);
         initView(context);
     }
+
 
     public void setListener(LoadListener listener) {
         this.listener = listener;
@@ -81,6 +86,7 @@ public class LoadAnimation extends RelativeLayout implements View.OnClickListene
     public void failLoadNodata(LoadListener listener) {
         this.listener = listener;
         if(timer!=null){timer.cancel();timer=null;count=0;}
+        if (getVisibility() != VISIBLE) setVisibility(VISIBLE);
         tv_loaded.setVisibility(VISIBLE);
         tv_loading.setVisibility(GONE);
         if (drawable != null && drawable.isRunning()) drawable.stop();
@@ -92,6 +98,7 @@ public class LoadAnimation extends RelativeLayout implements View.OnClickListene
     public void failLoadNoNetWork(LoadListener listener) {
         this.listener = listener;
         if(timer!=null){timer.cancel();timer=null;count=0;}
+        if (getVisibility() != VISIBLE) setVisibility(VISIBLE);
         tv_loaded.setVisibility(VISIBLE);
         tv_loading.setVisibility(GONE);
         if (drawable != null && drawable.isRunning()) drawable.stop();

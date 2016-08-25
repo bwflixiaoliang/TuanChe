@@ -7,7 +7,7 @@
         android:id="@+id/refresh_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/refreshing"/>
+        android:background="@drawable/refreshing"/>
     <TextView
         android:id="@+id/refresh_tvTitle"
         android:layout_width="100dp"

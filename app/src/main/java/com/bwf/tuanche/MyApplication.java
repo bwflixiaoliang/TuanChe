@@ -2,11 +2,13 @@ package com.bwf.tuanche;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.DisplayMetrics;
 
 import com.bwf.tuanche.eneity.hotlogo.HotLogo;
 import com.bwf.tuanche.eneity.logocarlist.LogoCarListBean;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.umeng.socialize.PlatformConfig;
+import com.uuzuche.lib_zxing.DisplayUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 import java.util.List;
@@ -34,6 +36,7 @@ public class MyApplication extends Application {
         Fresco.initialize(this);
         //初始化okhttp
         initOkhttp();
+        initDisplayOpinion();
 
     }
 
@@ -56,5 +59,14 @@ public class MyApplication extends Application {
 
     public static Context getAppContext(){
         return myApplication.getApplicationContext();
+    }
+    private void initDisplayOpinion() {
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        DisplayUtil.density = dm.density;
+        DisplayUtil.densityDPI = dm.densityDpi;
+        DisplayUtil.screenWidthPx = dm.widthPixels;
+        DisplayUtil.screenhightPx = dm.heightPixels;
+        DisplayUtil.screenWidthDip = DisplayUtil.px2dip(getApplicationContext(), dm.widthPixels);
+        DisplayUtil.screenHightDip = DisplayUtil.px2dip(getApplicationContext(), dm.heightPixels);
     }
 }

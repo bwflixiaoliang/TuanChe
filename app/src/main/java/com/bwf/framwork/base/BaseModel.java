@@ -3,8 +3,10 @@ package com.bwf.framwork.base;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.provider.BaseColumns;
+import android.util.Log;
 
 import com.bwf.framwork.db.DBHelper;
+import com.bwf.framwork.utils.LogUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -32,7 +34,6 @@ public abstract class BaseModel implements BaseColumns {
     }
 
     public String getCreateTable(String tableName, Map<String, String> map) {
-
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("create table ").append(tableName).append(" (");
 
@@ -42,6 +43,7 @@ public abstract class BaseModel implements BaseColumns {
         }
         String sql = stringBuilder.substring(0, stringBuilder.length() - 1);
         sql = sql + ")";
+        LogUtils.i("msg","sql--->"+sql);
         return sql;
     }
 

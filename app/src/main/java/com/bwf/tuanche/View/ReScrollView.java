@@ -59,6 +59,7 @@ public class ReScrollView extends ScrollView {
         addView(rootView);
         HeaderView.measure(0, 0);
         headerHeight = HeaderView.getMeasuredHeight();
+        LogUtils.i("msg","headerHeight"+headerHeight);
         //测试
 //        imageView.setOnClickListener(new OnClickListener() {
 //            @Override
@@ -73,10 +74,16 @@ public class ReScrollView extends ScrollView {
     }
 
     @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        if(moveY!=0)return true;
+        return super.onInterceptTouchEvent(ev);
+    }
+
+    @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
         if (changed) {
-            imageView.setImageResource(R.mipmap.icon_loading_refresh1);
+            imageView.setBackgroundResource(R.mipmap.icon_loading_refresh1);
             HeaderView.setPadding(0, -headerHeight, 0, 0);
             tv_title.setText("下拉刷新");
         }
@@ -88,7 +95,7 @@ public class ReScrollView extends ScrollView {
     private int startScrollY;//触摸起始时scrollView滚动的Y轴位置
     private boolean upToRefresh;//是否松开刷新
     private boolean isComplement = true;//是否完成刷新
-
+    private AnimationDrawable animation;//加载动画。
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         switch (ev.getAction()) {
@@ -138,7 +145,11 @@ public class ReScrollView extends ScrollView {
 
     public void refreshComplete() {
         isComplement = true;
-        imageView.setImageResource(R.mipmap.icon_loading_refresh1);
+        if(animation !=null){
+            animation.stop();
+            animation = null;
+        }
+        imageView.setBackgroundResource(R.mipmap.icon_loading_refresh1);
         HeaderView.setPadding(0, -headerHeight, 0, 0);
         tv_title.setText("下拉刷新");
         scrollTo(0, 0);
@@ -147,7 +158,9 @@ public class ReScrollView extends ScrollView {
     private void refreshAnimation() {
         isComplement = false;
         HeaderView.setPadding(0, 0, 0, 0);
-        imageView.setImageResource(R.drawable.refreshing);
+        imageView.setBackgroundResource(R.drawable.refreshing);
+        animation = (AnimationDrawable) imageView.getBackground();
+        animation.start();
         tv_title.setText("数据加载中···");
         scrollTo(0, 0);
     }

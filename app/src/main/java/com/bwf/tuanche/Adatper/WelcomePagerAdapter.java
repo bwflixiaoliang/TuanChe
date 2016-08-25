@@ -87,7 +87,6 @@ public class WelcomePagerAdapter extends PagerAdapter implements View.OnClickLis
     @Override
     public void onClick(View view) {
         IntentUtils.openActivity(context, CityListActivity.class);
-        SharePrefreceHelper.getInstence(context).setFirst();
         context.finish();
     }
 }

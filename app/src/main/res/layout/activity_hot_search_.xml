@@ -39,7 +39,7 @@
             android:drawableLeft="@mipmap/search"
             />
         <TextView
-            android:id="@+id/search_tv"
+            android:id="@+id/sousuoofhotsearch"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:gravity="center"
@@ -62,5 +62,24 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         ></android.support.v4.view.ViewPager>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="搜索历史"
+        android:textSize="@dimen/text_18"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        />
+    <ListView
+        android:id="@+id/hotsearch_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+    <TextView
+        android:id="@+id/cleanhistory"
+        android:textSize="@dimen/text_18"
+        android:gravity="center"
+        android:text="清空历史记录"
+        android:textColor="@color/red"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
 </LinearLayout>

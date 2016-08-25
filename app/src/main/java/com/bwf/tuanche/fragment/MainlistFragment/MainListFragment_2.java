@@ -53,7 +53,7 @@ public class MainListFragment_2 extends BaseFragment{
 
     }
 
-    public void getData(final ResultBean result, final String cityName){
+    public void getData(final ResultBean result, final String cityName, final String cityid){
         if(result.result!=null){
         List<HotLogo> newdata=result.result.list;
         HotLogo hotLogo=new HotLogo();
@@ -72,6 +72,8 @@ public class MainListFragment_2 extends BaseFragment{
                     intent.putExtras(bundle);
                     intent.putExtra("carname",result.result.list.get(i).name);
                     intent.putExtra("cityname",cityName);
+                    intent.putExtra("brandId",result.result.list.get(i).id);
+                    intent.putExtra("cityId",cityid);
                     startActivity(intent);
                 }
             });

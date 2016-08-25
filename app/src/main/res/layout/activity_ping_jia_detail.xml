@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.bwf.tuanche.Activity.PingJiaDetailActivity">
+    <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/img_pngjiaback"
+            android:layout_width="wrap_content"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            android:drawableLeft="@mipmap/icon_back"
+            />
+
+        <TextView
+            android:id="@+id/search_tv"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:text="全部评价"
+            android:textColor="@color/colorblack"
+            android:padding="5dp"
+            />
+    </LinearLayout>
+<ListView
+    android:id="@+id/listofpingjia"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"></ListView>
+</LinearLayout>

@@ -261,9 +261,12 @@ public class MainListActivity extends BaseActivity {
             public void onSuccess(ResultBean result) {
                 if (result != null) {
                     mHandler.sendEmptyMessage(1);
-                    mainListFragment_2.getData(result, cityName);
-                } else mHandler.sendEmptyMessage(2);
-                ;
+                    mainListFragment_2.getData(result,cityName,cityId);
+                }
+                else mHandler.sendEmptyMessage(2);;
+                if(result!=null)
+                mainListFragment_2.getData(result,cityName,cityId);
+                else LogUtils.e("onSuccess__"+ "为空");
             }
 
             @Override
@@ -297,10 +300,12 @@ public class MainListActivity extends BaseActivity {
         HttpHelper.getDataHotCarType("20", "10", cityId, new HttpCallBackArray<HotCarResultBean>() {
             @Override
             public void onSuccess(List<HotCarResultBean> result) {
-                if (result != null) {
-                    mainListFragment_4.setData(result, cityName);
+                if(result!=null){
+                    mainListFragment_4.setData(result,cityName,cityId);
                     mHandler.sendEmptyMessage(1);
-                } else mHandler.sendEmptyMessage(2);
+                }else mHandler.sendEmptyMessage(2);
+                if(result!=null)
+                mainListFragment_4.setData(result,cityName,cityId);
             }
 
             @Override

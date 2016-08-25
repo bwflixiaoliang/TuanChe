@@ -58,7 +58,7 @@
             android:name=".Activity.MainListActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".Activity.CityListActivity"
             android:screenOrientation="portrait"
@@ -137,7 +137,8 @@
         <activity
             android:name=".Activity.MarriageCarActivity"
             android:label="@string/title_activity_marriage_car"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Activity.PingJiaDetailActivity"/>
     </application>
 
 </manifest>

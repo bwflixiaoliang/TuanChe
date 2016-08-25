@@ -93,4 +93,8 @@
     <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Pop_Animationsamecarbrand">
+        <item name="android:windowEnterAnimation">@anim/joining</item>
+        <item name="android:windowExitAnimation">@anim/outjoining</item>
+    </style>
 </resources>

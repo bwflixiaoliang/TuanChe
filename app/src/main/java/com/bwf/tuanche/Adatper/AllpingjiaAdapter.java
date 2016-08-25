@@ -8,6 +8,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bwf.tuanche.R;
+import com.bwf.tuanche.eneity.Allping.CommentListBean;
 import com.bwf.tuanche.eneity.detail.CommentList;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -17,17 +18,17 @@ import java.util.List;
  * Created by fengchao on 2016/8/22.
  * Description：
  */
-public class DetailFrag4_ListViewAdapter extends BaseAdapter {
-    private List<CommentList> commentList;
+public class AllpingjiaAdapter extends BaseAdapter {
+    private List<CommentListBean> commentList;
 
     private Context context;
 
-    public DetailFrag4_ListViewAdapter(Context context) {
+    public AllpingjiaAdapter(Context context) {
 
         this.context = context;
     }
 
-    public void setAdapterdata(List<CommentList> commentList) {
+    public void setAdapterdata(List<CommentListBean> commentList) {
         this.commentList = commentList;
     }
 

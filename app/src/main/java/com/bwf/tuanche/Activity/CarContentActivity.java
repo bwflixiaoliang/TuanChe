@@ -162,7 +162,7 @@ public class CarContentActivity extends BaseActivity {
                 logo_tiaojian_car.setCurrentItem(1);
                 break;
             case R.id.content_search://点击跳转搜索页面
-                IntentUtils.openActivity(this, Search_only_Activity.class);
+                IntentUtils.openActivity(this, HotSearch_Activity.class);
                 break;
         }
     }

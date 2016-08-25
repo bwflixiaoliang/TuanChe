@@ -7,6 +7,7 @@ import com.bwf.framwork.utils.LogUtils;
 import com.bwf.framwork.utils.ToastUtil;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +27,7 @@ public class History extends BaseModel{
         params.put(_ID,"integer primary key autoincrement");
         params.put("name","TEXT NOT　NULL");
         params.put("time","TEXT NOT NULL");
+
     }
 
     public void insertnew(HistoryBean historyBean){
@@ -47,23 +49,25 @@ public class History extends BaseModel{
         delete(TABLENAME,"time=?",arg);
     }
 
+    public void Clean(){
+        clear(TABLENAME);
+    }
+
     public List<HistoryBean> Querey(){
-        int count=0;
         List<HistoryBean> historyBeanList=new ArrayList<>();
         String sql="select * from "+TABLENAME;
         Cursor cursor=select(sql);
         if (cursor != null) {
-            if (cursor.moveToNext()) {
-                ToastUtil.showToast("------------");
+            while (cursor.moveToNext()) {
                 historyBean=new HistoryBean();
                 historyBean.name = cursor.getString(cursor.getColumnIndex("name"));
                 historyBean.time = cursor.getLong(cursor.getColumnIndex("time"));
                 historyBeanList.add(historyBean);
             }
+            Collections.sort(historyBeanList);
+            LogUtils.e(historyBeanList.toString());
         }
-
         return historyBeanList;
-
     }
 
 

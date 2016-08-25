@@ -161,7 +161,18 @@ public class HttpHelper {
 
     //婚姻座驾的请求数据接口（不传数据）
     public static void getMarriageData(HttpCallBack callBack) {
-        OkHttpUtils.post().url(UrlUtils.MARRIAGECAR_URL)
+        OkHttpUtils.post()
+                .url(UrlUtils.MARRIAGECAR_URL)
+                .build()
+                .execute(callBack);
+    }
+    //全部评价请求，count=10,offset=1,cityid城市id,brandid品牌id
+    public static void getDataAllPinglun(String count,String offset,String cityId ,String brandid,HttpCallBack callBack){
+        OkHttpUtils.post().url(UrlUtils.JUDGE_URL)
+                .addParams("cityId",cityId)
+                .addParams("count",count)
+                .addParams("offset",offset)
+                .addParams("brandId",brandid)
                 .build()
                 .execute(callBack);
     }

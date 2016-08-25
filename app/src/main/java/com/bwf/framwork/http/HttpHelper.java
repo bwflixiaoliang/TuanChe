@@ -143,5 +143,14 @@ public class HttpHelper {
                 .build()
                 .execute(callback);
     }
-
+    //全部评价请求，count=10,offset=1,cityid城市id,brandid品牌id
+    public static void getDataAllPinglun(String count,String offset,String cityId ,String brandid,HttpCallBack callBack){
+        OkHttpUtils.post().url(UrlUtils.JUDGE_URL)
+                .addParams("cityId",cityId)
+                .addParams("count",count)
+                .addParams("offset",offset)
+                .addParams("brandId",brandid)
+                .build()
+                .execute(callBack);
+    }
 }

@@ -63,12 +63,10 @@
     <TextView
         android:id="@+id/deatil_frag4_item_tvping"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:textSize="@dimen/text_16"
         android:textColor="@color/colorblack"
         android:gravity="center_vertical"
-        android:text="123"
         />
     </LinearLayout>
 </LinearLayout>

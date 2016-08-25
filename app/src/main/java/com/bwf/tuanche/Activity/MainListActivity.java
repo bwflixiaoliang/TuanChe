@@ -259,9 +259,12 @@ public class MainListActivity extends BaseActivity {
             public void onSuccess(ResultBean result) {
                 if(result!=null){
                     mHandler.sendEmptyMessage(1);
-                    mainListFragment_2.getData(result,cityName);
+                    mainListFragment_2.getData(result,cityName,cityId);
                 }
                 else mHandler.sendEmptyMessage(2);;
+                if(result!=null)
+                mainListFragment_2.getData(result,cityName,cityId);
+                else LogUtils.e("onSuccess__"+ "为空");
             }
 
             @Override
@@ -295,9 +298,11 @@ public class MainListActivity extends BaseActivity {
             @Override
             public void onSuccess(List<HotCarResultBean> result) {
                 if(result!=null){
-                    mainListFragment_4.setData(result,cityName);
+                    mainListFragment_4.setData(result,cityName,cityId);
                     mHandler.sendEmptyMessage(1);
                 }else mHandler.sendEmptyMessage(2);
+                if(result!=null)
+                mainListFragment_4.setData(result,cityName,cityId);
             }
             @Override
             public void onFail(String errMsg) {

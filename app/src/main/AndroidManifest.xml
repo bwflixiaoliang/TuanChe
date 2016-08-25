@@ -59,6 +59,7 @@
             android:screenOrientation="portrait"
             android:launchMode="singleTask"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activity.CityListActivity"
             android:screenOrientation="portrait"
@@ -73,7 +74,7 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="qP8xQGb4IsYkyQy1Ca5YXd6QM0Wkstpj" />
 
-        <activity android:name=".Activity.TestActivity"></activity>
+        <activity android:name=".Activity.TestActivity" />
         <activity
             android:name=".Activity.CarContentActivity"
             android:label="@string/title_activity_car_content"
@@ -83,7 +84,6 @@
             android:name=".Activity.CarScreenActivity"
             android:label="@string/title_activity_car_screen"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity android:name=".Activity.HotSearch_Activity" />
         <activity android:name=".Activity.Search_only_Activity" />
         <activity android:name=".Activity.DeatilActivity"></activity>
@@ -117,6 +117,8 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <!--QQ分享部分--><!----><!----><!----><!----><!----><!----><!----><!---->
 
+        <activity android:name=".Activity.DeatilActivity" />
+        <activity android:name=".Activity.PingJiaDetailActivity"></activity>
     </application>
 
 </manifest>

@@ -79,6 +79,7 @@ public class LoadAnimation extends RelativeLayout implements View.OnClickListene
     }
 
     public void failLoadNodata(LoadListener listener) {
+//        if(listener==null)
         this.listener = listener;
         if(timer!=null){timer.cancel();timer=null;count=0;}
         tv_loaded.setVisibility(VISIBLE);
@@ -90,6 +91,7 @@ public class LoadAnimation extends RelativeLayout implements View.OnClickListene
     }
 
     public void failLoadNoNetWork(LoadListener listener) {
+//        if(listener==null)
         this.listener = listener;
         if(timer!=null){timer.cancel();timer=null;count=0;}
         tv_loaded.setVisibility(VISIBLE);

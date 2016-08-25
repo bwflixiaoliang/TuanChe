@@ -6,7 +6,9 @@
     tools:context="com.bwf.tuanche.Activity.CarContentActivity"
     tools:showIn="@layout/activity_car_content">
 
+
     <LinearLayout
+        android:id="@+id/content_car_linear"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -23,7 +25,7 @@
                 android:id="@+id/content_back"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
-                android:layout_weight="0.5"
+                android:layout_weight="0.6"
                 android:background="@color/white"
                 android:padding="12dp"
                 android:src="@mipmap/icon_back" />
@@ -59,9 +61,10 @@
                 android:id="@+id/content_search"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
-                android:layout_weight="0.5"
+                android:layout_weight="0.6"
                 android:background="@color/white"
                 android:padding="8dp"
+                android:layout_marginRight="5dp"
                 android:src="@mipmap/search_icon_search" />
         </LinearLayout>
 
@@ -73,5 +76,10 @@
 
     </LinearLayout>
 
+    <com.bwf.tuanche.View.LoadAnimation
+        android:id="@+id/load_animation000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center" />
 
 </RelativeLayout>

@@ -73,6 +73,12 @@ public class ReScrollView extends ScrollView {
     }
 
     @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        if (moveY != 0) return true;
+        return super.onInterceptTouchEvent(ev);
+    }
+
+    @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
         if (changed) {
@@ -94,8 +100,8 @@ public class ReScrollView extends ScrollView {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 startScrollY = getScrollY();
-                startY  = (int) ev.getY();
-                LogUtils.i("msg","ev.getRawY()-->"+ev.getRawY());
+                startY = (int) ev.getY();
+                LogUtils.i("msg", "ev.getRawY()-->" + ev.getRawY());
                 upToRefresh = false;
                 moveY = 0;
                 break;

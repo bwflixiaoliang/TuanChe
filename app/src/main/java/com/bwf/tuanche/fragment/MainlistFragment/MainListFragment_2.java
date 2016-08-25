@@ -56,7 +56,6 @@ public class MainListFragment_2 extends BaseFragment{
     public void getData(final ResultBean result, final String cityName){
         if(result.result!=null){
         List<HotLogo> newdata=result.result.list;
-            LogUtils.e(result.toString());
         HotLogo hotLogo=new HotLogo();
         hotLogo.name="更多";
         newdata.add(hotLogo);

@@ -43,11 +43,11 @@ public class MainListActivity extends BaseActivity {
     private MainListFragment_3 mainListFragment_3;
     private MainListFragment_4 mainListFragment_4;
 
-    private LinearLayout ll_con1,ll_con2,ll_con3,title;
-    private String cityName,cityId;
-    private TextView main_page,main_dingdan,main_kefu,main_wode,content_city;
-    private int[] select_ids=new int[]{R.mipmap.nav_icon_home_sel,R.mipmap.nav_icon_order_sel,R.mipmap.nav_icon_server_sel,R.mipmap.nav_icon_my_sel};
-    private int[] normal_ids=new int[]{R.mipmap.nav_icon_home_nor,R.mipmap.nav_icon_order_nor,R.mipmap.nav_icon_server_nor,R.mipmap.nav_icon_my_nor};
+    private LinearLayout ll_con1, ll_con2, ll_con3, title;
+    private String cityName, cityId;
+    private TextView main_page, main_dingdan, main_kefu, main_wode, content_city;
+    private int[] select_ids = new int[]{R.mipmap.nav_icon_home_sel, R.mipmap.nav_icon_order_sel, R.mipmap.nav_icon_server_sel, R.mipmap.nav_icon_my_sel};
+    private int[] normal_ids = new int[]{R.mipmap.nav_icon_home_nor, R.mipmap.nav_icon_order_nor, R.mipmap.nav_icon_server_nor, R.mipmap.nav_icon_my_nor};
     private TextView[] textViews;
     private ReScrollView scrollView;
     private EditText ed_search;
@@ -68,36 +68,38 @@ public class MainListActivity extends BaseActivity {
         cityId = getIntent().getStringExtra("cityId");
         cityName = cityName == null ? "成都" : cityName;
         cityId = cityId == null ? "156" : cityId;
-        LogUtils.i("msg","beforeInitView--->cityName--"+cityName+"---cityId:"+cityId);
+        LogUtils.i("msg", "beforeInitView--->cityName--" + cityName + "---cityId:" + cityId);
     }
+
     @Override
     public void initView() {
         //跳转低价购车页面
         dijia = findViewByIdNoCast(R.id.dijia);
         setOnClick(dijia);
-        ll_con1= (LinearLayout) findViewById(R.id.ll_con1);
-        ll_con2= (LinearLayout) findViewById(R.id.ll_con2);
-        ll_con3= (LinearLayout) findViewById(R.id.ll_con3);
+        ll_con1 = (LinearLayout) findViewById(R.id.ll_con1);
+        ll_con2 = (LinearLayout) findViewById(R.id.ll_con2);
+        ll_con3 = (LinearLayout) findViewById(R.id.ll_con3);
         title = findViewByIdNoCast(R.id.mainList_title);
-        scrollView = (ReScrollView)findViewById(R.id.scrollView);
+        scrollView = (ReScrollView) findViewById(R.id.scrollView);
         scrollView.setContentResource(R.layout.content_test);
         scrollView.setOnPullListenr(pullListenr);
-        content_city=findViewByIdNoCast(R.id.content_city);
+        content_city = findViewByIdNoCast(R.id.content_city);
         content_city.setOnClickListener(this);
-        ed_search=findViewByIdNoCast(R.id.search_ed);
-        main_page=findViewByIdNoCast(R.id.main_page);
-        main_dingdan=findViewByIdNoCast(R.id.main_dingdan);
-        main_kefu=findViewByIdNoCast(R.id.kefu);
-        main_wode=findViewByIdNoCast(R.id.wode);
+        ed_search = findViewByIdNoCast(R.id.search_ed);
+        main_page = findViewByIdNoCast(R.id.main_page);
+        main_dingdan = findViewByIdNoCast(R.id.main_dingdan);
+        main_kefu = findViewByIdNoCast(R.id.kefu);
+        main_wode = findViewByIdNoCast(R.id.wode);
         animation = findViewByIdNoCast(R.id.mainList_loadAnimation);
-        mainListFragment_1= (MainListFragment_1) getSupportFragmentManager().findFragmentById(R.id.main_list_frag1);
-        mainListFragment_2= (MainListFragment_2) getSupportFragmentManager().findFragmentById(R.id.main_list_frag2);
-        mainListFragment_3= (MainListFragment_3) getSupportFragmentManager().findFragmentById(R.id.main_list_frag3);
-        mainListFragment_4= (MainListFragment_4) getSupportFragmentManager().findFragmentById(R.id.main_list_frag4);
+        mainListFragment_1 = (MainListFragment_1) getSupportFragmentManager().findFragmentById(R.id.main_list_frag1);
+        mainListFragment_2 = (MainListFragment_2) getSupportFragmentManager().findFragmentById(R.id.main_list_frag2);
+        mainListFragment_3 = (MainListFragment_3) getSupportFragmentManager().findFragmentById(R.id.main_list_frag3);
+        mainListFragment_4 = (MainListFragment_4) getSupportFragmentManager().findFragmentById(R.id.main_list_frag4);
         mainListFragment_1.setCityId(cityId);
-        textViews=new TextView[]{main_page,main_dingdan,main_kefu,main_wode};
-        setOnClick(main_page,main_dingdan,main_kefu,main_wode,ed_search);
+        textViews = new TextView[]{main_page, main_dingdan, main_kefu, main_wode};
+        setOnClick(main_page, main_dingdan, main_kefu, main_wode, ed_search);
     }
+
     @Override
     public void initData() {
         content_city.setText(cityName);
@@ -105,18 +107,19 @@ public class MainListActivity extends BaseActivity {
         getData();
         new VersionUpdateDialog(this);
     }
+
     //带结果跳转
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        LogUtils.i("msg","onActivityResult--->resultCode:"+resultCode);
-        if(requestCode==RequestAndResultCode.MainListrequestCode){
-            switch (resultCode){
+        LogUtils.i("msg", "onActivityResult--->resultCode:" + resultCode);
+        if (requestCode == RequestAndResultCode.MainListrequestCode) {
+            switch (resultCode) {
                 case RequestAndResultCode.CityListResultCode:
-                    if(data!=null){
+                    if (data != null) {
                         cityName = data.getStringExtra("cityName");
                         cityId = data.getStringExtra("cityId");
-                        if(cityId!=null){
-                            LogUtils.i("msg","onActivityResult--->+cityName:"+cityId);
+                        if (cityId != null) {
+                            LogUtils.i("msg", "onActivityResult--->+cityName:" + cityId);
                             content_city.setText(cityName);
                             mainListFragment_1.setCityId(cityId);
                             startLoadAnimation();
@@ -130,13 +133,13 @@ public class MainListActivity extends BaseActivity {
 
     @Override
     protected void onStop() {
-        LogUtils.i("msg","onStop");
+        LogUtils.i("msg", "onStop");
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
-        LogUtils.i("msg","onDestroy");
+        LogUtils.i("msg", "onDestroy");
         super.onDestroy();
     }
 
@@ -146,12 +149,12 @@ public class MainListActivity extends BaseActivity {
             case R.id.main_page:
                 if (page == true) {
                     return;
-                }else {
-                    page=true;
-                    dingdan=false;
-                    kefu=false;
-                    wode=false;
-                    if(!isComplete)
+                } else {
+                    page = true;
+                    dingdan = false;
+                    kefu = false;
+                    wode = false;
+                    if (!isComplete)
                         title.setVisibility(View.VISIBLE);
                     else
                         ll_con1.setVisibility(View.VISIBLE);
@@ -164,11 +167,11 @@ public class MainListActivity extends BaseActivity {
                 if (dingdan == true) {
                     return;
                 } else {
-                    page=false;
-                    dingdan=true;
-                    kefu=false;
-                    wode=false;
-                    if(!isComplete)
+                    page = false;
+                    dingdan = true;
+                    kefu = false;
+                    wode = false;
+                    if (!isComplete)
                         title.setVisibility(View.GONE);
                     else
                         ll_con1.setVisibility(View.GONE);
@@ -181,11 +184,11 @@ public class MainListActivity extends BaseActivity {
                 if (kefu == true) {
                     return;
                 } else {
-                    page=false;
-                    dingdan=false;
-                    kefu=true;
-                    wode=false;
-                    if(!isComplete)
+                    page = false;
+                    dingdan = false;
+                    kefu = true;
+                    wode = false;
+                    if (!isComplete)
                         title.setVisibility(View.GONE);
                     else
                         ll_con1.setVisibility(View.GONE);
@@ -198,11 +201,11 @@ public class MainListActivity extends BaseActivity {
                 if (wode == true) {
                     return;
                 } else {
-                    page=false;
-                    dingdan=false;
-                    kefu=false;
-                    wode=true;
-                    if(!isComplete)
+                    page = false;
+                    dingdan = false;
+                    kefu = false;
+                    wode = true;
+                    if (!isComplete)
                         title.setVisibility(View.GONE);
                     else
                         ll_con1.setVisibility(View.GONE);
@@ -217,20 +220,20 @@ public class MainListActivity extends BaseActivity {
                 break;
             case R.id.content_city:
                 Bundle bundle = new Bundle();
-                bundle.putString("currentCity",cityName);
-                IntentUtils.openActivityWithResult(this,CityListActivity.class,RequestAndResultCode.MainListrequestCode,bundle);
+                bundle.putString("currentCity", cityName);
+                IntentUtils.openActivityWithResult(this, CityListActivity.class, RequestAndResultCode.MainListrequestCode, bundle);
                 break;
             case R.id.dijia://跳转低价购车页面
                 Bundle bundle1 = new Bundle();
-                bundle1.putString("cityId",cityId);
-                IntentUtils.openActivity(this,CarContentActivity.class,bundle1);
+                bundle1.putString("cityId", cityId);
+                IntentUtils.openActivity(this, CarContentActivity.class, bundle1);
                 break;
 
         }
     }
 
-    public void getData(){
-        count =0;
+    public void getData() {
+        count = 0;
         isComplete = false;
         /**
          * 底价购车
@@ -238,11 +241,10 @@ public class MainListActivity extends BaseActivity {
         HttpHelper.getDataAtCity(cityId, new HttpCallBack<TuanCheResult>() {
             @Override
             public void onSuccess(TuanCheResult result) {
-                if(result.result!=null){
+                if (result.result != null) {
                     mainListFragment_1.setData(result);
                     mHandler.sendEmptyMessage(1);
-                }
-                else mHandler.sendEmptyMessage(2);
+                } else mHandler.sendEmptyMessage(2);
             }
 
             @Override
@@ -257,16 +259,17 @@ public class MainListActivity extends BaseActivity {
         HttpHelper.getDataHotLogo("2", cityId, new HttpCallBack<ResultBean>() {
             @Override
             public void onSuccess(ResultBean result) {
-                if(result!=null){
+                if (result != null) {
                     mHandler.sendEmptyMessage(1);
-                    mainListFragment_2.getData(result,cityName);
-                }
-                else mHandler.sendEmptyMessage(2);;
+                    mainListFragment_2.getData(result, cityName);
+                } else mHandler.sendEmptyMessage(2);
+                ;
             }
 
             @Override
             public void onFail(String errMsg) {
-                mHandler.sendEmptyMessage(2);;
+                mHandler.sendEmptyMessage(2);
+                ;
             }
         });
 
@@ -276,11 +279,11 @@ public class MainListActivity extends BaseActivity {
         HttpHelper.getDataHomePageBanner(cityId, new HttpCallBack<BannerResult>() {
             @Override
             public void onSuccess(BannerResult result) {
-                if(result.result!=null){
+                if (result.result != null) {
                     mainListFragment_1.getBigBanner(result.result.header_banner.get(0).adImgUrl);
-                    mainListFragment_3.setData(result.result.center_banner,result.result.position_banner);
+                    mainListFragment_3.setData(result.result.center_banner, result.result.position_banner);
                     mHandler.sendEmptyMessage(1);
-                }else mHandler.sendEmptyMessage(2);
+                } else mHandler.sendEmptyMessage(2);
             }
 
             @Override
@@ -294,11 +297,12 @@ public class MainListActivity extends BaseActivity {
         HttpHelper.getDataHotCarType("20", "10", cityId, new HttpCallBackArray<HotCarResultBean>() {
             @Override
             public void onSuccess(List<HotCarResultBean> result) {
-                if(result!=null){
-                    mainListFragment_4.setData(result,cityName);
+                if (result != null) {
+                    mainListFragment_4.setData(result, cityName);
                     mHandler.sendEmptyMessage(1);
-                }else mHandler.sendEmptyMessage(2);
+                } else mHandler.sendEmptyMessage(2);
             }
+
             @Override
             public void onFail(String errMsg) {
                 mHandler.sendEmptyMessage(2);
@@ -321,16 +325,18 @@ public class MainListActivity extends BaseActivity {
         }
 
     }
+
     //数据加载动画
     private LoadAnimation animation;
     private LoadAnimation.LoadListener loadListener;
     private int count = 0;
     private boolean isComplete = false;
-    private void startLoadAnimation(){
-        if(animation ==null)return;
+
+    private void startLoadAnimation() {
+        if (animation == null) return;
         title.setVisibility(View.VISIBLE);
         ll_con1.setVisibility(View.GONE);
-        if(loadListener==null){
+        if (loadListener == null) {
             loadListener = new LoadAnimation.LoadListener() {
                 @Override
                 public void reLoad() {
@@ -339,14 +345,15 @@ public class MainListActivity extends BaseActivity {
                 }
             };
             animation.setListener(loadListener);
-        }else animation.startLoadAnimation();
+        } else animation.startLoadAnimation();
     }
-    private Handler mHandler= new Handler() {
+
+    private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what){
+            switch (msg.what) {
                 case 1:
-                    if(!isComplete){
+                    if (!isComplete) {
                         animation.successLoad();
                         title.setVisibility(View.GONE);
                         ll_con1.setVisibility(View.VISIBLE);
@@ -356,7 +363,7 @@ public class MainListActivity extends BaseActivity {
                     break;
                 case 2:
                     count++;
-                    if(count==4){
+                    if (count == 4) {
                         title.setVisibility(View.VISIBLE);
                         ll_con1.setVisibility(View.GONE);
                         animation.failLoadNoNetWork(loadListener);
@@ -379,15 +386,16 @@ public class MainListActivity extends BaseActivity {
     };
     //再按一下退出；
     private boolean isExit;
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(event.getAction()==KeyEvent.ACTION_DOWN&&keyCode==KeyEvent.KEYCODE_BACK){
-            if(!isExit){
-                mHandler.sendEmptyMessageDelayed(3,2000);
+        if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_BACK) {
+            if (!isExit) {
+                mHandler.sendEmptyMessageDelayed(3, 2000);
                 ToastUtil.showToast("再按一次退出");
                 isExit = true;
-            }else {
-                SharePrefreceHelper.getInstence(this).setLastCity(cityName,cityId);
+            } else {
+                SharePrefreceHelper.getInstence(this).setLastCity(cityName, cityId);
                 System.exit(1);
             }
             return false;

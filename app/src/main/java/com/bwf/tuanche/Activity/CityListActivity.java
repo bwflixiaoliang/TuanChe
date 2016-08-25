@@ -100,7 +100,6 @@ public class CityListActivity extends BaseActivity implements BDLocationListener
                 }
                 break;
             case R.id.citylist_imageBack:
-                IntentUtils.openActivity(this, TestActivity.class);
                 finish();
                 break;
         }

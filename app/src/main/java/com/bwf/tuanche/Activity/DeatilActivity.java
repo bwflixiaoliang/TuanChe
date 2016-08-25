@@ -14,6 +14,7 @@ import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.utils.LogUtils;
+import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.View.Popwindow_buycarStyle;
 import com.bwf.tuanche.View.SharePopWindow;
@@ -24,6 +25,7 @@ import com.bwf.tuanche.fragment.DetailFramgent.DetailFragment2;
 import com.bwf.tuanche.fragment.DetailFramgent.DetailFragment3;
 import com.bwf.tuanche.fragment.DetailFramgent.DetailFragment4;
 import com.bwf.tuanche.fragment.DetailFramgent.DetailFragment5;
+import com.umeng.socialize.UMShareAPI;
 
 public class DeatilActivity extends BaseActivity {
     private ScrollView scrollView;
@@ -50,6 +52,8 @@ public class DeatilActivity extends BaseActivity {
 
     private DetailFragment5 detailFragment5;
 
+    private SharePopWindow sharePopWindow;
+
     @Override
     public int getContentViewId() {
         return R.layout.activity_deatil;
@@ -57,6 +61,7 @@ public class DeatilActivity extends BaseActivity {
 
     @Override
     public void beforeInitView() {
+        sharePopWindow = new SharePopWindow(this);
          hotLogo= (HotLogo) getIntent().getExtras().getSerializable("res");
         cityName=getIntent().getStringExtra("cityname");
         thecarname=getIntent().getStringExtra("carname");
@@ -87,7 +92,8 @@ public class DeatilActivity extends BaseActivity {
         HttpHelper.getDataCarDetail("166", "31", "156", new HttpCallBack<DetailResultBean>() {
             @Override
             public void onSuccess(DetailResultBean result) {
-                if(result != null){
+                if(result != null && hotLogo != null){
+                    sharePopWindow.setResult(result.result);
                     detailFragment1.getdata(hotLogo,result.result);
                     detailFragment2.setData(result.result.tcbzDesc);
                     detailFragment3.setdata(result.result);
@@ -110,11 +116,14 @@ public class DeatilActivity extends BaseActivity {
                 startActivity(intent);
             break;
             case R.id.search_tv:
-                SharePopWindow sharePopWindow = new SharePopWindow(this);
                 sharePopWindow.showPopWindow();
             break;
         }
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get( this ).onActivityResult( requestCode, resultCode, data);
+    }
 }

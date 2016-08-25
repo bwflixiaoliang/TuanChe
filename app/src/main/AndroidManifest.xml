@@ -21,7 +21,7 @@
     <!-- SD卡读取权限，用户写入离线定位数据 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
-    <!--QQ分享模块权限-->
+    <!-- QQ分享模块权限 -->
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.SET_DEBUG_APP" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -56,9 +56,9 @@
         </activity>
         <activity
             android:name=".Activity.MainListActivity"
-            android:screenOrientation="portrait"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activity.CityListActivity"
             android:screenOrientation="portrait"
@@ -73,7 +73,7 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="qP8xQGb4IsYkyQy1Ca5YXd6QM0Wkstpj" />
 
-        <activity android:name=".Activity.TestActivity"></activity>
+        <activity android:name=".Activity.TestActivity" />
         <activity
             android:name=".Activity.CarContentActivity"
             android:label="@string/title_activity_car_content"
@@ -83,21 +83,30 @@
             android:name=".Activity.CarScreenActivity"
             android:label="@string/title_activity_car_screen"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity android:name=".Activity.HotSearch_Activity" />
         <activity android:name=".Activity.Search_only_Activity" />
-        <activity android:name=".Activity.DeatilActivity"></activity>
+        <activity android:name=".Activity.DeatilActivity" />
 
-        <!--QQ分享部分-->
-        <!--QQ分享部分--><!----><!----><!----><!----><!----><!----><!----><!---->
-        <!--友盟APPKey-->
+        <!-- QQ分享部分 -->
+        <!-- QQ分享部分 -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!-- 友盟APPKey -->
         <activity
             android:name="com.umeng.socialize.editorpage.ShareActivity"
             android:excludeFromRecents="true"
             android:theme="@style/Theme.UMDefault" />
+
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="57bbb4ce67e58ea1c80045dd"></meta-data>
+            android:value="57bbb4ce67e58ea1c80045dd" />
+
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
@@ -115,8 +124,20 @@
             android:name="com.tencent.connect.common.AssistActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <!--QQ分享部分--><!----><!----><!----><!----><!----><!----><!----><!---->
+        <!-- QQ分享部分 -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
 
+        <activity
+            android:name=".Activity.MarriageCarActivity"
+            android:label="@string/title_activity_marriage_car"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

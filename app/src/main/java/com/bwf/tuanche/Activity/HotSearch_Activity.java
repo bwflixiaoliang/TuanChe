@@ -174,12 +174,8 @@ public class HotSearch_Activity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String string =(String) adapterView.getAdapter().getItem(i);
-                if(string!=null){
-                    Bundle bundle = new Bundle();
-                    bundle.putString("search", string );
-                    IntentUtils.openActivity(HotSearch_Activity.this,Search_only_Activity.class,bundle);
-                    search_wodesousuo.setText(string);
-                }
+                if(string!=null)
+                    IntentUtils.openActivity(HotSearch_Activity.this,CarContentActivity.class);
             }
         });
     }

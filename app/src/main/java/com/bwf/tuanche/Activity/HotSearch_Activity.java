@@ -26,6 +26,7 @@ import com.bwf.framwork.utils.LogUtils;
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.Adatper.CitylistSearchAdapter;
 import com.bwf.tuanche.Adatper.HotSearchGridAdapter;
+import com.bwf.tuanche.Adatper.PopwindowbuycarAdapter;
 import com.bwf.tuanche.Adatper.hotSearchpagerAdapter;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.sql.HistoryBean;
@@ -45,12 +46,12 @@ public class HotSearch_Activity extends BaseActivity {
 
     private ViewPager viewPager;
 
+
     private EditText search_wodesousuo;
 
     private HotSearchGridAdapter hotSearchGridAdapter;
 
     private List<GridView> datagrid;
-
 
     private List<String> text1,text,search_contents;
 
@@ -59,6 +60,8 @@ public class HotSearch_Activity extends BaseActivity {
     private CitylistSearchAdapter adapter;
 
     private  List <HistoryBean> historyBeanList;
+
+    private String cityId;
     @Override
     public int getContentViewId() {
         return R.layout.activity_hot_search_;
@@ -66,7 +69,7 @@ public class HotSearch_Activity extends BaseActivity {
 
     @Override
     public void beforeInitView() {
-
+        cityId = getIntent().getStringExtra("cityId");
     }
     @Override
     public void initView() {
@@ -82,7 +85,7 @@ public class HotSearch_Activity extends BaseActivity {
     private boolean isShowDelete;
     @Override
     public void initData() {
-        getData();
+        if(cityId !=null)getData();
         setEditTextChange();
         search_contents = getDataFromSql();
         if(search_contents.size()!=0)search_history.setVisibility(View.VISIBLE);
@@ -113,7 +116,7 @@ public class HotSearch_Activity extends BaseActivity {
         });
     }
     private void  getData(){
-        HttpHelper.getHotSearch("156", new StringCallback() {
+        HttpHelper.getHotSearch(cityId, new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
 
@@ -174,8 +177,12 @@ public class HotSearch_Activity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String string =(String) adapterView.getAdapter().getItem(i);
-                if(string!=null)
-                    IntentUtils.openActivity(HotSearch_Activity.this,CarContentActivity.class);
+                if(string!=null){
+                    Bundle bundle = new Bundle();
+                    bundle.putString("cityId",cityId);
+                    IntentUtils.openActivity(HotSearch_Activity.this,CarContentActivity.class,bundle);
+                }
+
             }
         });
     }
@@ -234,10 +241,8 @@ public class HotSearch_Activity extends BaseActivity {
         }.start();
         super.onDestroy();
     }
-
     private void  putDataIntoSql(String content){
-        Date date = new Date();
-        historyBeanList.add(0,new HistoryBean(content,date.getTime()));
+        historyBeanList.add(0,new HistoryBean(content,System.currentTimeMillis()));
     }
     private List<String> getDataFromSql(){
         List<String> contents = new ArrayList<>();

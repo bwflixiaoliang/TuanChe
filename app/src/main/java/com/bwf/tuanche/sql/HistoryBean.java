@@ -1,10 +1,12 @@
 package com.bwf.tuanche.sql;
 
+import java.util.Comparator;
+
 /**
  * Created by fengchao on 2016/8/19.
  * Description：
  */
-public class HistoryBean implements Comparable<HistoryBean> {
+public class HistoryBean implements Comparable<HistoryBean>{
     public String name;
     public long time;
 

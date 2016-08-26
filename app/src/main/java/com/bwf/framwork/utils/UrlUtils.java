@@ -41,4 +41,6 @@ public class UrlUtils {
     public static final String HOTSEARCH_URL = BASE_URL+"/bwf_TuanChe_SearchhotServlet";//?cityId=156
     //版本更新
     public static  final String VERSIONUPDATE_URL = BASE_URL+"/bwf_TuanChe_VersionUpadteServlet";
+    //婚姻座驾的数据请求（不传参数）
+    public static final String  MARRIAGECAR_URL = BASE_URL+"/bwf_TuanChe_AdplistServlet";
 }

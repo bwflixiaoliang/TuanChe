@@ -11,7 +11,7 @@
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/deatil_img"
             android:layout_width="match_parent"
-            android:layout_height="180dp" />
+            android:layout_height="220dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -137,7 +137,6 @@
                 android:drawableRight="@mipmap/icon_arraw_right"
                 android:textColor="@color/colorblack"
                 android:padding="5dp"
-                android:text="奔驰"
                 android:background="@drawable/white_btn_normal"
                 android:gravity="left|center_vertical"
                 />

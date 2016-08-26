@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:freson="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:freson="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
 
@@ -10,61 +10,62 @@
         android:id="@+id/car_list_textnew"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="brand"
+        android:background="@color/huise"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
-        android:textSize="@dimen/Loge_carText_16sp"
+        android:text="brand"
         android:textColor="@color/black"
-        android:background="@color/huise" />
+        android:textSize="@dimen/Loge_carText_16sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/car_list_image02"
             android:layout_width="100dp"
             android:layout_height="70dp"
-            android:layout_marginTop="20dp"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
             freson:placeholderImage="@mipmap/default_special_2"
-            freson:placeholderImageScaleType="fitCenter"/>
+            freson:placeholderImageScaleType="fitCenter" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:orientation="vertical"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/carName_text001"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="carName"
                 android:paddingLeft="10dp"
+                android:text="carName"
                 android:textColor="@color/black"
-                android:textSize="@dimen/Loge_carText_14sp"/>
+                android:textSize="@dimen/Loge_carText_14sp" />
 
 
             <TextView
                 android:id="@+id/carPice_text002"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="指导价："
-                android:paddingTop="8dp"
                 android:paddingLeft="10dp"
+                android:paddingTop="8dp"
+                android:text="指导价："
                 android:textColor="@color/gray"
-                android:textSize="@dimen/Loge_carText_12sp"/>
+                android:textSize="@dimen/Loge_carText_12sp" />
 
             <TextView
                 android:id="@+id/carPice_text003"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="carPice"
                 android:paddingLeft="10dp"
+                android:text="carPice"
                 android:textColor="@color/gray"
-                android:textSize="@dimen/Loge_carText_12sp"/>
+                android:textSize="@dimen/Loge_carText_12sp" />
         </LinearLayout>
 
 

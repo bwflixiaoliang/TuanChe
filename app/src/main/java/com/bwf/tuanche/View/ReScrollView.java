@@ -101,8 +101,8 @@ public class ReScrollView extends ScrollView {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 startScrollY = getScrollY();
-                startY  = (int) ev.getY();
-                LogUtils.i("msg","ev.getRawY()-->"+ev.getRawY());
+                startY = (int) ev.getY();
+                LogUtils.i("msg", "ev.getRawY()-->" + ev.getRawY());
                 upToRefresh = false;
                 moveY = 0;
                 break;

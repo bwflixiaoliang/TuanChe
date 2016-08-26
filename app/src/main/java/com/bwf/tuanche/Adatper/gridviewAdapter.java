@@ -1,6 +1,7 @@
 package com.bwf.tuanche.Adatper;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -55,7 +56,8 @@ public class gridviewAdapter extends BaseAdapter{
         viewHolder= (ViewHolder) conview.getTag();
         viewHolder.textView1.setText(hotLogos.get(position).name);
         if(position!=8){
-        viewHolder.textView2.setText("已有"+hotLogos.get(position).baseNum+"报名");
+            String desc = "已有"+"<font color='#FF0000'>" + hotLogos.get(position).baseNum + "</font>"+"人报名";
+            viewHolder.textView2.setText(Html.fromHtml(desc));
         }else {
             viewHolder.textView2.setText("");
         }

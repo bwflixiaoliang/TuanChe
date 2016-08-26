@@ -45,7 +45,7 @@ public class MainListFragment_4 extends BaseFragment{
     public void onClick(View view) {
 
     }
-    public void setData(final List<HotCarResultBean> result, final String cityName){
+    public void setData(final List<HotCarResultBean> result, final String cityName, final String cityid){
         gridView=findViewByIdNoCast(R.id.frag4_gridview);
         farg4GridviewAdapter=new farg4_gridviewAdapter(result,getContext());
         gridView.setAdapter(farg4GridviewAdapter);
@@ -57,6 +57,9 @@ public class MainListFragment_4 extends BaseFragment{
                 Intent intent=new Intent(getActivity(), DeatilActivity.class);
                 intent.putExtra("carname",result.get(i).brandName);
                 intent.putExtra("cityname",cityName);
+                intent.putExtra("brandId",result.get(i).brandId);
+                intent.putExtra("Id",result.get(i).id);
+                intent.putExtra("cityId",cityid);
                 startActivity(intent);
             }
         });

@@ -28,7 +28,7 @@
        android:layout_gravity="center"
        android:paddingTop="5dp"
        android:numStars="5"
-       android:rating="1.5"
+       android:rating="5"
        android:isIndicator="true"
        />
       <TextView
@@ -37,7 +37,7 @@
           android:paddingRight="10dp"
           android:layout_width="wrap_content"
           android:layout_height="match_parent"
-          android:text="123"
+          android:text="5分"
           android:paddingTop="5dp"
           android:textColor="@color/orange"
           /></LinearLayout>

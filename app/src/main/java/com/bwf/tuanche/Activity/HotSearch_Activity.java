@@ -26,6 +26,7 @@ import com.bwf.framwork.utils.LogUtils;
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.Adatper.CitylistSearchAdapter;
 import com.bwf.tuanche.Adatper.HotSearchGridAdapter;
+import com.bwf.tuanche.Adatper.PopwindowbuycarAdapter;
 import com.bwf.tuanche.Adatper.hotSearchpagerAdapter;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.sql.HistoryBean;
@@ -45,12 +46,12 @@ public class HotSearch_Activity extends BaseActivity {
 
     private ViewPager viewPager;
 
+
     private EditText search_wodesousuo;
 
     private HotSearchGridAdapter hotSearchGridAdapter;
 
     private List<GridView> datagrid;
-
 
     private List<String> text1,text,search_contents;
 
@@ -174,12 +175,8 @@ public class HotSearch_Activity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String string =(String) adapterView.getAdapter().getItem(i);
-                if(string!=null){
-                    Bundle bundle = new Bundle();
-                    bundle.putString("search", string );
-                    IntentUtils.openActivity(HotSearch_Activity.this,Search_only_Activity.class,bundle);
-                    search_wodesousuo.setText(string);
-                }
+                if(string!=null)
+                    IntentUtils.openActivity(HotSearch_Activity.this,CarContentActivity.class);
             }
         });
     }
@@ -238,10 +235,8 @@ public class HotSearch_Activity extends BaseActivity {
         }.start();
         super.onDestroy();
     }
-
     private void  putDataIntoSql(String content){
-        Date date = new Date();
-        historyBeanList.add(0,new HistoryBean(content,date.getTime()));
+        historyBeanList.add(0,new HistoryBean(content,System.currentTimeMillis()));
     }
     private List<String> getDataFromSql(){
         List<String> contents = new ArrayList<>();

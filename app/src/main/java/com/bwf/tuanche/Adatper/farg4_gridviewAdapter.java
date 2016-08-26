@@ -1,6 +1,7 @@
 package com.bwf.tuanche.Adatper;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -56,8 +57,9 @@ public class farg4_gridviewAdapter extends BaseAdapter{
         }
         viewHolder= (ViewHolder) conview.getTag();
         viewHolder.textView1.setText(result.get(position).styleName);
-        viewHolder.textView2.setText(result.get(position).content);
-        viewHolder.textView3.setText(result.get(position).pricePrefix+result.get(position).price);
+        String redfont="已有"+"<font color ='#FF0000'>"+result.get(position).manNum+"</font>"+"人报名";
+        viewHolder.textView2.setText(Html.fromHtml(redfont));
+        viewHolder.textView3.setText(result.get(position).pricePrefix+result.get(position).price+"万");
         viewHolder.simpleDraweeView.setImageURI(result.get(position).logo);
         return conview;
     }

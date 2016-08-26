@@ -10,22 +10,12 @@
     <include layout="@layout/search_title"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#E8E8E8"
-        android:textColor="@color/colorblack"
-        android:textSize="@dimen/text_18"
-        android:text="热门搜索"
-        android:padding="12dp"
-        />
     <android.support.v4.view.ViewPager
         android:id="@+id/search_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        ></android.support.v4.view.ViewPager>
+        android:layout_height="150dp"/>
     <ListView
         android:id="@+id/search_history"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"></ListView>
 </LinearLayout>

@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     tools:context="com.bwf.tuanche.Activity.DeatilActivity">
     <LinearLayout
-        android:id="@+id/title"
+        android:id="@+id/title_deatil"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingTop="5dp"
@@ -47,64 +47,71 @@
             android:padding="9dp"
             />
     </LinearLayout>
-    <ScrollView
-        android:id="@+id/scrollView_detail"
-        android:layout_below="@id/title"
-        android:scrollbars="none"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/title_deatil"
+        >
+        <com.bwf.tuanche.View.MyScrollView
+            android:id="@+id/scrollView_detail"
+            android:scrollbars="none"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <fragment
-                android:id="@+id/deatil_frag1"
-                android:name="com.bwf.tuanche.fragment.DetailFramgent.DetailFragment1"
+            android:layout_height="wrap_content">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@color/gray"
-                />
-            <fragment
-                android:id="@+id/deatil_frag2"
-                android:name="com.bwf.tuanche.fragment.DetailFramgent.DetailFragment2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@color/gray"
-                />
-            <fragment
-                android:id="@+id/deatil_frag3"
-                android:name="com.bwf.tuanche.fragment.DetailFramgent.DetailFragment3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@color/gray"
-                />
-            <fragment
-                android:id="@+id/deatil_frag4"
-                android:name="com.bwf.tuanche.fragment.DetailFramgent.DetailFragment4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@color/gray"
-                />
-            <fragment
-                android:id="@+id/deatil_frag5"
-                android:name="com.bwf.tuanche.fragment.DetailFramgent.DetailFragment5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </ScrollView>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <fragment
+                    android:id="@+id/deatil_frag1"
+                    android:name="com.bwf.tuanche.fragment.DetailFramgent.DetailFragment1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/gray"
+                    />
+                <fragment
+                    android:id="@+id/deatil_frag2"
+                    android:name="com.bwf.tuanche.fragment.DetailFramgent.DetailFragment2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/gray"
+                    />
+                <fragment
+                    android:id="@+id/deatil_frag3"
+                    android:name="com.bwf.tuanche.fragment.DetailFramgent.DetailFragment3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/gray"
+                    />
+                <fragment
+                    android:id="@+id/deatil_frag4"
+                    android:name="com.bwf.tuanche.fragment.DetailFramgent.DetailFragment4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/gray"
+                    />
+                <fragment
+                    android:id="@+id/deatil_frag5"
+                    android:name="com.bwf.tuanche.fragment.DetailFramgent.DetailFragment5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </com.bwf.tuanche.View.MyScrollView>
+    </LinearLayout>
     <Button
+        android:id="@+id/tuangou_btt"
         android:layout_width="match_parent"
         android:visibility="gone"
         android:layout_height="50dp"

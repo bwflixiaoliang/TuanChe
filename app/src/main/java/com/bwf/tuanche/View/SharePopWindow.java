@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.bwf.framwork.utils.DisplayUtil;
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.R;
+import com.bwf.tuanche.eneity.detail.DetailResult;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
@@ -30,6 +31,7 @@ public class SharePopWindow extends PopupWindow implements View.OnClickListener 
 
     private Activity activity;
     private View shareView;
+    private DetailResult result;
 
     private ImageView share_to_qqF, share_to_qqZ, share_to_sina, share_to_qqW, share_finsh;
     private UMShareAPI shareAPI;
@@ -37,6 +39,10 @@ public class SharePopWindow extends PopupWindow implements View.OnClickListener 
     public SharePopWindow(Activity activity) {
         this.activity = activity;
         initView();
+    }
+
+    public void setResult(DetailResult result) {
+        this.result = result;
     }
 
     public void initView() {
@@ -71,11 +77,11 @@ public class SharePopWindow extends PopupWindow implements View.OnClickListener 
             case R.id.share_to_qqF:
                 new ShareAction(activity)
                         .setPlatform(SHARE_MEDIA.QQ)//设置QQ好友分享/QQ空间分享
-                        .withTitle("This is my testProirct!")//设置分享的标题
-                        .withText("Thank you downLoading!")//设置分享的内容
-                        .withTargetUrl("http://www.baidu.com")//设置分享的网址
+                        .withTitle(result.shareStyleTitle)//设置分享的标题
+                        .withText(result.shareDesc)//设置分享的内容
+                        .withTargetUrl(result.shareStyleUrl)//设置分享的网址
                         .withMedia(new UMImage(activity,//设置分享的图片url
-                                "http://www.umeng.com/img/index/demo/12.cf56415c00129a80620855a35df7fc9f.png"))
+                                result.logo))
                         .setCallback(new UMShareListener() {//回调分享状态（要重写onActivityResult方法）
                             @Override
                             public void onResult(SHARE_MEDIA share_media) {
@@ -96,11 +102,11 @@ public class SharePopWindow extends PopupWindow implements View.OnClickListener 
             case R.id.share_to_qqZ:
                 new ShareAction(activity)
                         .setPlatform(SHARE_MEDIA.QZONE)//设置QQ好友分享/QQ空间分享
-                        .withTitle("This is my testProirct!")//设置分享的标题
-                        .withText("Thank you downLoading!")//设置分享的内容
-                        .withTargetUrl("http://www.baidu.com")//设置分享的网址
+                        .withTitle(result.shareStyleTitle)//设置分享的标题
+                        .withText(result.shareDesc)//设置分享的内容
+                        .withTargetUrl(result.shareBrandUrl)//设置分享的网址
                         .withMedia(new UMImage(activity,//设置分享的图片url
-                                "http://www.umeng.com/img/index/demo/12.cf56415c00129a80620855a35df7fc9f.png"))
+                                result.brandPic))
                         .setCallback(new UMShareListener() {//回调分享状态（要重写onActivityResult方法）
                             @Override
                             public void onResult(SHARE_MEDIA share_media) {
@@ -136,17 +142,4 @@ public class SharePopWindow extends PopupWindow implements View.OnClickListener 
             this.showAtLocation(shareView,Gravity.RIGHT | Gravity.BOTTOM ,0,0);
         }
     }
-
-    public interface ShareCallBack{
-        void showShare();
-    }
-
-
-//    //QQ好友/空间分享的回调
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        UMShareAPI.get( activity ).onActivityResult( requestCode, resultCode, data);
-//    }
-
 }

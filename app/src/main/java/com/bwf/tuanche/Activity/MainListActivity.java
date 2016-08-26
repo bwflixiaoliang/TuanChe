@@ -150,6 +150,9 @@ public class MainListActivity extends BaseActivity {
 
     @Override
     public void onClick(View view) {
+        Bundle bundle = new Bundle();
+        bundle.putString("currentCity", cityName);
+        bundle.putString("cityId", cityId);
         switch (view.getId()) {
             case R.id.main_page:
                 if (page == true) {
@@ -223,18 +226,13 @@ public class MainListActivity extends BaseActivity {
                 IntentUtils.openActivityWithResult(this,CaptureActivity.class, RequestAndResultCode.MainListrequestCode,null);
                 break;
             case R.id.search_ed:
-                Intent intent = new Intent(this, HotSearch_Activity.class);
-                startActivity(intent);
+                IntentUtils.openActivityWithResult(this, HotSearch_Activity.class, RequestAndResultCode.MainListrequestCode, bundle);
                 break;
             case R.id.content_city:
-                Bundle bundle = new Bundle();
-                bundle.putString("currentCity", cityName);
                 IntentUtils.openActivityWithResult(this, CityListActivity.class, RequestAndResultCode.MainListrequestCode, bundle);
                 break;
             case R.id.dijia://跳转低价购车页面
-                Bundle bundle1 = new Bundle();
-                bundle1.putString("cityId", cityId);
-                IntentUtils.openActivity(this, CarContentActivity.class, bundle1);
+                IntentUtils.openActivity(this, CarContentActivity.class, bundle);
                 break;
 
         }

@@ -115,9 +115,10 @@ public class CarContentActivity extends BaseActivity {
             }
         });
         //请求数据
-        getHotLogo();
-        getLogoCar();
-
+        if(cityId!=null){
+            getHotLogo();
+            getLogoCar();
+        }
         //点击品牌列表弹出PopWindow
         logoCarFragment.setCallBack(new LogoCarFragment.CarListCallBack() {
             @Override
